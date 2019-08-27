@@ -1,0 +1,11 @@
+/*============================================================================*\
+   App styles
+\*============================================================================*/
+
+// Import config
+@import 'config';
+
+// Import the toolkit's classes
+$has-classes: true;
+@import '~@studiometa/scss-toolkit';
+$has-classes: false;

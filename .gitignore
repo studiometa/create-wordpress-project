@@ -1,0 +1,8 @@
+# OS et IDE files
+.DS_Store
+.idea/
+.vscode/
+*.sublime-projet
+*.sublime-workspace
+*.log
+node_modules/
