@@ -3,6 +3,8 @@ const path = require('path');
 const { findEntries } = require('@studiometa/webpack-config');
 
 const docroot = path.resolve(__dirname, '../web');
+const plugins = path.resolve(docroot, 'wp-content/plugins');
+const muPlugins = path.resolve(docroot, 'wp-content/mu-plugins');
 const theme = path.resolve(docroot, 'wp-content/themes/<%= themeSlug %>');
 const src = path.resolve(theme, 'src');
 const dist = path.resolve(theme, 'static');
@@ -16,13 +18,20 @@ const themePublic = `/${path.relative(
 module.exports = {
   src,
   docroot,
+  plugins,
+  muPlugins,
   theme,
   themePublic,
+  get alias() {
+    return {
+      '@': this.js.src,
+    };
+  },
   js: {
     src: path.resolve(src, 'js'),
     glob: '**/*.js',
     dist: path.resolve(dist, 'js'),
-    publicPath: path.join(themePublic, 'static/js'),
+    publicPath: `${path.join(themePublic, 'static/js')}/`,
     get entries() {
       return findEntries([this.glob, '!**/_*.js'], this.src);
     },
@@ -31,14 +40,27 @@ module.exports = {
     src: path.resolve(src, 'scss'),
     glob: '**/*.scss',
     dist: path.resolve(dist, 'css'),
-    publicPath: path.join(themePublic, 'static/css'),
+    publicPath: `${path.join(themePublic, 'static/css')}/`,
     get entries() {
       return findEntries(this.glob, this.src);
     },
   },
+  php: {
+    src: docroot,
+    glob: [
+      path.join(plugins, '<%= projectSlug %>-*/**/*.php'),
+      path.join(plugins, 'studiometa-*/**/*.php'),
+      path.join(muPlugins, '<%= projectSlug %>-*.php'),
+      path.join(muPlugins, '<%= projectSlug %>-*/**/*.php'),
+      path.join(muPlugins, 'studiometa-*.php'),
+      path.join(muPlugins, 'studiometa-*/**/*.php'),
+      path.join(theme, '**/*.php'),
+      '!vendor/**',
+    ],
+  },
   get browserSync() {
     const options = {
-      host: process.env.APP_HOST,
+      proxy: process.env.APP_HOST,
     };
 
     if (
@@ -47,6 +69,7 @@ module.exports = {
       process.env.APP_SSL_CERT &&
       process.env.APP_SSL_KEY
     ) {
+      options.proxy = `https://${process.env.APP_HOST}`;
       options.https = {
         cert: path.resolve(process.env.APP_SSL_CERT),
         key: path.resolve(process.env.APP_SSL_KEY),

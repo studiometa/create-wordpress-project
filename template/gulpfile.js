@@ -14,15 +14,17 @@ module.exports = gulpConfig.create({
     webpackOptions: require('./build/webpack.config'),
   },
   php: {
-    src: config.theme,
-    glob: ['**/*.php', '!vendor/**'],
+    src: config.php.src,
+    glob: config.php.glob,
     PHPCSOptions: {
       bin: './vendor/bin/phpcs',
       standard: './phpcs.xml',
+      showSniffCode: true,
     },
     PHPCBFOptions: {
       bin: './vendor/bin/phpcbf',
       standard: './phpcs.xml',
+      showSniffCode: true,
     },
   },
   server: {

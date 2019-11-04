@@ -8,6 +8,9 @@ const webpackConfig = mergeConfig({
     path: config.js.dist,
     publicPath: config.js.publicPath,
   },
+  resolve: {
+    alias: config.alias,
+  },
 });
 
 // Temp fix to remove the buggy VueLoaderPlugin

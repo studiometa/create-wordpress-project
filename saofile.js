@@ -11,6 +11,12 @@ module.exports = {
       store: true,
     },
     {
+      name: 'projectSlug',
+      type: 'string',
+      message: 'Project slug',
+      default: 'fqdn',
+    },
+    {
       name: 'description',
       type: 'string',
       message: 'Project description',
