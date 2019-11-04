@@ -60,7 +60,7 @@ module.exports = {
   },
   get browserSync() {
     const options = {
-      host: process.env.APP_HOST,
+      proxy: process.env.APP_HOST,
     };
 
     if (
@@ -69,6 +69,7 @@ module.exports = {
       process.env.APP_SSL_CERT &&
       process.env.APP_SSL_KEY
     ) {
+      options.proxy = `https://${process.env.APP_HOST}`;
       options.https = {
         cert: path.resolve(process.env.APP_SSL_CERT),
         key: path.resolve(process.env.APP_SSL_KEY),
