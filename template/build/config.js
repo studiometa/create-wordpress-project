@@ -31,7 +31,7 @@ module.exports = {
     src: path.resolve(src, 'js'),
     glob: '**/*.js',
     dist: path.resolve(dist, 'js'),
-    publicPath: path.join(themePublic, 'static/js'),
+    publicPath: `${path.join(themePublic, 'static/js')}/`,
     get entries() {
       return findEntries([this.glob, '!**/_*.js'], this.src);
     },
@@ -40,7 +40,7 @@ module.exports = {
     src: path.resolve(src, 'scss'),
     glob: '**/*.scss',
     dist: path.resolve(dist, 'css'),
-    publicPath: path.join(themePublic, 'static/css'),
+    publicPath: `${path.join(themePublic, 'static/css')}/`,
     get entries() {
       return findEntries(this.glob, this.src);
     },
