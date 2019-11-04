@@ -2,7 +2,16 @@ const config = require('./build/config');
 
 module.exports = {
   root: true,
-  extends: '@studiometa/eslint-config/prettier-es6',
+  overrides: [
+    {
+      files: ['*.js'],
+      extends: '@studiometa/eslint-config/prettier-es6',
+    },
+    {
+      files: ['*.vue'],
+      extends: '@studiometa/eslint-config/vue',
+    },
+  ],
   globals: {
     window: false,
     document: false,
