@@ -3,6 +3,8 @@ const path = require('path');
 const { findEntries } = require('@studiometa/webpack-config');
 
 const docroot = path.resolve(__dirname, '../web');
+const plugins = path.resolve(docroot, 'wp-content/plugins');
+const muPlugins = path.resolve(docroot, 'wp-content/mu-plugins');
 const theme = path.resolve(docroot, 'wp-content/themes/<%= themeSlug %>');
 const src = path.resolve(theme, 'src');
 const dist = path.resolve(theme, 'static');
@@ -16,6 +18,8 @@ const themePublic = `/${path.relative(
 module.exports = {
   src,
   docroot,
+  plugins,
+  muPlugins,
   theme,
   themePublic,
   js: {
@@ -35,6 +39,19 @@ module.exports = {
     get entries() {
       return findEntries(this.glob, this.src);
     },
+  },
+  php: {
+    src: docroot,
+    glob: [
+      path.join(plugins, '<%= projectSlug %>-*/**/*.php'),
+      path.join(plugins, 'studiometa-*/**/*.php'),
+      path.join(muPlugins, '<%= projectSlug %>-*.php'),
+      path.join(muPlugins, '<%= projectSlug %>-*/**/*.php'),
+      path.join(muPlugins, 'studiometa-*.php'),
+      path.join(muPlugins, 'studiometa-*/**/*.php'),
+      path.join(theme, '**/*.php'),
+      '!vendor/**',
+    ],
   },
   get browserSync() {
     const options = {
