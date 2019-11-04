@@ -22,6 +22,11 @@ module.exports = {
   muPlugins,
   theme,
   themePublic,
+  get alias() {
+    return {
+      '@': this.js.src,
+    };
+  },
   js: {
     src: path.resolve(src, 'js'),
     glob: '**/*.js',
