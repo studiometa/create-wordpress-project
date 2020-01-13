@@ -118,7 +118,7 @@ define( 'ACF_PRO_KEY', getenv( 'ACF_PRO_KEY' ) );
 /* WP Rocket config */
 define( 'WP_ROCKET_EMAIL', getenv( 'WP_ROCKET_EMAIL' ) );
 define( 'WP_ROCKET_KEY', getenv( 'WP_ROCKET_KEY' ) );
-define( 'WP_CACHE', getenv( 'WP_CACHE' ) );
+define( 'WP_CACHE', getenv( 'WP_CACHE' ) === 'true' );
 <%_ } _%>
 
 /** Sets up WordPress vars and included files. */
