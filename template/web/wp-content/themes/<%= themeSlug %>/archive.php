@@ -17,7 +17,7 @@
 use Timber\Timber;
 use Timber\PostQuery;
 
-$templates = array( 'archive.twig', 'index.twig' );
+$templates = array( 'pages/archive.twig', 'pages/index.twig' );
 
 $context = Timber::context();
 
