@@ -85,6 +85,14 @@ module.exports = {
       },
     ];
 
+    // Remove GitLab files based on the selected hub
+    if (!this.answers.hub.includes('gitlab.com')) {
+      actions.push({
+        type: 'remove',
+        files: '.gitlab-ci.yml',
+      });
+    }
+
     return actions;
   },
   async completed() {
@@ -117,17 +125,18 @@ module.exports = {
     );
     console.log();
     console.log(chalk`${tab}{bold To get started:}\n`);
+
     if (isNewFolder) {
-      console.log(chalk`${tab}1. Go in your project's directory`);
+      console.log(chalk`${tab}Go in your project's directory:`);
       console.log(chalk`${tab}{cyan cd ${relativeOutFolder}}\n`);
     }
-    console.log(chalk`${tab}2. Create your .env file and fill it`);
+    console.log(chalk`${tab}Create your .env file and fill it:`);
     console.log(chalk`${tab}{cyan cp .env.example .env}\n`);
-    console.log(chalk`${tab}Generate your project's salt keys`);
+    console.log(chalk`${tab}Generate your project's salt keys:`);
     console.log(chalk`${tab}{cyan bin/get-wp-salts.sh}\n`);
-    console.log(chalk`${tab}3. Install the composer dependencies`);
+    console.log(chalk`${tab}Install the composer dependencies:`);
     console.log(chalk`${tab}{cyan composer install}\n`);
-    console.log(chalk`${tab}4. Start the development server`);
+    console.log(chalk`${tab}Start the development server:`);
     console.log(chalk`${tab}{cyan npm run dev}\n`);
     console.log(chalk`${tab}🎊 {bold Happy coding!}\n`);
   },

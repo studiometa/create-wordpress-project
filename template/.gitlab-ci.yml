@@ -1,0 +1,121 @@
+stages:
+- Code Quality
+- Tests
+
+########################################################################
+#  BEGIN CODE QUALITY                                                  #
+########################################################################
+
+PHPCS:
+  stage: Code Quality
+  image: php:7.0
+  cache:
+    paths:
+      - vendor/
+  only:
+    changes:
+      - composer.json
+      - composer.lock
+      - .gitlab-ci.yml
+      - "**/*.php"
+  before_script:
+    - apt-get update
+    - apt-get install zip unzip
+    - php -r "copy('https://getcomposer.org/installer', 'composer-setup.php');"
+    - php composer-setup.php
+    - php -r "unlink('composer-setup.php');"
+    - php composer.phar install
+  script:
+    - php composer.phar i --prefer-dist --no-progress --no-suggest
+    - ./vendor/bin/phpcs -s --standard=./phpcs.xml web/wp-content/themes/<%= slug %>/
+    # - ./vendor/bin/phpcs -s --standard=./phpcs.xml web/wp-content/mu-plugins/<%= slug %>-...
+    # - ./vendor/bin/phpcs -s --standard=./phpcs.xml web/wp-content/plugins/<%= slug %>-...
+
+ESLint:
+  stage: Code Quality
+  image: node:10
+  cache:
+    paths:
+      - node_modules/
+  only:
+    changes:
+      - package.json
+      - package-lock.json
+      - .gitlab-ci.yml
+      - "**/*.js"
+      - "**/*.vue"
+  before_script:
+    - npm ci
+  script:
+    - npm run lint:scripts
+
+Stylelint:
+  stage: Code Quality
+  image: node:10
+  cache:
+    paths:
+      - node_modules/
+  only:
+    changes:
+      - package.json
+      - package-lock.json
+      - .gitlab-ci.yml
+      - "**/*.scss"
+  before_script:
+    - npm ci
+  script:
+    - npm run lint:styles
+
+
+########################################################################
+#  END CODE QUALITY                                                    #
+########################################################################
+
+
+########################################################################
+#  BEGIN TESTS                                                         #
+########################################################################
+
+Jest:
+  stage: Tests
+  image: node:10
+  cache:
+    paths:
+      - node_modules/
+  only:
+    changes:
+      - package.json
+      - package-lock.json
+      - .gitlab-ci.yml
+      - "**/*.js"
+      - "**/*.vue"
+  before_script:
+    - npm ci
+  script:
+    - npm run test
+
+PHPUnit:
+  stage: Tests
+  image: php:7.0
+  cache:
+    paths:
+      - vendor/
+  only:
+    changes:
+      - composer.json
+      - composer.lock
+      - .gitlab-ci.yml
+      - "**/*.php"
+  before_script:
+    - apt-get update
+    - apt-get install zip unzip
+    - php -r "copy('https://getcomposer.org/installer', 'composer-setup.php');"
+    - php composer-setup.php
+    - php -r "unlink('composer-setup.php');"
+    - php composer.phar install
+  script:
+    - php composer.phar run test
+
+########################################################################
+#  END TESTS                                                           #
+########################################################################
