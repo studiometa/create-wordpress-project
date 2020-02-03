@@ -3,11 +3,13 @@
   "version": "0.0.0",
   "description": "<%= description %>",
   "scripts": {
-    "test": "npm run lint",
+    "test": "echo \"Error: no test specified\" && exit 1",
     "dev": "gulp",
-    "lint": "gulp lint --fail-after-error"
+    "lint": "npm run lint:scripts && npm run lint:styles",
+    "lint:scripts": "eslint web/wp-content/themes/<%= slug %>/src/js --ext=.js,.vue",
+    "lint:styles": "stylelint web/wp-content/themes/<%= slug %>/src/scss"
   },
-  "<%= huskyName %>": {
+  "husky": {
     "hooks": {
       "pre-commit": "npm run lint"
     }

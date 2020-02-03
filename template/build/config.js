@@ -5,14 +5,14 @@ const { findEntries } = require('@studiometa/webpack-config');
 const docroot = path.resolve(__dirname, '../web');
 const plugins = path.resolve(docroot, 'wp-content/plugins');
 const muPlugins = path.resolve(docroot, 'wp-content/mu-plugins');
-const theme = path.resolve(docroot, 'wp-content/themes/<%= themeSlug %>');
+const theme = path.resolve(docroot, 'wp-content/themes/<%= slug %>');
 const src = path.resolve(theme, 'src');
 const dist = path.resolve(theme, 'static');
 
 // Public paths
 const themePublic = `/${path.relative(
   docroot,
-  path.resolve(docroot, 'wp-content/themes/<%= themeSlug %>')
+  path.resolve(docroot, 'wp-content/themes/<%= slug %>')
 )}`;
 
 module.exports = {
@@ -48,10 +48,10 @@ module.exports = {
   php: {
     src: docroot,
     glob: [
-      path.join(plugins, '<%= projectSlug %>-*/**/*.php'),
+      path.join(plugins, '<%= slug %>-*/**/*.php'),
       path.join(plugins, 'studiometa-*/**/*.php'),
-      path.join(muPlugins, '<%= projectSlug %>-*.php'),
-      path.join(muPlugins, '<%= projectSlug %>-*/**/*.php'),
+      path.join(muPlugins, '<%= slug %>-*.php'),
+      path.join(muPlugins, '<%= slug %>-*/**/*.php'),
       path.join(muPlugins, 'studiometa-*.php'),
       path.join(muPlugins, 'studiometa-*/**/*.php'),
       path.join(theme, '**/*.php'),

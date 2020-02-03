@@ -1,4 +1,3 @@
-const slugify = require('slugify');
 const path = require('path');
 
 module.exports = {
@@ -11,9 +10,9 @@ module.exports = {
       store: true,
     },
     {
-      name: 'projectSlug',
+      name: 'slug',
       type: 'string',
-      message: 'Project slug',
+      message: 'Project slug (used as plugins prefix and theme name)',
       default: 'fqdn',
     },
     {
@@ -29,33 +28,21 @@ module.exports = {
       default: ({ name }) => `https://${name}`,
     },
     {
+      name: 'hub',
+      message: 'Where is the project’s repository?',
+      type: 'list',
+      choices: [
+        { name: 'GitLab', value: 'git@gitlab.com:studiometa' },
+        { name: 'GitHub', value: 'git@github.com:studiometa' },
+      ],
+      default: 0,
+    },
+    {
       name: 'repository',
       type: 'string',
       message: 'Project repository',
-      default: ({ name }) => `git@github.com:studiometa/${name}.git`,
+      default: ({ name, hub }) => `${hub}/${name}.git`,
     },
-    {
-      name: 'themeName',
-      type: 'string',
-      message: 'Project theme name',
-      default: ({ name }) => name,
-      store: true,
-    },
-
-    {
-      name: 'themeSlug',
-      type: 'string',
-      message: 'Project theme slug',
-      default: ({ themeName }) => slugify(themeName),
-    },
-
-    {
-      name: 'themeDescription',
-      type: 'string',
-      message: 'Project theme description',
-      default: ({ name }) => `Theme for ${name}.`,
-    },
-
     {
       name: 'features',
       message: 'Choose features to add',
@@ -72,12 +59,9 @@ module.exports = {
     const acf = features.includes('acf');
     const wpRocket = features.includes('wpRocket');
 
-    const huskyName = 'husky';
-
     return {
       acf,
       wpRocket,
-      huskyName,
     };
   },
   actions() {
@@ -95,8 +79,8 @@ module.exports = {
       {
         type: 'move',
         patterns: {
-          'web/wp-content/themes/<%= themeSlug %>': `web/wp-content/themes/${this.answers.themeSlug}`,
-          '_gitignore': '.gitignore',
+          'web/wp-content/themes/<%= slug %>': `web/wp-content/themes/${this.answers.slug}`,
+          _gitignore: '.gitignore',
         },
       },
     ];
