@@ -65,6 +65,7 @@ module.exports = {
         { name: 'Classic editor', value: 'classicEditor' },
         { name: 'Wordfence', value: 'wordfence' },
         { name: 'WP Rocket', value: 'wpRocket' },
+        { name: 'Yoast SEO', value: 'yoastSeo' },
       ],
       default: [],
     },
@@ -75,6 +76,7 @@ module.exports = {
     const classicEditor = features.includes('classicEditor');
     const wordfence = features.includes('wordfence');
     const wpRocket = features.includes('wpRocket');
+    const yoastSeo = features.includes('yoastSeo');
 
     const huskyName = 'husky';
 
@@ -83,6 +85,7 @@ module.exports = {
       classicEditor,
       wordfence,
       wpRocket,
+      yoastSeo,
       huskyName,
     };
   },
