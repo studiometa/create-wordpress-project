@@ -62,8 +62,9 @@ module.exports = {
       type: 'checkbox',
       choices: [
         { name: 'ACF', value: 'acf' },
-        { name: 'WP Rocket', value: 'wpRocket' },
+        { name: 'Classic editor', value: 'classicEditor' },
         { name: 'Wordfence', value: 'wordfence' },
+        { name: 'WP Rocket', value: 'wpRocket' },
       ],
       default: [],
     },
@@ -71,6 +72,7 @@ module.exports = {
   templateData() {
     const { features } = this.answers;
     const acf = features.includes('acf');
+    const classicEditor = features.includes('classicEditor');
     const wordfence = features.includes('wordfence');
     const wpRocket = features.includes('wpRocket');
 
@@ -78,6 +80,7 @@ module.exports = {
 
     return {
       acf,
+      classicEditor,
       wordfence,
       wpRocket,
       huskyName,

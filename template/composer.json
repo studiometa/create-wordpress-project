@@ -18,6 +18,9 @@
     <%_ if (wordfence) { _%>
     "wpackagist-plugin/wordfence": "^7.4",
     <%_ } _%>
+    <%_ if (classicEditor) { _%>
+    "wpackagist-plugin/classic-editor": "^1.5",
+    <%_ } _%>
     <%_ if (acf) { _%>
     "advanced-custom-fields/advanced-custom-fields-pro": "^5.0.0",
     <%_ } _%>
