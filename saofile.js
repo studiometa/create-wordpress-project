@@ -63,6 +63,7 @@ module.exports = {
       choices: [
         { name: 'ACF', value: 'acf' },
         { name: 'WP Rocket', value: 'wpRocket' },
+        { name: 'Wordfence', value: 'wordfence' },
       ],
       default: [],
     },
@@ -70,12 +71,14 @@ module.exports = {
   templateData() {
     const { features } = this.answers;
     const acf = features.includes('acf');
+    const wordfence = features.includes('wordfence');
     const wpRocket = features.includes('wpRocket');
 
     const huskyName = 'husky';
 
     return {
       acf,
+      wordfence,
       wpRocket,
       huskyName,
     };
