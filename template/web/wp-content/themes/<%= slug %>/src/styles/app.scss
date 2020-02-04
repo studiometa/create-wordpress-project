@@ -2,10 +2,13 @@
    App styles
 \*============================================================================*/
 
-// Import config
-@import 'config';
+@tailwind base;
+// @import "./base/...";
 
-// Import the toolkit's classes
-$has-classes: true;
-@import '~@studiometa/scss-toolkit';
-$has-classes: false;
+// @import "./elements/...";
+
+@tailwind components;
+// @import "./components/...";
+
+@tailwind utilities;
+// @import "./utilities/...";
