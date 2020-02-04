@@ -10,13 +10,13 @@ git clone <%= repository %>
 
 ## Development
 
-### Gulp
+### Tasks
 
-### SCSS
+```bash
+npm run dev
 
-### JS
-
-### Twig
+npm run build
+```
 
 ### Add plugins, mu-plugins and themes
 
@@ -29,8 +29,8 @@ composer require wpackagist/classic-editor
 By default, everything in the subfolders of `web/wp-content` are ignored by Git to avoid tracking thir party packages installed with Composer. To add your custom plugins and themes to your Git repository, you have to add rules in the `.gitignore` file:
 
 ```ruby
-!/web/wp-content/mu-plugins/my-mu-plugin.php
-!/web/wp-content/plugins/my-plugin/
+!/web/wp-content/mu-plugins/<%= slug %>-mu-plugin.php
+!/web/wp-content/plugins/<%= slug %>-my-plugin/
 ```
 
 ## Releases
