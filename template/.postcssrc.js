@@ -6,8 +6,8 @@ if (process.env.NODE_ENV === 'production') {
   postcssConfig.plugins.push(
     require('@fullhuman/postcss-purgecss')({
       content: [
-        './web/wp-content/themes/fqdn/src/js/**/*.js',
-        './web/wp-content/themes/fqdn/templates/**/*.twig',
+        './web/wp-content/themes/<%= slug %>/src/js/**/*.js',
+        './web/wp-content/themes/<%= slug %>/templates/**/*.twig',
       ],
     })
   );
