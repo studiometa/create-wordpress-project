@@ -15,6 +15,15 @@
     <%_ if (wpRocket) { _%>
     "wp-media/wp-rocket": "^3.3",
     <%_ } _%>
+    <%_ if (wordfence) { _%>
+    "wpackagist-plugin/wordfence": "^7.4",
+    <%_ } _%>
+    <%_ if (classicEditor) { _%>
+    "wpackagist-plugin/classic-editor": "^1.5",
+    <%_ } _%>
+    <%_ if (yoastSeo) { _%>
+    "yoast/wordpress-seo": "^12.9"
+    <%_ } _%>
     <%_ if (acf) { _%>
     "advanced-custom-fields/advanced-custom-fields-pro": "^5.0.0",
     <%_ } _%>
