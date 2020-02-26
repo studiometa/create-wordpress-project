@@ -23,7 +23,7 @@ node_modules/
 !/web/wp-content/*/.gitkeep
 
 # Add exception for the project's theme and plugins
-!/web/wp-content/themes/<%= themeSlug %>
+!/web/wp-content/themes/<%= slug %>
 # !/web/wp-content/plugins/...
 # !/web/wp-content/mu-plugins/...
 

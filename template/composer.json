@@ -64,7 +64,8 @@
     "post-update-cmd": [
       "bin/cleanup-composer-install.sh",
       "bin/generate-wp-config.sh"
-    ]
+    ],
+    "test": "echo 'No test specified' && exit 0"
   },
   "config": {
     "optimize-autoloader": true
