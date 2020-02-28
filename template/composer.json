@@ -22,10 +22,24 @@
     "wpackagist-plugin/classic-editor": "^1.5",
     <%_ } _%>
     <%_ if (yoastSeo) { _%>
-    "yoast/wordpress-seo": "^12.9"
+    "yoast/wordpress-seo": "^12.9",
     <%_ } _%>
     <%_ if (acf) { _%>
     "advanced-custom-fields/advanced-custom-fields-pro": "^5.0.0",
+    <%_ } _%>
+    <%_ if (wpml) { _%>
+    "wpml/wpml-multilingual-cms": "*",
+    "wpml/wpml-string-translation": "*",
+    "wpml/wpml-translation-management": "*",
+    <%_ if (wpmlStickyLinks) { _%>
+    "wpml/wpml-sticky-links": "*",
+    <%_ } _%>
+    <%_ if (wpmlCmsNav) { _%>
+    "wpml/wpml-cms-nav": "*",
+    <%_ } _%>
+    <%_ if (wpmlMedia) { _%>
+    "wpml/wpml-media": "*",
+    <%_ } _%>
     <%_ } _%>
     "lkwdwrd/wp-muplugin-loader": "^1.0"
   },
@@ -54,6 +68,108 @@
         "require": {
           "composer/installers": "^1.4",
           "ffraenz/private-composer-installer": "^2.0"
+        }
+      }
+    },
+    <%_ } _%>
+    <%_ if (wpml) { _%>
+    {
+      "type": "vcs",
+      "url": "https://github.com/0x0DDBA11/wpml-installer"
+    },
+    {
+      "type": "package",
+      "package": {
+        "name": "wpml/wpml-multilingual-cms",
+        "version": "4.3.9",
+        "type": "wordpress-plugin",
+        "dist": {
+          "type": "zip",
+          "url": "https://httpbin.org/status/400?"
+        },
+        "require": {
+          "enelogic/wpml-installer": "dev-master",
+          "composer/installers": "^1.0"
+        }
+      }
+    },
+    {
+      "type": "package",
+      "package": {
+        "name": "wpml/wpml-string-translation",
+        "version": "3.0.7",
+        "type": "wordpress-plugin",
+        "dist": {
+          "type": "zip",
+          "url": "https://httpbin.org/status/400?"
+        },
+        "require": {
+          "enelogic/wpml-installer": "dev-master",
+          "composer/installers": "^1.0"
+        }
+      }
+    },
+    {
+      "type": "package",
+      "package": {
+        "name": "wpml/wpml-translation-management",
+        "version": "2.9.5",
+        "type": "wordpress-plugin",
+        "dist": {
+          "type": "zip",
+          "url": "https://httpbin.org/status/400?"
+        },
+        "require": {
+          "enelogic/wpml-installer": "dev-master",
+          "composer/installers": "^1.0"
+        }
+      }
+    },
+    {
+      "type": "package",
+      "package": {
+        "name": "wpml/wpml-sticky-links",
+        "version": "1.4.3",
+        "type": "wordpress-plugin",
+        "dist": {
+          "type": "zip",
+          "url": "https://httpbin.org/status/400?"
+        },
+        "require": {
+          "enelogic/wpml-installer": "dev-master",
+          "composer/installers": "^1.0"
+        }
+      }
+    },
+    {
+      "type": "package",
+      "package": {
+        "name": "wpml/wpml-cms-nav",
+        "version": "1.4.22",
+        "type": "wordpress-plugin",
+        "dist": {
+          "type": "zip",
+          "url": "https://httpbin.org/status/400?"
+        },
+        "require": {
+          "enelogic/wpml-installer": "dev-master",
+          "composer/installers": "^1.0"
+        }
+      }
+    },
+    {
+      "type": "package",
+      "package": {
+        "name": "wpml/wpml-media",
+        "version": "2.5.5",
+        "type": "wordpress-plugin",
+        "dist": {
+          "type": "zip",
+          "url": "https://httpbin.org/status/400?"
+        },
+        "require": {
+          "enelogic/wpml-installer": "dev-master",
+          "composer/installers": "^1.0"
         }
       }
     },

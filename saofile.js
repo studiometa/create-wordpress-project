@@ -53,25 +53,44 @@ module.exports = {
         { name: 'Wordfence', value: 'wordfence' },
         { name: 'WP Rocket', value: 'wpRocket' },
         { name: 'Yoast SEO', value: 'yoastSeo' },
+        { name: 'WPML', value: 'wpml' },
+      ],
+      default: ['acf', 'classicEditor', 'wordfence', 'wpRocket', 'yoastSeo'],
+    },
+    {
+      name: 'wpmlFeatures',
+      message: 'Choose WPML extra features to add',
+      type: 'checkbox',
+      choices: [
+        { name: 'Sticky Links', value: 'stickyLinks' },
+        { name: 'CMS Nav', value: 'cmsNav' },
+        { name: 'Media', value: 'media' },
       ],
       default: [],
+      when: ({ features }) => features.includes('wpml'),
     },
   ],
   templateData() {
     const { features } = this.answers;
-    const acf = features.includes('acf');
-    const classicEditor = features.includes('classicEditor');
-    const wordfence = features.includes('wordfence');
-    const wpRocket = features.includes('wpRocket');
-    const yoastSeo = features.includes('yoastSeo');
-
-    return {
-      acf,
-      classicEditor,
-      wordfence,
-      wpRocket,
-      yoastSeo,
+    const checks = {
+      acf: features.includes('acf'),
+      classicEditor: features.includes('classicEditor'),
+      wordfence: features.includes('wordfence'),
+      wpRocket: features.includes('wpRocket'),
+      yoastSeo: features.includes('yoastSeo'),
+      wpml: features.includes('wpml'),
     };
+
+    if (checks.wpml) {
+      const { wpmlFeatures } = this.answers;
+      checks.wpmlStickyLinks = wpmlFeatures.includes('stickyLinks');
+      checks.wpmlCmsNav = wpmlFeatures.includes('cmsNav');
+      checks.wpmlMedia = wpmlFeatures.includes('media');
+    }
+
+    console.log(checks);
+
+    return checks;
   },
   actions() {
     const actions = [
