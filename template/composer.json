@@ -40,6 +40,9 @@
     <%_ if (wpmlMedia) { _%>
     "wpml/wpml-media": "*",
     <%_ } _%>
+    <%_ if (acf) { _%>
+    "wpml/acfml": "*",
+    <%_ } _%>
     <%_ } _%>
     "lkwdwrd/wp-muplugin-loader": "^1.0"
   },
@@ -173,6 +176,24 @@
         }
       }
     },
+    <%_ if (acf) { _%>
+    {
+      "type": "package",
+      "package": {
+        "name": "wpml/acfml",
+        "version": "1.6.1",
+        "type": "wordpress-plugin",
+        "dist": {
+          "type": "zip",
+          "url": "https://wpml.org/?download=1097589&user_id={%WPML_USER_ID}&subscription_key={%WPML_KEY}&version={%version}"
+        },
+        "require": {
+          "composer/installers": "^1.4",
+          "ffraenz/private-composer-installer": "^2.0"
+        }
+      }
+    },
+    <%_ } _%>
     <%_ } _%>
     {
       "type": "vcs",
