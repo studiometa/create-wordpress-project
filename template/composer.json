@@ -28,7 +28,7 @@
     "advanced-custom-fields/advanced-custom-fields-pro": "^5.0.0",
     <%_ } _%>
     <%_ if (wpml) { _%>
-    "wpml/wpml-multilingual-cms": "*",
+    "wpml/sitepress-multilingual-cms": "*",
     "wpml/wpml-string-translation": "*",
     "wpml/wpml-translation-management": "*",
     <%_ if (wpmlStickyLinks) { _%>
@@ -38,7 +38,7 @@
     "wpml/wpml-cms-nav": "*",
     <%_ } _%>
     <%_ if (wpmlMedia) { _%>
-    "wpml/wpml-media": "*",
+    "wpml/wpml-media-translation": "*",
     <%_ } _%>
     <%_ if (acf) { _%>
     "wpml/acfml": "*",
@@ -77,22 +77,18 @@
     <%_ } _%>
     <%_ if (wpml) { _%>
     {
-      "type": "vcs",
-      "url": "https://github.com/0x0DDBA11/wpml-installer"
-    },
-    {
       "type": "package",
       "package": {
-        "name": "wpml/wpml-multilingual-cms",
+        "name": "wpml/sitepress-multilingual-cms",
         "version": "4.3.9",
         "type": "wordpress-plugin",
         "dist": {
           "type": "zip",
-          "url": "https://httpbin.org/status/400?"
+          "url": "https://wpml.org/?download=6088&user_id={%WPML_USER_ID}&subscription_key={%WPML_KEY}&version={%version}"
         },
         "require": {
-          "enelogic/wpml-installer": "dev-master",
-          "composer/installers": "^1.0"
+          "composer/installers": "^1.0",
+          "ffraenz/private-composer-installer": "^2.0"
         }
       }
     },
@@ -104,11 +100,11 @@
         "type": "wordpress-plugin",
         "dist": {
           "type": "zip",
-          "url": "https://httpbin.org/status/400?"
+          "url": "https://wpml.org/?download=6092&user_id={%WPML_USER_ID}&subscription_key={%WPML_KEY}&version={%version}"
         },
         "require": {
-          "enelogic/wpml-installer": "dev-master",
-          "composer/installers": "^1.0"
+          "composer/installers": "^1.0",
+          "ffraenz/private-composer-installer": "^2.0"
         }
       }
     },
@@ -120,11 +116,11 @@
         "type": "wordpress-plugin",
         "dist": {
           "type": "zip",
-          "url": "https://httpbin.org/status/400?"
+          "url": "https://wpml.org/?download=6094&user_id={%WPML_USER_ID}&subscription_key={%WPML_KEY}&version={%version}"
         },
         "require": {
-          "enelogic/wpml-installer": "dev-master",
-          "composer/installers": "^1.0"
+          "composer/installers": "^1.0",
+          "ffraenz/private-composer-installer": "^2.0"
         }
       }
     },
@@ -132,15 +128,15 @@
       "type": "package",
       "package": {
         "name": "wpml/wpml-sticky-links",
-        "version": "1.4.3",
+        "version": "1.5.1",
         "type": "wordpress-plugin",
         "dist": {
           "type": "zip",
-          "url": "https://httpbin.org/status/400?"
+          "url": "https://wpml.org/?download=6090&user_id={%WPML_USER_ID}&subscription_key={%WPML_KEY}&version={%version}"
         },
         "require": {
-          "enelogic/wpml-installer": "dev-master",
-          "composer/installers": "^1.0"
+          "composer/installers": "^1.0",
+          "ffraenz/private-composer-installer": "^2.0"
         }
       }
     },
@@ -148,31 +144,31 @@
       "type": "package",
       "package": {
         "name": "wpml/wpml-cms-nav",
-        "version": "1.4.22",
+        "version": "1.5.2",
         "type": "wordpress-plugin",
         "dist": {
           "type": "zip",
-          "url": "https://httpbin.org/status/400?"
+          "url": "https://wpml.org/?download=6096&user_id={%WPML_USER_ID}&subscription_key={%WPML_KEY}&version={%version}"
         },
         "require": {
-          "enelogic/wpml-installer": "dev-master",
-          "composer/installers": "^1.0"
+          "composer/installers": "^1.0",
+          "ffraenz/private-composer-installer": "^2.0"
         }
       }
     },
     {
       "type": "package",
       "package": {
-        "name": "wpml/wpml-media",
+        "name": "wpml/wpml-media-translation",
         "version": "2.5.5",
         "type": "wordpress-plugin",
         "dist": {
           "type": "zip",
-          "url": "https://httpbin.org/status/400?"
+          "url": "https://wpml.org/?download=7474&user_id={%WPML_USER_ID}&subscription_key={%WPML_KEY}&version={%version}"
         },
         "require": {
-          "enelogic/wpml-installer": "dev-master",
-          "composer/installers": "^1.0"
+          "composer/installers": "^1.0",
+          "ffraenz/private-composer-installer": "^2.0"
         }
       }
     },
