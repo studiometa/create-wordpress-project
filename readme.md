@@ -16,7 +16,7 @@ npx @studiometa/create-wordpress-project@alpha project-name
 
 ## Documentation
 
-This tool will generate a WordPress project managed by Composer, Gulp and Webpack. See the [readme.md](./template#readme) file in the template folder for a more detailed documentation.
+This tool will generate a WordPress project managed by Composer and Webpack. See the [readme.md](./template#readme) file in the template folder for a more detailed documentation.
 
 ## Contributing
 
