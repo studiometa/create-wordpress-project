@@ -15,7 +15,6 @@ if (process.env.NODE_ENV === 'production') {
       content: [
         './web/wp-content/themes/<%= slug %>/src/js/**/*.js',
         './web/wp-content/themes/<%= slug %>/src/js/**/*.vue',
-        './web/wp-content/themes/<%= slug %>/**/*.tpl',
         './web/wp-content/themes/<%= slug %>/**/*.twig',
       ],
     }),

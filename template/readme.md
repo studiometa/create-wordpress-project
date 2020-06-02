@@ -20,7 +20,7 @@ Once packages have been installed, start your dev environment with `$ npm run de
 ### SCSS
 
 Styles are managed with postCSS and tailwind css.
-The `.scss` files are stored in `/web/wp-content/themes/<%= slug %>/css`.
+The `.scss` files are stored in `/web/wp-content/themes/<%= slug %>/src/css`.
 
 ### JS
 

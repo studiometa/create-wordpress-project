@@ -16,10 +16,9 @@ module.exports = merge(config, {
     // Learn more on https://tailwindcss.com/docs/controlling-file-size/#removing-unused-css
     enabled: process.env.NODE_ENV === 'production',
     content: [
-      './web/wp-content/themes/<%= name %>/src/js/**/*.js',
-      './web/wp-content/themes/<%= name %>/src/js/**/*.vue',
-      './web/wp-content/themes/<%= name %>/**/*.tpl',
-      './web/wp-content/themes/<%= name %>/**/*.twig',
+      './web/wp-content/themes/<%= slug %>/src/js/**/*.js',
+      './web/wp-content/themes/<%= slug %>/src/js/**/*.vue',
+      './web/wp-content/themes/<%= slug %>/**/*.twig',
     ],
   },
 });

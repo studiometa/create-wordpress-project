@@ -5,5 +5,5 @@
 /* Assets directories
 \*============================================================================*/
 
-$img-dir: '/static/img/';
-$svg-dir: '/static/svg/';
+$img-dir: '/wp-content/themes/<%= slug %>/static/img/';
+$svg-dir: '/wp-content/themes/<%= slug %>/static/svg/';
