@@ -21,6 +21,6 @@ $context['posts'] = new PostQuery();
 $context['foo'] = 'bar';
 $templates = array( 'pages/index.twig' );
 if ( is_home() ) {
-	array_unshift( $templates, 'pages/front-page.twig', 'pages/home.twig' );
+	array_unshift( $templates, 'pages/home.twig' );
 }
 Timber::render( $templates, $context );
