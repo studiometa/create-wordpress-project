@@ -53,7 +53,8 @@ class Site extends \Timber\Site {
 		parent::__construct();
 	}
 
-	/** This is where you add some context
+	/**
+	 * This is where you add some context
 	 *
 	 * @param string $context context['this'] Being the Twig's {{ this }}.
 	 */
@@ -63,7 +64,8 @@ class Site extends \Timber\Site {
 		return $context;
 	}
 
-	/** This is where you can add your own functions to twig.
+	/**
+	 * This is where you can add your own functions to twig.
 	 *
 	 * @param object $twig get extension.
 	 */
