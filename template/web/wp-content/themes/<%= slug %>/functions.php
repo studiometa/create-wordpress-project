@@ -68,7 +68,7 @@ class Site extends \Timber\Site {
 	 * @param string $twig get extension.
 	 */
 	public function add_to_twig( $twig ) {
-		$twig->addExtension( new Twig_Extension_StringLoader() );
+		$twig->addExtension( new Twig\Extension\StringLoaderExtension() );
 		return $twig;
 	}
 }
