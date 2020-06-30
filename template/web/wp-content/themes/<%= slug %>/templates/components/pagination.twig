@@ -21,7 +21,7 @@
         </li>
       {% endif %}
 
-      {% for page in pagination.pages %}
+      {% for page in posts.pagination.pages %}
         {% if page.link %}
           <li>
             <a href="{{ page.link }}" class="{{ page.class }}">{{ page.title }}</a>
