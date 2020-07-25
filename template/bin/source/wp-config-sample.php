@@ -46,6 +46,9 @@ define( 'DB_CHARSET', 'utf8' );
 /** The Database Collate type. Do not change this if in doubt. */
 define( 'DB_COLLATE', '' );
 
+/** Limit the number of revisions store in the Database */
+define( 'WP_POST_REVISIONS', getenv( 'WP_POST_REVISIONS' ) ? (int) getenv( 'WP_POST_REVISIONS' ) : 3 );
+
 /**#@+
  * Authentication Unique Keys and Salts.
  *
