@@ -12,6 +12,9 @@
     "type": "git",
     "url": "git+https://github.com/studiometa/create-wordpress-project.git"
   },
+  "publishConfig": {
+    "access": "public"
+  },
   "keywords": [
     "wordpress",
     "generator",
