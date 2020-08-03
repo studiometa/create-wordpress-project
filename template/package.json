@@ -1,40 +1,37 @@
 {
-  "name": "<%= name %>",
+  "name": "<%= slug %>",
   "version": "0.0.0",
   "description": "<%= description %>",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "dev": "gulp",
+    "dev": "meta dev",
+    "build": "meta build",
     "lint": "npm run lint:scripts && npm run lint:styles",
     "lint:scripts": "eslint web/wp-content/themes/<%= slug %>/src/js --ext=.js,.vue",
-    "lint:styles": "stylelint web/wp-content/themes/<%= slug %>/src/scss"
-  },
-  "husky": {
-    "hooks": {
-      "pre-commit": "npm run lint"
-    }
+    "lint:styles": "stylelint 'web/wp-content/themes/<%= slug %>/src/**/*.(scss|vue)'"
   },
   "author": "Studio Meta <agence@studiometa.fr> (https://www.studiometa.fr)",
   "license": "MIT",
   "devDependencies": {
-    "@babel/core": "^7.8.4",
-    "@babel/plugin-syntax-dynamic-import": "^7.8.3",
-    "@babel/plugin-transform-runtime": "^7.8.3",
-    "@babel/preset-env": "^7.8.4",
+    "@babel/plugin-transform-runtime": "^7.9.6",
+    "@babel/preset-env": "^7.9.5",
     "@studiometa/eslint-config": "^2.0.3",
-    "@studiometa/gulp-config": "^1.5.0-beta.25",
     "@studiometa/prettier-config": "^2.0.0",
-    "@studiometa/stylelint-config": "^1.2.3",
-    "@studiometa/webpack-config": "^1.1.2",
-    "babel-eslint": "^10.0.3",
-    "dotenv": "^8.2.0",
+    "@studiometa/stylelint-config": "^2.0.0",
+    "@studiometa/tailwind-config": "^1.0.0-alpha.9",
+    "@studiometa/webpack-config": "^2.0.1",
+    "@studiometa/js-toolkit": "^1.0.0-alpha.3",
+    "autoprefixer": "^9.7.6",
+    "cssnano": "^4.1.10",
     "eslint": "^6.8.0",
-    "eslint-import-resolver-alias": "^1.1.2",
-    "husky": "^3.1.0",
-    "prettier": "^1.19.1",
-    "stylelint": "^11.1.1"
+    "lodash.merge": "^4.6.2",
+    "postcss-import": "^12.0.1",
+    "prettier": "^2.0.4",
+    "stylelint": "^13.3.2",
+    "tailwindcss": "^1.2.0"
   },
   "dependencies": {
-    "@studiometa/scss-toolkit": "^3.0.0-beta.0"
+    "fibers": "^3.1.1",
+    "node-sass": "^4.14.1",
+    "postcss-custom-properties": "^9.1.1"
   }
 }

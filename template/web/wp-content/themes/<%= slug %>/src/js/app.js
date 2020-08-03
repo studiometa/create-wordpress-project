@@ -1,9 +1,30 @@
-class App {
-  constructor() {
-    this.isReady = true;
+import { Base } from '@studiometa/js-toolkit';
 
-    window.addEventListener('load', () => (this.isLoaded = true));
+/**
+ * Main App class.
+ */
+class App extends Base {
+  /**
+   * App config.
+   * @return {Object}
+   */
+  get config() {
+    return {
+      log: isDev(),
+      name: 'App',
+      components: {},
+    };
+  }
+
+  /**
+   * Log a nice message when app is ready.
+   *
+   * @return {void}
+   */
+  mounted() {
+    this.$log('mounted 🎉');
   }
 }
 
-export default new App();
+const app = new App(document.documentElement);
+export default app;
