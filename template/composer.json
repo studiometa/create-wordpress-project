@@ -79,7 +79,8 @@
       "bin/cleanup-composer-install.sh",
       "bin/generate-wp-config.sh"
     ],
-    "test": "echo 'No test specified' && exit 0"
+    "test": "echo 'No test specified' && exit 0",
+    "lint": "phpcs -s --colors --extensions=php --standard=./phpcs.xml"
   },
   "config": {
     "optimize-autoloader": true
