@@ -27,6 +27,7 @@ if ( ! class_exists( 'Timber\Timber' ) ) {
 
 use Timber\Timber;
 use Timber\Menu;
+use Studiometa\WP\Assets;
 
 /**
  * Sets the directories (inside your theme) to find .twig files
@@ -49,6 +50,8 @@ class Site extends \Timber\Site {
 	public function __construct() {
 		add_filter( 'timber/context', array( $this, 'add_to_context' ) );
 		add_filter( 'timber/twig', array( $this, 'add_to_twig' ) );
+
+		new Assets();
 
 		parent::__construct();
 	}

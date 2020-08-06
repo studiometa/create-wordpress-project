@@ -12,6 +12,7 @@
     "johnpbloch/wordpress": "^5.2",
     "timber/timber": "^1.10",
     "studiometa/wp-mu-cleanup": "^1.0",
+    "studiometa/wp-assets": "dev-feature/v2",
     <%_ if (wpRocket) { _%>
     "wp-media/wp-rocket": "^3.3",
     <%_ } _%>
@@ -61,6 +62,10 @@
     {
       "type": "vcs",
       "url": "https://github.com/tabrisrp/wp-background-processing"
+    },
+    {
+      "type": "vcs",
+      "url": "https://github.com/studiometa/wp-assets"
     }
   ],
   "scripts": {
