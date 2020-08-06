@@ -1,6 +1,86 @@
 stages:
+- Install dependencies
 - Code Quality
-- Tests
+
+variables:
+  # Needed for NPM Cache
+  npm_config_cache: "$CI_PROJECT_DIR/.npm"
+
+########################################################################
+#  BEGIN CACHE                                                         #
+########################################################################
+
+.NPM Cache: &npm_cache
+  key: npm-cache
+  paths:
+    - .npm
+    - node_modules
+  policy: pull-push
+
+.Composer Cache: &composer_cache
+  key: composer-cache
+  paths:
+    - composer.phar
+    - vendor
+    - web/wp
+    - web/wp-content/mu-plugins/wp-mu-cleanup
+     <%_ if (wpRocket) { _%>
+    - web/wp-content/plugins/wp-rocket
+    <%_ } _%>
+    <%_ if (wordfence) { _%>
+    - web/wp-content/plugins/wordfence
+    <%_ } _%>
+    <%_ if (classicEditor) { _%>
+    - web/wp-content/plugins/classic-editor
+    <%_ } _%>
+    <%_ if (yoastSeo) { _%>
+    - web/wp-content/plugins/wordpress-seo
+    <%_ } _%>
+    <%_ if (acf) { _%>
+    - web/wp-content/plugins/advanced-custom-fields-pro
+    <%_ } _%>
+  policy: pull-push
+
+########################################################################
+#  END CACHE                                                           #
+########################################################################
+
+########################################################################
+#  BEGIN INSTALL                                                       #
+########################################################################
+
+NPM Install:
+  stage: Install dependencies
+  image: node:12
+  cache:
+    <<: *npm_cache
+  only:
+    changes:
+      - package.json
+      - package-lock.json
+      - .gitlab-ci.yml
+  script:
+    - npm ci
+
+Composer Install:
+  stage: Install dependencies
+  image: php:7.0
+  cache:
+    <<: *composer_cache
+  only:
+    changes:
+      - composer.json
+      - composer.lock
+      - .gitlab-ci.yml
+  script:
+    - apt-get update
+    - apt-get install -y unzip wget zip
+    - wget https://raw.githubusercontent.com/composer/getcomposer.org/6e874537c7ff87f03f99dc8dea1f2c48e4274da3/web/installer -O - -q | php -- --quiet
+    - php composer.phar install --prefer-dist --no-progress --no-suggest
+
+########################################################################
+#  END INSTALL                                                         #
+########################################################################
 
 ########################################################################
 #  BEGIN CODE QUALITY                                                  #
@@ -10,9 +90,11 @@ PHPCS:
   stage: Code Quality
   image: php:7.0
   cache:
-    paths:
-      - vendor/
+    <<: *composer_cache
+    policy: pull
   only:
+    refs:
+      - merge_requests
     changes:
       - composer.json
       - composer.lock
@@ -20,30 +102,26 @@ PHPCS:
       - "**/*.php"
   before_script:
     - apt-get update
-    - apt-get install zip unzip
-    - php -r "copy('https://getcomposer.org/installer', 'composer-setup.php');"
-    - php composer-setup.php
-    - php -r "unlink('composer-setup.php');"
-    - php composer.phar install
+    - apt-get install -y git unzip zip
+    - php composer.phar install --prefer-dist --no-progress --no-suggest
   script:
-    - php composer.phar i --prefer-dist --no-progress --no-suggest
-    - ./vendor/bin/phpcs -s --standard=./phpcs.xml --extensions=php web/wp-content/themes/<%= slug %>/
-    # - ./vendor/bin/phpcs -s --standard=./phpcs.xml --extensions=php web/wp-content/mu-plugins/<%= slug %>-...
-    # - ./vendor/bin/phpcs -s --standard=./phpcs.xml --extensions=php web/wp-content/plugins/<%= slug %>-...
+    - php composer.phar run lint
 
 ESLint:
   stage: Code Quality
-  image: node:10
+  image: node:12
   cache:
-    paths:
-      - node_modules/
+    <<: *npm_cache
+    policy: pull
   only:
+    refs:
+      - merge_requests
     changes:
       - package.json
       - package-lock.json
       - .gitlab-ci.yml
-      - "**/*.js"
-      - "**/*.vue"
+      - "wep/wp-content/themes/lumapps/src/js/**/*.js"
+      - "wep/wp-content/themes/lumapps/src/js/**/*.vue"
   before_script:
     - npm ci
   script:
@@ -51,16 +129,19 @@ ESLint:
 
 Stylelint:
   stage: Code Quality
-  image: node:10
+  image: node:12
   cache:
-    paths:
-      - node_modules/
+    <<: *npm_cache
+    policy: pull
   only:
+    refs:
+      - merge_requests
     changes:
       - package.json
       - package-lock.json
       - .gitlab-ci.yml
-      - "**/*.scss"
+      - "wep/wp-content/themes/lumapps/src/js/**/*.vue"
+      - "wep/wp-content/themes/lumapps/src/css/**/*.scss"
   before_script:
     - npm ci
   script:
@@ -69,53 +150,4 @@ Stylelint:
 
 ########################################################################
 #  END CODE QUALITY                                                    #
-########################################################################
-
-
-########################################################################
-#  BEGIN TESTS                                                         #
-########################################################################
-
-Jest:
-  stage: Tests
-  image: node:10
-  cache:
-    paths:
-      - node_modules/
-  only:
-    changes:
-      - package.json
-      - package-lock.json
-      - .gitlab-ci.yml
-      - "**/*.js"
-      - "**/*.vue"
-  before_script:
-    - npm ci
-  script:
-    - npm run test
-
-PHPUnit:
-  stage: Tests
-  image: php:7.0
-  cache:
-    paths:
-      - vendor/
-  only:
-    changes:
-      - composer.json
-      - composer.lock
-      - .gitlab-ci.yml
-      - "**/*.php"
-  before_script:
-    - apt-get update
-    - apt-get install zip unzip
-    - php -r "copy('https://getcomposer.org/installer', 'composer-setup.php');"
-    - php composer-setup.php
-    - php -r "unlink('composer-setup.php');"
-    - php composer.phar install
-  script:
-    - php composer.phar run test
-
-########################################################################
-#  END TESTS                                                           #
 ########################################################################

@@ -8,6 +8,7 @@
   "license": "MIT",
   "type": "project",
   "require": {
+    "php": "^7.0",
     "vlucas/phpdotenv": "^3.4",
     "johnpbloch/wordpress": "^5.2",
     "timber/timber": "^1.10",
