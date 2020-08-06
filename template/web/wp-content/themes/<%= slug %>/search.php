@@ -14,7 +14,7 @@ use Timber\PostQuery;
 
 $templates = array( 'pages/search.twig', 'pages/archive.twig', 'pages/index.twig' );
 
-$context = Timber::context();
+$context          = Timber::context();
 $context['title'] = 'Search results for ' . get_search_query();
 $context['posts'] = new PostQuery();
 

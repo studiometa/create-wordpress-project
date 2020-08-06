@@ -16,11 +16,12 @@
 use Timber\Timber;
 use Timber\PostQuery;
 
-$context = Timber::context();
+$context          = Timber::context();
 $context['posts'] = new PostQuery();
-$context['foo'] = 'bar';
-$templates = array( 'pages/index.twig' );
+$templates        = array( 'pages/index.twig' );
+
 if ( is_home() ) {
 	array_unshift( $templates, 'pages/home.twig' );
 }
+
 Timber::render( $templates, $context );
