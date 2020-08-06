@@ -8,10 +8,12 @@
   "license": "MIT",
   "type": "project",
   "require": {
+    "php": "^7.0",
     "vlucas/phpdotenv": "^3.4",
     "johnpbloch/wordpress": "^5.2",
     "timber/timber": "^1.10",
     "studiometa/wp-mu-cleanup": "^1.0",
+    "studiometa/wp-assets": "dev-feature/v2",
     <%_ if (wpRocket) { _%>
     "wp-media/wp-rocket": "^3.3",
     <%_ } _%>
@@ -61,6 +63,10 @@
     {
       "type": "vcs",
       "url": "https://github.com/tabrisrp/wp-background-processing"
+    },
+    {
+      "type": "vcs",
+      "url": "https://github.com/studiometa/wp-assets"
     }
   ],
   "scripts": {
@@ -74,7 +80,8 @@
       "bin/cleanup-composer-install.sh",
       "bin/generate-wp-config.sh"
     ],
-    "test": "echo 'No test specified' && exit 0"
+    "test": "echo 'No test specified' && exit 0",
+    "lint": "phpcs -s --colors --extensions=php --standard=./phpcs.xml"
   },
   "config": {
     "optimize-autoloader": true

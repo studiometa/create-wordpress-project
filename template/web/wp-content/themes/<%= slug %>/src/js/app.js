@@ -1,4 +1,5 @@
 import { Base } from '@studiometa/js-toolkit';
+import { isDev } from './config';
 
 /**
  * Main App class.
@@ -27,4 +28,5 @@ class App extends Base {
 }
 
 const app = new App(document.documentElement);
+window.app = app;
 export default app;

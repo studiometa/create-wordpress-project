@@ -12,26 +12,24 @@
   "author": "Studio Meta <agence@studiometa.fr> (https://www.studiometa.fr)",
   "license": "MIT",
   "devDependencies": {
-    "@babel/plugin-transform-runtime": "^7.9.6",
-    "@babel/preset-env": "^7.9.5",
-    "@studiometa/eslint-config": "^2.0.3",
-    "@studiometa/prettier-config": "^2.0.0",
+    "@babel/plugin-transform-runtime": "^7.10.5",
+    "@babel/preset-env": "^7.10.2",
+    "@fullhuman/postcss-purgecss": "^2.2.0",
+    "@studiometa/browserslist-config": "^1.0.1",
+    "@studiometa/eslint-config": "^2.1.2",
+    "@studiometa/prettier-config": "^2.0.1",
     "@studiometa/stylelint-config": "^2.0.0",
-    "@studiometa/tailwind-config": "^1.0.0-alpha.9",
+    "@studiometa/tailwind-config": "^1.0.1",
     "@studiometa/webpack-config": "^2.0.1",
-    "@studiometa/js-toolkit": "^1.0.0-alpha.3",
-    "autoprefixer": "^9.7.6",
+    "autoprefixer": "^9.8.0",
     "cssnano": "^4.1.10",
-    "eslint": "^6.8.0",
+    "eslint": "^7.2.0",
     "lodash.merge": "^4.6.2",
-    "postcss-import": "^12.0.1",
-    "prettier": "^2.0.4",
-    "stylelint": "^13.3.2",
-    "tailwindcss": "^1.2.0"
+    "prettier": "^2.0.5",
+    "stylelint": "^13.6.1",
+    "tailwindcss": "^1.6.2"
   },
   "dependencies": {
-    "fibers": "^3.1.1",
-    "node-sass": "^4.14.1",
-    "postcss-custom-properties": "^9.1.1"
+    "@studiometa/js-toolkit": "^1.0.0-alpha.8"
   }
 }
