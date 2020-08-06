@@ -14,9 +14,9 @@
  */
 
 use Timber\Timber;
-use Timber\PostQuery;
+use Timber\Post;
 
-$context = Timber::context();
-$context['posts'] = new PostQuery();
+$context         = Timber::context();
+$context['post'] = new Post();
 
 Timber::render('pages/front-page.twig', $context);
