@@ -7,7 +7,6 @@ module.exports = {
       type: 'string',
       message: 'Project name',
       default: 'www.fqdn.com',
-      store: true,
     },
     {
       name: 'slug',
