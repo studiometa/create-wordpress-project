@@ -101,6 +101,14 @@ module.exports = {
       });
     }
 
+    // Remove the `acf-json` folder if ACF has not been selected
+    if (!this.answers.features.includes('acf')) {
+      actions.push({
+        type: 'remove',
+        files: `web/wp-content/themes/${this.answers.slug}/acf-json`,
+      });
+    }
+
     return actions;
   },
   async completed() {
