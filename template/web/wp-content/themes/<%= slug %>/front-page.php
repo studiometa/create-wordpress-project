@@ -19,4 +19,4 @@ use Timber\Post;
 $context         = Timber::context();
 $context['post'] = new Post();
 
-Timber::render('pages/front-page.twig', $context);
+Timber::render( 'pages/front-page.twig', $context );

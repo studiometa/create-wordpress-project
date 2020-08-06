@@ -55,6 +55,8 @@ NPM Install:
   cache:
     <<: *npm_cache
   only:
+    refs:
+      - merge_requests
     changes:
       - package.json
       - package-lock.json
@@ -68,6 +70,8 @@ Composer Install:
   cache:
     <<: *composer_cache
   only:
+    refs:
+      - merge_requests
     changes:
       - composer.json
       - composer.lock
