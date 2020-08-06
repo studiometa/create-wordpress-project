@@ -30,6 +30,6 @@
     "tailwindcss": "^1.6.2"
   },
   "dependencies": {
-    "@studiometa/js-toolkit": "^1.0.0-alpha.8"
+    "@studiometa/js-toolkit": "^1.0.0-alpha.9"
   }
 }

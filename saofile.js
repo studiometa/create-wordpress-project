@@ -15,16 +15,16 @@ module.exports = {
       default: 'fqdn',
     },
     {
-      name: 'description',
-      type: 'string',
-      message: 'Project description',
-      default: ({ name }) => `Repository for ${name}.`,
-    },
-    {
       name: 'url',
       type: 'string',
       message: 'Project URL',
       default: ({ name }) => `https://${name}`,
+    },
+    {
+      name: 'description',
+      type: 'string',
+      message: 'Project description',
+      default: ({ name }) => `Repository for ${url}.`,
     },
     {
       name: 'hub',

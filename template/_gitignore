@@ -17,6 +17,9 @@ node_modules/
 # Ignore Wordpress install directory
 /web/wp/
 
+# Ignore dynamic files that might be edited by WordPress
+/web/.htaccess
+
 # Ignore mu-plugins, plugins and themes installed via composer
 # but do not ignore custom ones for the current project
 /web/wp-content/*/*
@@ -29,4 +32,5 @@ node_modules/
 
 # Ignore .env and config files as they are personal
 .env
+.htpasswd
 /web/wp-config.php

@@ -1,49 +1,59 @@
-# <%= slug %>
+# <%= url %>
 
 > <%= description %>
 
 ## Installation
 
+Cloner le dépôt :
+
 ```bash
 git clone <%= repository %>
 ```
 
-Create a `.env` file based on `.env.example` and run `$ composer install`
+Créer et configurer le fichier `.env` en vous basant sur le fichier `.env.example`.
 
-## Development
+Installer les dépendances nécessaires :
 
-Let's get you started by intilizing the project with `$ npm install`
-Once packages have been installed, start your dev environment with `$ npm run dev` 🚀
+```bash
+# Installer les dépendances Composer avec PHP 7.3
+php7.0 $(which composer) install
 
-### Webpack
+# Installer les dépendances NPM avec Node 12
+nvm use 12
+npm install
+```
 
-### SCSS
+## Développement
 
-Styles are managed with postCSS and tailwind css.
-The `.scss` files are stored in `/web/wp-content/themes/<%= slug %>/src/css`.
+### Commandes disponibles
 
-### JS
+#### NPM
 
-### Twig
+| Commande | Description |
+|-|-|
+| `npm run dev` | Démarre le serveur de compilation des fichiers SCSS et JS du thème. |
+| `npm run build` | Build les fichiers SCSS, JS et Vue du thème. |
+| `npm run lint` | Lint les fichiers SCSS, JS et Vue du thème avec ESLint, Stylelint et Prettier. |
+| `npm run lint:scipts` | Lint les fichiers JS et Vue du thème avec ESLint et Prettier. |
+| `npm run lint:styles` | Lint les fichiers SCSS et Vue du thème avec Stylelint et Prettier. |
 
-### Add plugins, mu-plugins and themes
+#### Composer
 
-To add third party plugins, mu-plugins and themes, use Composer with the help of [wpackagist.org](https://wpackagist.org/). For example, to add the [Classic Editor]() plugin, you can do the following:
+| Commande | Description |
+|-|-|
+| `composer lint` | Lint les fichiers PHP du thème et des plugins customs |
+
+### Ajouter des plugins et mu-plugins
+
+Pour ajouter des plugins et mu-plugins tiers, utilisez Composer avec l'aide de [wpackagist.org](https://wpackagist.org/). Par exemple, pour ajouter le plugin [Classic Editor](), vous pouvez procéder comme suit :
 
 ```bash
 composer require wpackagist/classic-editor
 ```
 
-By default, everything in the subfolders of `web/wp-content` are ignored by Git to avoid tracking thir party packages installed with Composer. To add your custom plugins and themes to your Git repository, you have to add rules in the `.gitignore` file:
+Par défaut, tout ce qui se trouve dans les sous-dossiers de `web/wp-content` est ignoré par Git pour éviter de suivre les packages tiers installés avec Composer. Pour ajouter vos plugins et thèmes personnalisés à votre dépôt Git, vous devez ajouter des règles dans le fichier `.gitignore` :
 
-```ruby
+```
 !/web/wp-content/mu-plugins/my-mu-plugin.php
 !/web/wp-content/plugins/my-plugin/
 ```
-
-## Releases
-
-### Git Flow 
-
-### Changelog
-
