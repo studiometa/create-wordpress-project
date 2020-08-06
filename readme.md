@@ -1,6 +1,6 @@
 # Create WordPress Project
 
-[![NPM Version](https://img.shields.io/npm/v/@studiometa/create-wordpress-project/alpha.svg?style=flat-square)](https://www.npmjs.com/package/@studiometa/create-wordpress-project)
+[![NPM Version](https://img.shields.io/npm/v/@studiometa/create-wordpress-project.svg?style=flat-square)](https://www.npmjs.com/package/@studiometa/create-wordpress-project)
 [![Dependency Status](https://img.shields.io/david/studiometa/create-wordpress-project.svg?label=deps&style=flat-square)](https://david-dm.org/studiometa/create-wordpress-project)
 [![devDependency Status](https://img.shields.io/david/dev/studiometa/create-wordpress-project.svg?label=devDeps&style=flat-square)](https://david-dm.org/studiometa/create-wordpress-project?type=dev)
 
@@ -11,12 +11,12 @@
 Run the following command to bootstrap a WordPress project using Studio Meta's tools and workflows:
 
 ```
-npx @studiometa/create-wordpress-project@alpha project-name
+npx @studiometa/create-wordpress-project project-name
 ```
 
 ## Documentation
 
-This tool will generate a WordPress project managed by Composer, Gulp and Webpack. See the [readme.md](./template#readme) file in the template folder for a more detailed documentation.
+This tool will generate a WordPress project managed by Composer and Webpack. See the [readme.md](./template#readme) file in the template folder for a more detailed documentation.
 
 ## Contributing
 

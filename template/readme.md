@@ -1,4 +1,4 @@
-# <%= name %>
+# <%= slug %>
 
 > <%= description %>
 
@@ -8,11 +8,19 @@
 git clone <%= repository %>
 ```
 
+Create a `.env` file based on `.env.example` and run `$ composer install`
+
 ## Development
 
-### Gulp
+Let's get you started by intilizing the project with `$ npm install`
+Once packages have been installed, start your dev environment with `$ npm run dev` 🚀
+
+### Webpack
 
 ### SCSS
+
+Styles are managed with postCSS and tailwind css.
+The `.scss` files are stored in `/web/wp-content/themes/<%= slug %>/src/css`.
 
 ### JS
 

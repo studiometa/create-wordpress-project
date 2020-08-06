@@ -1,38 +1,35 @@
 {
-  "name": "<%= name %>",
+  "name": "<%= slug %>",
   "version": "0.0.0",
   "description": "<%= description %>",
   "scripts": {
-    "test": "npm run lint",
-    "dev": "gulp",
-    "lint": "gulp lint --fail-after-error"
-  },
-  "<%= huskyName %>": {
-    "hooks": {
-      "pre-commit": "npm run lint"
-    }
+    "dev": "meta dev",
+    "build": "meta build",
+    "lint": "npm run lint:scripts && npm run lint:styles",
+    "lint:scripts": "eslint web/wp-content/themes/<%= slug %>/src/js --ext=.js,.vue",
+    "lint:styles": "stylelint 'web/wp-content/themes/<%= slug %>/src/**/*.(scss|vue)'"
   },
   "author": "Studio Meta <agence@studiometa.fr> (https://www.studiometa.fr)",
   "license": "MIT",
   "devDependencies": {
-    "@babel/core": "^7.6.4",
-    "@babel/plugin-syntax-dynamic-import": "^7.2.0",
-    "@babel/plugin-transform-runtime": "^7.6.2",
-    "@babel/preset-env": "^7.6.3",
-    "@studiometa/eslint-config": "^1.1.4",
-    "@studiometa/gulp-config": "^1.5.0-beta.23",
-    "@studiometa/prettier-config": "^1.0.0",
-    "@studiometa/stylelint-config": "^1.2.2",
-    "@studiometa/webpack-config": "^1.1.2",
-    "babel-eslint": "^10.0.3",
-    "dotenv": "^8.2.0",
-    "eslint": "^6.6.0",
-    "eslint-import-resolver-alias": "^1.1.2",
-    "husky": "^3.0.9",
-    "prettier": "^1.18.2",
-    "stylelint": "^11.1.1"
+    "@babel/plugin-transform-runtime": "^7.10.5",
+    "@babel/preset-env": "^7.10.2",
+    "@fullhuman/postcss-purgecss": "^2.2.0",
+    "@studiometa/browserslist-config": "^1.0.1",
+    "@studiometa/eslint-config": "^2.1.2",
+    "@studiometa/prettier-config": "^2.0.1",
+    "@studiometa/stylelint-config": "^2.0.0",
+    "@studiometa/tailwind-config": "^1.0.1",
+    "@studiometa/webpack-config": "^2.0.1",
+    "autoprefixer": "^9.8.0",
+    "cssnano": "^4.1.10",
+    "eslint": "^7.2.0",
+    "lodash.merge": "^4.6.2",
+    "prettier": "^2.0.5",
+    "stylelint": "^13.6.1",
+    "tailwindcss": "^1.6.2"
   },
   "dependencies": {
-    "@studiometa/scss-toolkit": "^2.0.5"
+    "@studiometa/js-toolkit": "^1.0.0-alpha.8"
   }
 }

@@ -1,4 +1,3 @@
-const slugify = require('slugify');
 const path = require('path');
 
 module.exports = {
@@ -8,12 +7,11 @@ module.exports = {
       type: 'string',
       message: 'Project name',
       default: 'www.fqdn.com',
-      store: true,
     },
     {
-      name: 'projectSlug',
+      name: 'slug',
       type: 'string',
-      message: 'Project slug',
+      message: 'Project slug (used as plugins prefix and theme name)',
       default: 'fqdn',
     },
     {
@@ -29,40 +27,31 @@ module.exports = {
       default: ({ name }) => `https://${name}`,
     },
     {
+      name: 'hub',
+      message: 'Where is the project’s repository?',
+      type: 'list',
+      choices: [
+        { name: 'GitLab', value: 'git@gitlab.com:studiometa' },
+        { name: 'GitHub', value: 'git@github.com:studiometa' },
+      ],
+      default: 0,
+    },
+    {
       name: 'repository',
       type: 'string',
       message: 'Project repository',
-      default: ({ name }) => `git@github.com:studiometa/${name}.git`,
+      default: ({ name, hub }) => `${hub}/${name}.git`,
     },
-    {
-      name: 'themeName',
-      type: 'string',
-      message: 'Project theme name',
-      default: ({ name }) => name,
-      store: true,
-    },
-
-    {
-      name: 'themeSlug',
-      type: 'string',
-      message: 'Project theme slug',
-      default: ({ themeName }) => slugify(themeName),
-    },
-
-    {
-      name: 'themeDescription',
-      type: 'string',
-      message: 'Project theme description',
-      default: ({ name }) => `Theme for ${name}.`,
-    },
-
     {
       name: 'features',
       message: 'Choose features to add',
       type: 'checkbox',
       choices: [
         { name: 'ACF', value: 'acf' },
+        { name: 'Classic editor', value: 'classicEditor' },
+        { name: 'Wordfence', value: 'wordfence' },
         { name: 'WP Rocket', value: 'wpRocket' },
+        { name: 'Yoast SEO', value: 'yoastSeo' },
       ],
       default: [],
     },
@@ -70,14 +59,17 @@ module.exports = {
   templateData() {
     const { features } = this.answers;
     const acf = features.includes('acf');
+    const classicEditor = features.includes('classicEditor');
+    const wordfence = features.includes('wordfence');
     const wpRocket = features.includes('wpRocket');
-
-    const huskyName = 'husky';
+    const yoastSeo = features.includes('yoastSeo');
 
     return {
       acf,
+      classicEditor,
+      wordfence,
       wpRocket,
-      huskyName,
+      yoastSeo,
     };
   },
   actions() {
@@ -95,11 +87,27 @@ module.exports = {
       {
         type: 'move',
         patterns: {
-          'web/wp-content/themes/<%= themeSlug %>': `web/wp-content/themes/${this.answers.themeSlug}`,
-          '_gitignore': '.gitignore',
+          'web/wp-content/themes/<%= slug %>': `web/wp-content/themes/${this.answers.slug}`,
+          _gitignore: '.gitignore',
         },
       },
     ];
+
+    // Remove GitLab files based on the selected hub
+    if (!this.answers.hub.includes('gitlab.com')) {
+      actions.push({
+        type: 'remove',
+        files: '.gitlab-ci.yml',
+      });
+    }
+
+    // Remove the `acf-json` folder if ACF has not been selected
+    if (!this.answers.features.includes('acf')) {
+      actions.push({
+        type: 'remove',
+        files: `web/wp-content/themes/${this.answers.slug}/acf-json`,
+      });
+    }
 
     return actions;
   },
@@ -133,17 +141,18 @@ module.exports = {
     );
     console.log();
     console.log(chalk`${tab}{bold To get started:}\n`);
+
     if (isNewFolder) {
-      console.log(chalk`${tab}1. Go in your project's directory`);
+      console.log(chalk`${tab}Go in your project's directory:`);
       console.log(chalk`${tab}{cyan cd ${relativeOutFolder}}\n`);
     }
-    console.log(chalk`${tab}2. Create your .env file and fill it`);
+    console.log(chalk`${tab}Create your .env file and fill it:`);
     console.log(chalk`${tab}{cyan cp .env.example .env}\n`);
-    console.log(chalk`${tab}Generate your project's salt keys`);
+    console.log(chalk`${tab}Generate your project's salt keys:`);
     console.log(chalk`${tab}{cyan bin/get-wp-salts.sh}\n`);
-    console.log(chalk`${tab}3. Install the composer dependencies`);
+    console.log(chalk`${tab}Install the composer dependencies:`);
     console.log(chalk`${tab}{cyan composer install}\n`);
-    console.log(chalk`${tab}4. Start the development server`);
+    console.log(chalk`${tab}Start the development server:`);
     console.log(chalk`${tab}{cyan npm run dev}\n`);
     console.log(chalk`${tab}🎊 {bold Happy coding!}\n`);
   },

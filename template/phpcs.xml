@@ -1,6 +1,11 @@
 <?xml version="1.0"?>
 <ruleset name="<%= name %>">
-   <!-- Skip seed data -->
+  <!-- Define file and folders to lint -->
+  <file>./web/wp-content/themes/<%= slug %>/</file>
+  <!-- <file>./web/wp-content/plugins/<%= slug %>-.../</file> -->
+  <!-- <file>./web/wp-content/mu-plugins/<%= slug %>-.../</file> -->
+
+  <!-- Skip seed data -->
   <exclude-pattern>/data/</exclude-pattern>
 
   <!-- Don't check composer dependencies -->

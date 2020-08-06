@@ -3,7 +3,7 @@
  * The base configuration for WordPress
  *
  * The wp-config.php creation script uses this file during the
- * installation. You don't have to use the web site, you can
+ * installation. You do not have to use the web site, you can
  * copy this file to "wp-config.php" and fill in the values.
  *
  * This file contains the following configurations:
@@ -43,8 +43,11 @@ define( 'DB_HOST', getenv( 'DB_HOST' ) );
 /** Database Charset to use in creating database tables. */
 define( 'DB_CHARSET', 'utf8' );
 
-/** The Database Collate type. Don't change this if in doubt. */
+/** The Database Collate type. Do not change this if in doubt. */
 define( 'DB_COLLATE', '' );
+
+/** Limit the number of revisions store in the Database */
+define( 'WP_POST_REVISIONS', getenv( 'WP_POST_REVISIONS' ) ? (int) getenv( 'WP_POST_REVISIONS' ) : 3 );
 
 /**#@+
  * Authentication Unique Keys and Salts.
@@ -94,7 +97,7 @@ if ( getenv( 'APP_ENV' ) !== 'local' ) {
 	define( 'DISALLOW_FILE_MODS', true );
 }
 
-/* That's all, stop editing! Happy blogging. */
+/* That is all, stop editing! Happy blogging. */
 
 /** Absolute path to the WordPress directory. */
 if ( ! defined( 'ABSPATH' ) ) {
