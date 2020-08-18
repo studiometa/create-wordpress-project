@@ -24,7 +24,7 @@ module.exports = {
       name: 'description',
       type: 'string',
       message: 'Project description',
-      default: ({ name }) => `Repository for ${url}.`,
+      default: ({ url }) => `Repository for ${url}.`,
     },
     {
       name: 'hub',
