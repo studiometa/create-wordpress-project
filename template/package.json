@@ -19,7 +19,7 @@
     "@studiometa/eslint-config": "^2.1.2",
     "@studiometa/prettier-config": "^2.0.1",
     "@studiometa/stylelint-config": "^2.0.0",
-    "@studiometa/tailwind-config": "^1.0.1",
+    "@studiometa/tailwind-config": "^1.0.2",
     "@studiometa/webpack-config": "^2.0.1",
     "autoprefixer": "^9.8.0",
     "cssnano": "^4.1.10",
@@ -27,9 +27,9 @@
     "lodash.merge": "^4.6.2",
     "prettier": "^2.0.5",
     "stylelint": "^13.6.1",
-    "tailwindcss": "^1.6.2"
+    "tailwindcss": "^1.8.8"
   },
   "dependencies": {
-    "@studiometa/js-toolkit": "^1.0.0-alpha.9"
+    "@studiometa/js-toolkit": "^1.0.0-alpha.12"
   }
 }
