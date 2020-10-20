@@ -37,7 +37,8 @@
     "wp-cli/wp-cli-bundle": "^2.2",
     "dealerdirect/phpcodesniffer-composer-installer": "^0.5.0",
     "phpstan/phpstan": "^0.12.50",
-    "szepeviktor/phpstan-wordpress": "^0.6.3"
+    "szepeviktor/phpstan-wordpress": "^0.6.3",
+    "satesh/phpcs-gitlab-report": "^1.0"
   },
   "repositories": [
     {
