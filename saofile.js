@@ -121,7 +121,7 @@ module.exports = {
       'bin/db-import.sh',
       'bin/generate-wp-config.sh',
       'bin/get-wp-salts.sh',
-    ].forEach(file => {
+    ].forEach((file) => {
       this.fs.chmodSync(path.resolve(outDir, file), 0o765);
     });
 
@@ -136,9 +136,7 @@ module.exports = {
     const tab = '    ';
 
     console.log();
-    console.log(
-      chalk`${tab}🎉 {bold Successfully created project} {cyan ${this.answers.name}}!`
-    );
+    console.log(chalk`${tab}🎉 {bold Successfully created project} {cyan ${this.answers.name}}!`);
     console.log();
     console.log(chalk`${tab}{bold To get started:}\n`);
 
@@ -152,6 +150,16 @@ module.exports = {
     console.log(chalk`${tab}{cyan bin/get-wp-salts.sh}\n`);
     console.log(chalk`${tab}Install the composer dependencies:`);
     console.log(chalk`${tab}{cyan composer install}\n`);
+    console.log(chalk`${tab}Create Database (using info from .env):`);
+    console.log(chalk`${tab}{cyan ./vendor/bin/wp db create}\n`);
+    console.log(chalk`${tab}Install WordPress:`);
+    console.log(
+      chalk`${tab}{cyan ./vendor/bin/wp core install --url="${this.answers.url}" --admin_user="<ADMIN_USER>" --admin_email="<ADMIN_EMAIL>" --title="<SITE_TITLE>"}\n`
+    );
+    console.log(chalk`${tab}Activate theme:`);
+    console.log(chalk`${tab}{cyan ./vendor/bin/wp theme activate ${this.answers.name}}\n`);
+    console.log(chalk`${tab}Install development dependancies:`);
+    console.log(chalk`${tab}{cyan npm i}\n`);
     console.log(chalk`${tab}Start the development server:`);
     console.log(chalk`${tab}{cyan npm run dev}\n`);
     console.log(chalk`${tab}🎊 {bold Happy coding!}\n`);
