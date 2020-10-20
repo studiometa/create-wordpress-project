@@ -1,4 +1,5 @@
 const path = require('path');
+const { exec } = require('child_process');
 
 module.exports = {
   prompts: [
@@ -123,6 +124,13 @@ module.exports = {
       'bin/get-wp-salts.sh',
     ].forEach((file) => {
       this.fs.chmodSync(path.resolve(outDir, file), 0o765);
+    });
+
+    // Execute installation related shell scripts
+    [
+      'bin/generate-wp-config.sh',
+    ].forEach((file) => {
+      exec(path.resolve(outDir, file));
     });
 
     // Init Git and install NPM dependencies
