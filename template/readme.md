@@ -42,6 +42,7 @@ npm install
 | Commande | Description |
 |-|-|
 | `composer lint` | Lint les fichiers PHP du thème et des plugins customs |
+| `composer phpstan` | Analyse de manière statiques les fichiers PHP du thème et des plugins customs |
 
 ### Ajouter des plugins et mu-plugins
 

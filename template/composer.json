@@ -35,7 +35,9 @@
     "squizlabs/php_codesniffer": "^3.4",
     "wp-coding-standards/wpcs": "^2.1",
     "wp-cli/wp-cli-bundle": "^2.2",
-    "dealerdirect/phpcodesniffer-composer-installer": "^0.5.0"
+    "dealerdirect/phpcodesniffer-composer-installer": "^0.5.0",
+    "phpstan/phpstan": "^0.12.50",
+    "szepeviktor/phpstan-wordpress": "^0.6.3"
   },
   "repositories": [
     {
@@ -80,6 +82,7 @@
       "bin/cleanup-composer-install.sh",
       "bin/generate-wp-config.sh"
     ],
+    "phpstan": "phpstan analyse --memory-limit=512M",
     "test": "echo 'No test specified' && exit 0",
     "lint": "phpcs -s --colors --extensions=php --standard=./phpcs.xml"
   },
