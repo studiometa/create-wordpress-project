@@ -8,11 +8,24 @@
 
 ## Usage
 
+### Install
 Run the following command to bootstrap a WordPress project using Studio Meta's tools and workflows:
 
 ```
 npx @studiometa/create-wordpress-project project-name
 ```
+
+Follow the prompt steps to complete the project creation
+
+### To get started
+- Go to your project folder
+- Create a `.env` file based on `.env.example`
+- Generate the salts `bin/get-wp-salts.sh` and put them in the `.env` file
+- Install composer dependencies `composer install`
+- Create a database with WPCLI `./vendor/bin/wp db create` (this command is using the variables filled in `.env` file)
+- Install WordPress with WPCLI `./vendor/bin/wp core install --url="<PROJECT_URL>" --admin_user="<ADMIN_USER>" --admin_email="<ADMIN_EMAIL>" --title="<SITE_TITLE>`
+- Install NPM dependencies `npm i`
+- Have fun !
 
 ## Documentation
 

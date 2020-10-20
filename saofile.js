@@ -144,7 +144,7 @@ module.exports = {
       console.log(chalk`${tab}Go in your project's directory:`);
       console.log(chalk`${tab}{cyan cd ${relativeOutFolder}}\n`);
     }
-    console.log(chalk`${tab}Create your .env file and fill it:`);
+    console.log(chalk`${tab}Create your .env file based on .env.example and fill it:`);
     console.log(chalk`${tab}{cyan cp .env.example .env}\n`);
     console.log(chalk`${tab}Generate your project's salt keys:`);
     console.log(chalk`${tab}{cyan bin/get-wp-salts.sh}\n`);
