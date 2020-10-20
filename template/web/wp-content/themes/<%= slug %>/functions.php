@@ -55,10 +55,11 @@ class Site extends \Timber\Site {
 	/** Add timber support. */
 	public function __construct() {
 		new Timber();
-		new Assets();
+		new Assets( __DIR__ );
 
 		add_filter( 'timber/context', array( $this, 'add_to_context' ) );
 		add_filter( 'timber/twig', array( $this, 'add_to_twig' ) );
+		add_action( 'wp_head', array( $this, 'add_no_index' ), 10 );
 
 		parent::__construct();
 	}
@@ -70,6 +71,7 @@ class Site extends \Timber\Site {
 	 */
 	public function add_to_context( $context ) {
 		$context['menu'] = new Menu();
+		$context['APP_ENV'] = getenv( 'APP_ENV' );
 		$context['site'] = $this;
 		return $context;
 	}
@@ -82,6 +84,20 @@ class Site extends \Timber\Site {
 	public function add_to_twig( $twig ) {
 		$twig->addExtension( new Twig\Extension\StringLoaderExtension() );
 		return $twig;
+	}
+
+	/**
+	 * Do not index non-production sites
+	 *
+	 * @return void
+	 */
+	public function add_no_index() {
+		if ( getenv( 'APP_ENV' ) === 'production' ) {
+			return;
+		}
+
+		echo "<!-- Do not index non-production site -->";
+		echo "<meta name='robots' content='noindex,nofollow' />\n";
 	}
 }
 
