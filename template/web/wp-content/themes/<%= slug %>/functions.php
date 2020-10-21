@@ -67,7 +67,8 @@ class Site extends \Timber\Site {
 	/**
 	 * This is where you add some context
 	 *
-	 * @param string $context context['this'] Being the Twig's {{ this }}.
+	 * @param array $context context['demo'] Being the Twig's {{ demo }}.
+	 * @return array
 	 */
 	public function add_to_context( $context ) {
 		$context['menu'] = new Menu();
@@ -77,9 +78,10 @@ class Site extends \Timber\Site {
 	}
 
 	/**
-	 * This is where you can add your own functions to twig.
+	 * Adds functionality to Twig.
 	 *
-	 * @param object $twig get extension.
+	 * @param \Twig\Environment $twig The Twig environment.
+	 * @return \Twig\Environment
 	 */
 	public function add_to_twig( $twig ) {
 		$twig->addExtension( new Twig\Extension\StringLoaderExtension() );

@@ -8,4 +8,6 @@
 
 use Timber\Timber;
 
+$data = array();
+
 Timber::render( array( 'sidebar.twig' ), $data );

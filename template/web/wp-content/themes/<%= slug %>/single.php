@@ -10,13 +10,14 @@
  */
 
 use Timber\Timber;
+use Timber\Post;
 
 $context         = Timber::context();
-$timber_post     = Timber::query_post();
+$timber_post     = new Post();
 $context['post'] = $timber_post;
 
-if ( post_password_required( $timber_post->ID ) ) {
+if ( post_password_required( (int) $timber_post->id ) ) {
 	Timber::render( 'pages/single-password.twig', $context );
 } else {
-	Timber::render( array( 'pages/single-' . $timber_post->ID . '.twig', 'pages/single-' . $timber_post->post_type . '.twig', 'pages/single.twig' ), $context );
+	Timber::render( array( 'pages/single-' . $timber_post->id . '.twig', 'pages/single-' . $timber_post->type() . '.twig', 'pages/single.twig' ), $context );
 }
