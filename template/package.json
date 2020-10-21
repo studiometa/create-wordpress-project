@@ -7,7 +7,12 @@
     "build": "meta build",
     "lint": "npm run lint:scripts && npm run lint:styles",
     "lint:scripts": "eslint web/wp-content/themes/<%= slug %>/src/js --ext=.js,.vue",
-    "lint:styles": "stylelint 'web/wp-content/themes/<%= slug %>/src/**/*.(scss|vue)'"
+    "lint:styles": "stylelint 'web/wp-content/themes/<%= slug %>/src/**/*.(scss|vue)'",
+    "lint:templates": "prettier -c web/wp-content/themes/<%= slug %>/templates/",
+    "fix": "npm run fix:scripts && npm run fix:styles && npm run fix:templates",
+    "fix:scripts": "npm run lint:scripts -- --fix",
+    "fix:styles": "npm run lint:styles -- --fix",
+    "fix:templates": "npm run lint:templates -- --write"
   },
   "author": "Studio Meta <agence@studiometa.fr> (https://www.studiometa.fr)",
   "license": "MIT",
