@@ -15,7 +15,7 @@ Run the following command to bootstrap a WordPress project using Studio Meta's t
 npx @studiometa/create-wordpress-project project-name
 ```
 
-Follow the prompt steps to complete the project creation
+Follow the prompt steps to complete the project creation.
 
 ### To get started
 - Go to your project folder

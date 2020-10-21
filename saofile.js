@@ -164,7 +164,7 @@ module.exports = {
     console.log(
       chalk`${tab}{cyan ./vendor/bin/wp core install --url="${this.answers.url}" --admin_user="<ADMIN_USER>" --admin_email="<ADMIN_EMAIL>" --title="<SITE_TITLE>"}\n`
     );
-    console.log(chalk`${tab}Install development dependancies:`);
+    console.log(chalk`${tab}Install development dependencies:`);
     console.log(chalk`${tab}{cyan npm i}\n`);
     console.log(chalk`${tab}Start the development server:`);
     console.log(chalk`${tab}{cyan npm run dev}\n`);
