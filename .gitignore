@@ -6,3 +6,6 @@
 *.sublime-workspace
 *.log
 node_modules/
+
+# Template files
+template/package-lock.json
