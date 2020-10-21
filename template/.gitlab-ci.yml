@@ -52,7 +52,7 @@ variables:
         - web/wp-content/themes/**/*.{js,scss,vue}
 
 .Composer default config: &composer_default_config
-  image: php:7.1
+  image: php:7.2
   before_script:
     - apt-get update
     - apt-get install -y git wget unzip zip
