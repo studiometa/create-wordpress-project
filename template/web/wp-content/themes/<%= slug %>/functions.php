@@ -71,9 +71,9 @@ class Site extends \Timber\Site {
 	 * @return array
 	 */
 	public function add_to_context( $context ) {
-		$context['menu'] = new Menu();
+		$context['menu']    = new Menu();
 		$context['APP_ENV'] = getenv( 'APP_ENV' );
-		$context['site'] = $this;
+		$context['site']    = $this;
 		return $context;
 	}
 
@@ -98,7 +98,7 @@ class Site extends \Timber\Site {
 			return;
 		}
 
-		echo "<!-- Do not index non-production site -->";
+		echo '<!-- Do not index non-production site -->';
 		echo "<meta name='robots' content='noindex,nofollow' />\n";
 	}
 }
