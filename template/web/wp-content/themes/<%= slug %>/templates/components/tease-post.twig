@@ -1,10 +1,8 @@
-{% extends "components/tease.twig" %}
+{% extends 'components/tease.twig' %}
 
 {% block content %}
   <h2 class="h2">
-    <a href="{{ post.link }}">
-      {{ post.title }}
-    </a>
+    <a href="{{ post.link }}">{{ post.title }}</a>
   </h2>
 
   <p>
@@ -12,6 +10,6 @@
   </p>
 
   {% if post.thumbnail.src %}
-    <img src="{{ post.thumbnail.src }}">
+    <img src="{{ post.thumbnail.src }}" />
   {% endif %}
 {% endblock %}
