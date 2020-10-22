@@ -30,8 +30,6 @@ class ThemeManager {
 		add_filter( 'timber/context', array( $this, 'add_app_env_to_context' ) );
 		add_filter( 'timber/context', array( $this, 'add_site_to_context' ) );
 		add_filter( 'timber/context', array( $this, 'add_menus_to_context' ) );
-		add_filter( 'timber/twig', array( $this, 'add_twig_extensions' ) );
-
 		add_action( 'admin_init', array( $this, 'register_menus' ) );
 	}
 
@@ -87,17 +85,6 @@ class ThemeManager {
 		$context['header_menu'] = new Menu( 'header_menu' );
 		$context['footer_menu'] = new Menu( 'footer_menu' );
 		return $context;
-	}
-
-	/**
-	 * Adds functionality to Twig.
-	 *
-	 * @param \Twig\Environment $twig The Twig environment.
-	 * @return \Twig\Environment
-	 */
-	public function add_twig_extensions( \Twig\Environment $twig ) {
-		$twig->addExtension( new \Twig\Extension\StringLoaderExtension() );
-		return $twig;
 	}
 
 	/**

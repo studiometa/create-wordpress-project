@@ -50,6 +50,7 @@ add_action(
 	function () {
 		$managers = array(
 			new \Studiometa\Managers\WordPressManager(),
+			new \Studiometa\Managers\TwigManager(),
 			new \Studiometa\Managers\AssetsManager(),
 		);
 
