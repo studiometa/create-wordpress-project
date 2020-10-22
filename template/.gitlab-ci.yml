@@ -152,10 +152,12 @@ StyleLint:
 Prettier Twig:
   <<: *npm_default_config
   stage: Code Quality
+  variables:
+    PRETTIER_CODE_QUALITY_REPORT: gl-prettier-codequality.json
   needs:
     - NPM Install
   script:
-    - npm run lint:templates
+    - ./node_modules/.bin/prettier-formatter-gitlab 'npm run lint:templates'
 
 
 ########################################################################
