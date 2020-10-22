@@ -1,25 +1,26 @@
-<!doctype html>
+<!DOCTYPE html>
 <html class="no-js" {{ site.language_attributes }}>
   <head>
-    <meta charset="{{ site.charset }}">
-    <meta name="description" content="{{ site.description }}">
-    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="author" href="{{ site.theme.link }}/humans.txt">
-    <link rel="pingback" href="{{ site.pingback_url }}">
-    <link rel="profile" href="http://gmpg.org/xfn/11">
+    <meta charset="{{ site.charset }}" />
+    <meta name="description" content="{{ site.description }}" />
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="author" href="{{ site.theme.link }}/humans.txt" />
+    <link rel="pingback" href="{{ site.pingback_url }}" />
+    <link rel="profile" href="http://gmpg.org/xfn/11" />
 
-    {{ function("wp_head") }}
+    {{ function('wp_head') }}
 
     {% block head %}
+
     {% endblock %}
   </head>
 
   <body class="{{ body_class }}">
     {# Header #}
     {% block header %}
-      {% include "components/header.twig" %}
+      {% include 'components/header.twig' %}
     {% endblock %}
 
     {# Content #}
@@ -31,7 +32,7 @@
 
     {# Footer #}
     {% block footer %}
-      {% include "components/footer.twig" %}
+      {% include 'components/footer.twig' %}
     {% endblock %}
   </body>
 </html>
