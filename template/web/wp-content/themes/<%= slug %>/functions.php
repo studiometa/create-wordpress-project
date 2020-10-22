@@ -8,13 +8,14 @@
  * @since   Timber 0.1
  */
 
+use Timber\Timber;
+use Studiometa\Managers\ThemeManager;
 
 /**
  * This ensures that Timber is loaded and available as a PHP class.
  * If not, it gives an error message to help direct developers on where to activate
  */
 if ( ! class_exists( 'Timber\Timber' ) ) {
-
 	add_action(
 		'admin_notices',
 		function() {
@@ -31,9 +32,7 @@ if ( ! class_exists( 'Timber\Timber' ) ) {
 	return;
 }
 
-use Timber\Timber;
-use Timber\Menu;
-use Studiometa\WP\Assets;
+$timber = new Timber();
 
 /**
  * Sets the directories (inside your theme) to find .twig files
@@ -46,61 +45,15 @@ Timber::$dirname = array( 'templates' );
  */
 Timber::$autoescape = true;
 
-/**
- * We're going to configure our theme inside of a subclass of Timber\Site
- * You can move this to its own file and include here via php's include("MySite.php")
- */
-class Site extends \Timber\Site {
+add_action(
+	'after_setup_theme',
+	function () {
+		$managers = array(
+			new \Studiometa\Managers\WordPressManager(),
+			new \Studiometa\Managers\AssetsManager(),
+		);
 
-	/** Add timber support. */
-	public function __construct() {
-		new Timber();
-		new Assets( __DIR__ );
-
-		add_filter( 'timber/context', array( $this, 'add_to_context' ) );
-		add_filter( 'timber/twig', array( $this, 'add_to_twig' ) );
-		add_action( 'wp_head', array( $this, 'add_no_index' ), 10 );
-
-		parent::__construct();
+		$theme_manager = new ThemeManager( $managers );
+		$theme_manager->run();
 	}
-
-	/**
-	 * This is where you add some context
-	 *
-	 * @param array $context context['demo'] Being the Twig's {{ demo }}.
-	 * @return array
-	 */
-	public function add_to_context( $context ) {
-		$context['menu']    = new Menu();
-		$context['APP_ENV'] = getenv( 'APP_ENV' );
-		$context['site']    = $this;
-		return $context;
-	}
-
-	/**
-	 * Adds functionality to Twig.
-	 *
-	 * @param \Twig\Environment $twig The Twig environment.
-	 * @return \Twig\Environment
-	 */
-	public function add_to_twig( $twig ) {
-		$twig->addExtension( new Twig\Extension\StringLoaderExtension() );
-		return $twig;
-	}
-
-	/**
-	 * Do not index non-production sites
-	 *
-	 * @return void
-	 */
-	public function add_no_index() {
-		if ( getenv( 'APP_ENV' ) === 'production' ) {
-			return;
-		}
-
-		echo '<!-- Do not index non-production site -->';
-		echo "<meta name='robots' content='noindex,nofollow' />\n";
-	}
-}
-
-new Site();
+);
