@@ -1,4 +1,4 @@
-import { Base } from '@studiometa/js-toolkit';
+import Base from '@studiometa/js-toolkit';
 import { isDev } from './config';
 
 /**
