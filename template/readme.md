@@ -4,6 +4,7 @@
 
 ## Installation
 
+
 Cloner le dépôt :
 
 ```bash
@@ -15,7 +16,7 @@ Créer et configurer le fichier `.env` en vous basant sur le fichier `.env.examp
 Installer les dépendances nécessaires :
 
 ```bash
-# Installer les dépendances Composer avec PHP 7.3
+# Installer les dépendances Composer avec PHP 7.0
 php7.0 $(which composer) install
 
 # Installer les dépendances NPM avec Node 12
