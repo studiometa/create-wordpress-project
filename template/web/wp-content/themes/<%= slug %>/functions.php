@@ -52,6 +52,8 @@ add_action(
 			new \Studiometa\Managers\WordPressManager(),
 			new \Studiometa\Managers\TwigManager(),
 			new \Studiometa\Managers\AssetsManager(),
+			new \Studiometa\Managers\CustomPostTypesManager(),
+			new \Studiometa\Managers\TaxonomiesManager(),
 		);
 
 		$theme_manager = new ThemeManager( $managers );
