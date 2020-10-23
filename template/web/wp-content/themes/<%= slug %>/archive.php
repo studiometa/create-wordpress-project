@@ -15,7 +15,7 @@
  */
 
 use Timber\Timber;
-use Timber\PostQuery;
+use Studiometa\Repositories\PostTypeRepository;
 
 $templates = array( 'pages/archive.twig', 'pages/index.twig' );
 
@@ -38,6 +38,7 @@ if ( is_day() ) {
 	array_unshift( $templates, 'archive-' . get_post_type() . '.twig' );
 }
 
-$context['posts'] = new PostQuery();
+$post_repo        = new PostTypeRepository();
+$context['posts'] = $post_repo->latest_posts(10)->get();
 
 Timber::render( $templates, $context );
