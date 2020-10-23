@@ -56,6 +56,12 @@ add_action(
 			new \Studiometa\Managers\TaxonomiesManager(),
 		);
 
+		<%_ if (acf) { _%>
+		if ( function_exists( 'acf_add_local_field_group' ) ) {
+			$managers[] = new \Studiometa\Managers\ACFManager();
+		}
+		<%_ } _%>
+
 		$theme_manager = new ThemeManager( $managers );
 		$theme_manager->run();
 	}
