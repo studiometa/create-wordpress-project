@@ -16,7 +16,7 @@ class ACFManager {
 	 */
 	public function run() {
 		add_action( 'acf/init', array( $this, 'register_acf_default_group' ) );
-		add_action( 'acf/init', array( $this, 'register_acf_exemple_group' ) );
+		add_action( 'acf/init', array( $this, 'register_acf_example_group' ) );
 	}
 
 	/**
@@ -46,15 +46,15 @@ class ACFManager {
 	}
 
 	/**
-	 * Register acf exemple field group
+	 * Register acf example field group
 	 * Using the content field from the default group
 	 *
 	 * @return void
 	 */
-	public function register_acf_exemple_group() {
+	public function register_acf_example_group() {
 		acf_add_local_field_group(
 			array(
-				'key'      => 'group_studiometa_exemple_group',
+				'key'      => 'group_studiometa_example_group',
 				'title'    => 'Custom Fields for Posts',
 				'fields'   => array(
 					array(
