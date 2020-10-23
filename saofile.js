@@ -102,11 +102,11 @@ module.exports = {
       });
     }
 
-    // Remove the `acf-json` folder if ACF has not been selected
+    // Remove `ACFManager` if ACF has not been selected
     if (!this.answers.features.includes('acf')) {
       actions.push({
         type: 'remove',
-        files: `web/wp-content/themes/${this.answers.slug}/acf-json`,
+        files: 'web/wp-content/themes/studiometa/app/Managers/ACFManager.php',
       });
     }
 
