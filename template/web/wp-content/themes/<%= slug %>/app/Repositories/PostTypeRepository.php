@@ -26,10 +26,11 @@ class PostTypeRepository extends Repository {
 
 		// Set sane defaults so we don't do full table scans.
 		if ( $limit <= 0 || $limit > 100 ) {
+			trigger_error( __CLASS__ . ' ' . __FUNCTION__ . ' : $limit parameter should not be over 100 to avoid full sql table scans', E_USER_WARNING );
 			$limit = 100;
 		}
 
-		// Note the + symbol. See https://codex.wordpress.org/Class_Reference/WP_Query#Category_Parameters.
+		// Note the + symbol. See https://developer.wordpress.org/reference/classes/wp_query/#category-parameters.
 		if ( is_array( $slug ) ) {
 			$slug = implode( '+', $slug );
 		}
@@ -69,6 +70,7 @@ class PostTypeRepository extends Repository {
 
 		// Set sane defaults so we don't do full table scans.
 		if ( $limit <= 0 || $limit > 100 ) {
+			trigger_error( __CLASS__ . ' ' . __FUNCTION__ . ' : $limit parameter should not be over 100 to avoid full sql table scans', E_USER_WARNING );
 			$limit = 100;
 		}
 
