@@ -7,13 +7,12 @@
 
 namespace Studiometa\Managers;
 
-/** Class **/
-class CustomPostTypesManager {
+use Studiometa\Managers\ManagerInterface;
 
+/** Class **/
+class CustomPostTypesManager implements ManagerInterface {
 	/**
-	 * Runs initialization tasks.
-	 *
-	 * @return void
+	 * @inheritDoc
 	 */
 	public function run() {
 		add_action( 'init', array( $this, 'register_custom_post_types '), 1 );

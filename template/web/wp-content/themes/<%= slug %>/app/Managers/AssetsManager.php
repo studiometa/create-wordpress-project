@@ -8,12 +8,12 @@
 
 namespace Studiometa\Managers;
 
+use Studiometa\Managers\ManagerInterface;
+
 /** Class */
-class AssetsManager {
+class AssetsManager implements ManagerInterface {
 	/**
-	 * Runs initialization tasks.
-	 *
-	 * @return void
+	 * @inheritDoc
 	 */
 	public function run() {
 		new \Studiometa\WP\Assets( get_template_directory() );

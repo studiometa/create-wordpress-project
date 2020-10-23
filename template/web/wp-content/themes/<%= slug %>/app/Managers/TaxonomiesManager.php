@@ -7,13 +7,12 @@
 
 namespace Studiometa\Managers;
 
-/** Class **/
-class TaxonomiesManager {
+use Studiometa\Managers\ManagerInterface;
 
+/** Class **/
+class TaxonomiesManager implements ManagerInterface {
 	/**
-	 * Runs initialization tasks.
-	 *
-	 * @return void
+	 * @inheritDoc
 	 */
 	public function run() {
 		add_action( 'init', array( $this, 'register_taxonomies '), 1 );

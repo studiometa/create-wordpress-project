@@ -9,9 +9,10 @@ namespace Studiometa\Managers;
 
 use Timber\Menu;
 use Timber\Site;
+use Studiometa\Managers\ManagerInterface;
 
 /** Class */
-class ThemeManager {
+class ThemeManager implements ManagerInterface {
 	/**
 	 * List of theme managers.
 	 *
@@ -34,9 +35,7 @@ class ThemeManager {
 	}
 
 	/**
-	 * Runs initialization tasks.
-	 *
-	 * @return void
+	 * @inheritDoc
 	 */
 	public function run() {
 		if ( count( $this->managers ) > 0 ) {

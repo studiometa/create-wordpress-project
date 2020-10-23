@@ -7,13 +7,12 @@
 
 namespace Studiometa\Managers;
 
-/** Class **/
-class WordPressManager {
+use Studiometa\Managers\ManagerInterface;
 
+/** Class **/
+class WordPressManager implements ManagerInterface {
 	/**
-	 * Runs initialization tasks.
-	 *
-	 * @return void
+	 * @inheritDoc
 	 */
 	public function run() {
 		add_action( 'wp_head', array( $this, 'add_no_index' ), 10 );

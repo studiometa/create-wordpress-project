@@ -7,12 +7,12 @@
 
 namespace Studiometa\Managers;
 
+use Studiometa\Managers\ManagerInterface;
+
 /** Class */
-class TwigManager {
+class TwigManager implements ManagerInterface {
 	/**
-	 * Runs initialization tasks.
-	 *
-	 * @return void
+	 * @inheritDoc
 	 */
 	public function run() {
 		add_filter( 'timber/twig', array( $this, 'add_twig_template_from_string' ) );

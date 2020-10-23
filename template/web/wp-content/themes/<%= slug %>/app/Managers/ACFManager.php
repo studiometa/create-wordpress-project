@@ -7,12 +7,12 @@
 
 namespace Studiometa\Managers;
 
+use Studiometa\Managers\ManagerInterface;
+
 /** Class **/
-class ACFManager {
+class ACFManager implements ManagerInterface {
 	/**
-	 * Runs initialization tasks.
-	 *
-	 * @return void
+	 * @inheritDoc
 	 */
 	public function run() {
 		add_action( 'acf/init', array( $this, 'register_acf_default_group' ) );
