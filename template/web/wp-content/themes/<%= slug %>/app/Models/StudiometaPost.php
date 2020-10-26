@@ -14,7 +14,7 @@ class StudiometaPost extends Post {
 	/**
 	 * Example Dummy Function
 	 *
-	 * @return string
+	 * @return array
 	 */
 	public function get_related_posts_id() {
 		return array( 1, 2, 3 );
