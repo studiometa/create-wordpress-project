@@ -18,7 +18,7 @@ use Studiometa\Repositories\PostTypeRepository;
 
 $context          = Timber::context();
 $post_repo        = new PostTypeRepository();
-$context['posts'] = $post_repo->latest_posts(10)->get();
+$context['posts'] = $post_repo->latest_posts( 10 )->get();
 $templates        = array( 'pages/index.twig' );
 
 if ( is_home() ) {

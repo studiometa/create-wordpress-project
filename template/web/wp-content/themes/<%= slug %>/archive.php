@@ -39,6 +39,6 @@ if ( is_day() ) {
 }
 
 $post_repo        = new PostTypeRepository();
-$context['posts'] = $post_repo->latest_posts(10)->get();
+$context['posts'] = $post_repo->latest_posts( 10 )->get();
 
 Timber::render( $templates, $context );
