@@ -125,7 +125,7 @@ define( 'WP_CACHE', getenv( 'WP_CACHE' ) === 'true' );
 <%_ } _%>
 
 /* Set default theme */
-define( 'WP_DEFAULT_THEME', '<%= slug %>');
+define( 'WP_DEFAULT_THEME', '<%= slug %>' );
 
 /** Sets up WordPress vars and included files. */
 require_once ABSPATH . 'wp-settings.php';
