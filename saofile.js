@@ -13,7 +13,7 @@ module.exports = {
       name: 'slug',
       type: 'string',
       message: 'Project slug (used as plugins prefix and theme name)',
-      default: 'fqdn',
+      default: 'studiometa',
     },
     {
       name: 'url',
