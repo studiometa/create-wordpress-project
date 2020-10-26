@@ -15,7 +15,7 @@ class TaxonomiesManager implements ManagerInterface {
 	 * @inheritDoc
 	 */
 	public function run() {
-		add_action( 'init', array( $this, 'register_taxonomies '), 1 );
+		add_action( 'init', array( $this, 'register_taxonomies' ), 1 );
 	}
 
 	/**

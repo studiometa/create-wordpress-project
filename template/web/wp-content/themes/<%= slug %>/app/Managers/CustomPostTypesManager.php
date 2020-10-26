@@ -15,7 +15,7 @@ class CustomPostTypesManager implements ManagerInterface {
 	 * @inheritDoc
 	 */
 	public function run() {
-		add_action( 'init', array( $this, 'register_custom_post_types '), 1 );
+		add_action( 'init', array( $this, 'register_custom_post_types' ), 1 );
 	}
 
 	/**
