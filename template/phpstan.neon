@@ -21,6 +21,8 @@ parameters:
     #     - %currentWorkingDirectory%/myplugin-functions.php
     # autoload_directories:
     #     - %currentWorkingDirectory%/inc/
+    scanDirectories:
+    - ./web/wp-content/plugins/
     paths:
         - ./web/wp-content/themes/<%= slug %>/
         # - ./web/wp-content/mu-plugins/studiometa-…

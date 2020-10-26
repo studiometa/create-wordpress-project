@@ -91,6 +91,11 @@
   "config": {
     "optimize-autoloader": true
   },
+  "autoload": {
+    "psr-4": {
+      "Studiometa\\": "web/wp-content/themes/studiometa/app"
+    }
+  },
   "extra": {
     "installer-types": [
       "library",
