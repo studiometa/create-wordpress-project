@@ -9,7 +9,16 @@
  */
 
 use Timber\Timber;
+<%_ if (acf) { _%>
+use Studiometa\Managers\ACFManager;
+<%_ } _%>
+use Studiometa\Managers\AssetsManager;
+use Studiometa\Managers\CustomPostTypesManager;
+use Studiometa\Managers\ManagerFactory;
+use Studiometa\Managers\TaxonomiesManager;
 use Studiometa\Managers\ThemeManager;
+use Studiometa\Managers\TwigManager;
+use Studiometa\Managers\WordPressManager;
 
 /**
  * This ensures that Timber is loaded and available as a PHP class.
@@ -49,17 +58,17 @@ add_action(
 	'after_setup_theme',
 	function () {
 		$managers = array(
-			new \Studiometa\Managers\WordPressManager(),
-			new \Studiometa\Managers\TwigManager(),
-			new \Studiometa\Managers\AssetsManager(),
-			new \Studiometa\Managers\CustomPostTypesManager(),
-			new \Studiometa\Managers\TaxonomiesManager(),
+			new ThemeManager(),
+			new WordPressManager(),
+			new TwigManager(),
+			new AssetsManager(),
+			new CustomPostTypesManager(),
+			new TaxonomiesManager(),
 			<%_ if (acf) { _%>
-			new \Studiometa\Managers\ACFManager();
+			new ACFManager();
 			<%_ } _%>
 		);
 
-		$theme_manager = new ThemeManager( $managers );
-		$theme_manager->run();
+		ManagerFactory::init( $managers );
 	}
 );

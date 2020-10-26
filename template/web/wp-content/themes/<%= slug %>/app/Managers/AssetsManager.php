@@ -9,6 +9,7 @@
 namespace Studiometa\Managers;
 
 use Studiometa\Managers\ManagerInterface;
+use Studiometa\WP\Assets;
 
 /** Class */
 class AssetsManager implements ManagerInterface {
@@ -16,6 +17,6 @@ class AssetsManager implements ManagerInterface {
 	 * @inheritDoc
 	 */
 	public function run() {
-		new \Studiometa\WP\Assets( get_template_directory() );
+		new Assets( get_template_directory() );
 	}
 }

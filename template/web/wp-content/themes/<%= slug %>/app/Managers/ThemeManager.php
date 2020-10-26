@@ -14,38 +14,16 @@ use Studiometa\Managers\ManagerInterface;
 /** Class */
 class ThemeManager implements ManagerInterface {
 	/**
-	 * List of theme managers.
-	 *
-	 * @var array
+	 * @inheritDoc
 	 */
-	private $managers = array();
-
-	/**
-	 * Constructor
-	 *
-	 * @param array $managers Array of managers.
-	 */
-	public function __construct( array $managers ) {
-		$this->managers = $managers;
+	public function run() {
+		add_theme_support( 'post-thumbnails' );
+		add_theme_support( 'menus' );
 
 		add_filter( 'timber/context', array( $this, 'add_app_env_to_context' ) );
 		add_filter( 'timber/context', array( $this, 'add_site_to_context' ) );
 		add_filter( 'timber/context', array( $this, 'add_menus_to_context' ) );
 		add_action( 'admin_init', array( $this, 'register_menus' ) );
-	}
-
-	/**
-	 * @inheritDoc
-	 */
-	public function run() {
-		if ( count( $this->managers ) > 0 ) {
-			foreach ( $this->managers as $manager ) {
-				$manager->run();
-			}
-		}
-
-		add_theme_support( 'post-thumbnails' );
-		add_theme_support( 'menus' );
 	}
 
 	/**

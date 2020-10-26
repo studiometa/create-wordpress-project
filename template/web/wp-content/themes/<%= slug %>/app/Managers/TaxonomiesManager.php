@@ -25,6 +25,5 @@ class TaxonomiesManager implements ManagerInterface {
 	 * @return void
 	 */
 	public function register_taxonomies() {
-
 	}
 }
