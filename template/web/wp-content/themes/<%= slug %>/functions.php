@@ -65,7 +65,7 @@ add_action(
 			new CustomPostTypesManager(),
 			new TaxonomiesManager(),
 			<%_ if (acf) { _%>
-			new ACFManager();
+			new ACFManager(),
 			<%_ } _%>
 		);
 
