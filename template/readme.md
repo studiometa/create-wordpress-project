@@ -4,6 +4,7 @@
 
 ## Installation
 
+
 Cloner le dépôt :
 
 ```bash
@@ -15,7 +16,7 @@ Créer et configurer le fichier `.env` en vous basant sur le fichier `.env.examp
 Installer les dépendances nécessaires :
 
 ```bash
-# Installer les dépendances Composer avec PHP 7.3
+# Installer les dépendances Composer avec PHP 7.0
 php7.0 $(which composer) install
 
 # Installer les dépendances NPM avec Node 12
@@ -33,15 +34,22 @@ npm install
 |-|-|
 | `npm run dev` | Démarre le serveur de compilation des fichiers SCSS et JS du thème. |
 | `npm run build` | Build les fichiers SCSS, JS et Vue du thème. |
-| `npm run lint` | Lint les fichiers SCSS, JS et Vue du thème avec ESLint, Stylelint et Prettier. |
+| `npm run lint` | Lint les fichiers SCSS, JS, Vue et Twig du thème avec ESLint, Stylelint et Prettier. |
 | `npm run lint:scipts` | Lint les fichiers JS et Vue du thème avec ESLint et Prettier. |
 | `npm run lint:styles` | Lint les fichiers SCSS et Vue du thème avec Stylelint et Prettier. |
+| `npm run lint:templates` | Lint les fichiers Twig avec Prettier. |
+| `npm run fix` | Formate les fichiers SCSS, JS, Vue et Twig du thème avec ESLint, Stylelint et Prettier. |
+| `npm run fix:scipts` | Formate les fichiers JS et Vue du thème avec ESLint et Prettier. |
+| `npm run fix:styles` | Formate les fichiers SCSS et Vue du thème avec Stylelint et Prettier. |
+| `npm run fix:templates` | Formate les fichiers Twig du thème Prettier. |
+
 
 #### Composer
 
 | Commande | Description |
 |-|-|
-| `composer lint` | Lint les fichiers PHP du thème et des plugins customs |
+| `composer phpcs` | Lint les fichiers PHP du thème et des plugins customs |
+| `composer phpstan` | Analyse de manière statiques les fichiers PHP du thème et des plugins customs |
 
 ### Ajouter des plugins et mu-plugins
 

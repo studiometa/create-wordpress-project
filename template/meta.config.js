@@ -1,5 +1,6 @@
 // Paths must be relative to the package.json root
 module.exports = {
+  presets: ['tailwindcss'],
   src: [
     './web/wp-content/themes/<%= slug %>/src/js/*.js',
     './web/wp-content/themes/<%= slug %>/src/js/pages/*.js',

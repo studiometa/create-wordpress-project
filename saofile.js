@@ -1,4 +1,5 @@
 const path = require('path');
+const { exec } = require('child_process');
 
 module.exports = {
   prompts: [
@@ -12,7 +13,7 @@ module.exports = {
       name: 'slug',
       type: 'string',
       message: 'Project slug (used as plugins prefix and theme name)',
-      default: 'fqdn',
+      default: 'studiometa',
     },
     {
       name: 'url',
@@ -101,11 +102,11 @@ module.exports = {
       });
     }
 
-    // Remove the `acf-json` folder if ACF has not been selected
+    // Remove `ACFManager` if ACF has not been selected
     if (!this.answers.features.includes('acf')) {
       actions.push({
         type: 'remove',
-        files: `web/wp-content/themes/${this.answers.slug}/acf-json`,
+        files: 'web/wp-content/themes/studiometa/app/Managers/ACFManager.php',
       });
     }
 
@@ -121,8 +122,15 @@ module.exports = {
       'bin/db-import.sh',
       'bin/generate-wp-config.sh',
       'bin/get-wp-salts.sh',
-    ].forEach(file => {
+    ].forEach((file) => {
       this.fs.chmodSync(path.resolve(outDir, file), 0o765);
+    });
+
+    // Execute installation related shell scripts
+    [
+      'bin/generate-wp-config.sh',
+    ].forEach((file) => {
+      exec(path.resolve(outDir, file));
     });
 
     // Init Git and install NPM dependencies
@@ -136,9 +144,7 @@ module.exports = {
     const tab = '    ';
 
     console.log();
-    console.log(
-      chalk`${tab}🎉 {bold Successfully created project} {cyan ${this.answers.name}}!`
-    );
+    console.log(chalk`${tab}🎉 {bold Successfully created project} {cyan ${this.answers.name}}!`);
     console.log();
     console.log(chalk`${tab}{bold To get started:}\n`);
 
@@ -146,12 +152,20 @@ module.exports = {
       console.log(chalk`${tab}Go in your project's directory:`);
       console.log(chalk`${tab}{cyan cd ${relativeOutFolder}}\n`);
     }
-    console.log(chalk`${tab}Create your .env file and fill it:`);
+    console.log(chalk`${tab}Create your .env file based on .env.example and fill it:`);
     console.log(chalk`${tab}{cyan cp .env.example .env}\n`);
     console.log(chalk`${tab}Generate your project's salt keys:`);
     console.log(chalk`${tab}{cyan bin/get-wp-salts.sh}\n`);
     console.log(chalk`${tab}Install the composer dependencies:`);
     console.log(chalk`${tab}{cyan composer install}\n`);
+    console.log(chalk`${tab}Create Database (using info from .env):`);
+    console.log(chalk`${tab}{cyan ./vendor/bin/wp db create}\n`);
+    console.log(chalk`${tab}Install WordPress:`);
+    console.log(
+      chalk`${tab}{cyan ./vendor/bin/wp core install --url="${this.answers.url}" --admin_user="<ADMIN_USER>" --admin_email="<ADMIN_EMAIL>" --title="<SITE_TITLE>"}\n`
+    );
+    console.log(chalk`${tab}Install development dependencies:`);
+    console.log(chalk`${tab}{cyan npm i}\n`);
     console.log(chalk`${tab}Start the development server:`);
     console.log(chalk`${tab}{cyan npm run dev}\n`);
     console.log(chalk`${tab}🎊 {bold Happy coding!}\n`);

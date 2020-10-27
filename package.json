@@ -1,6 +1,6 @@
 {
   "name": "@studiometa/create-wordpress-project",
-  "version": "1.0.0-beta.2",
+  "version": "1.0.0-beta.3",
   "description": "A generator to kickstart a WordPress project in a few seconds! ⚡",
   "bin": "cli.js",
   "files": [
@@ -29,13 +29,13 @@
   "homepage": "https://github.com/studiometa/create-wordpress-project#readme",
   "dependencies": {
     "cac": "^6.5.2",
-    "chalk": "^2.4.2",
+    "chalk": "^4.1.0",
     "sao": "^1.7.1"
   },
   "devDependencies": {
-    "@studiometa/eslint-config": "^1.1.4",
-    "@studiometa/prettier-config": "^1.0.0",
-    "eslint": "^6.2.2",
-    "prettier": "^1.18.2"
+    "@studiometa/eslint-config": "^2.1.2",
+    "@studiometa/prettier-config": "^2.0.1",
+    "eslint": "^7.8.1",
+    "prettier": "^2.1.1"
   }
 }

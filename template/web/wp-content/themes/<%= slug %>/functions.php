@@ -1,4 +1,4 @@
-<?php // phpcs:ignore WordPress.Files.FileName.InvalidClassFileName
+<?php
 /**
  * Timber starter-theme
  * https://github.com/timber/starter-theme
@@ -8,13 +8,23 @@
  * @since   Timber 0.1
  */
 
+use Timber\Timber;
+<%_ if (acf) { _%>
+use Studiometa\Managers\ACFManager;
+<%_ } _%>
+use Studiometa\Managers\AssetsManager;
+use Studiometa\Managers\CustomPostTypesManager;
+use Studiometa\Managers\ManagerFactory;
+use Studiometa\Managers\TaxonomiesManager;
+use Studiometa\Managers\ThemeManager;
+use Studiometa\Managers\TwigManager;
+use Studiometa\Managers\WordPressManager;
 
 /**
  * This ensures that Timber is loaded and available as a PHP class.
  * If not, it gives an error message to help direct developers on where to activate
  */
 if ( ! class_exists( 'Timber\Timber' ) ) {
-
 	add_action(
 		'admin_notices',
 		function() {
@@ -31,9 +41,7 @@ if ( ! class_exists( 'Timber\Timber' ) ) {
 	return;
 }
 
-use Timber\Timber;
-use Timber\Menu;
-use Studiometa\WP\Assets;
+$timber = new Timber();
 
 /**
  * Sets the directories (inside your theme) to find .twig files
@@ -46,43 +54,21 @@ Timber::$dirname = array( 'templates' );
  */
 Timber::$autoescape = true;
 
-/**
- * We're going to configure our theme inside of a subclass of Timber\Site
- * You can move this to its own file and include here via php's include("MySite.php")
- */
-class Site extends \Timber\Site {
+add_action(
+	'after_setup_theme',
+	function () {
+		$managers = array(
+			new ThemeManager(),
+			new WordPressManager(),
+			new TwigManager(),
+			new AssetsManager(),
+			new CustomPostTypesManager(),
+			new TaxonomiesManager(),
+			<%_ if (acf) { _%>
+			new ACFManager(),
+			<%_ } _%>
+		);
 
-	/** Add timber support. */
-	public function __construct() {
-		new Timber();
-		new Assets();
-
-		add_filter( 'timber/context', array( $this, 'add_to_context' ) );
-		add_filter( 'timber/twig', array( $this, 'add_to_twig' ) );
-
-		parent::__construct();
+		ManagerFactory::init( $managers );
 	}
-
-	/**
-	 * This is where you add some context
-	 *
-	 * @param string $context context['this'] Being the Twig's {{ this }}.
-	 */
-	public function add_to_context( $context ) {
-		$context['menu'] = new Menu();
-		$context['site'] = $this;
-		return $context;
-	}
-
-	/**
-	 * This is where you can add your own functions to twig.
-	 *
-	 * @param object $twig get extension.
-	 */
-	public function add_to_twig( $twig ) {
-		$twig->addExtension( new Twig\Extension\StringLoaderExtension() );
-		return $twig;
-	}
-}
-
-new Site();
+);

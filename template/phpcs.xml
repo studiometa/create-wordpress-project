@@ -25,4 +25,14 @@
     <!-- There are numerous cases where we want to override WP globals -->
     <exclude name="WordPress.WP.GlobalVariablesOverride" />
   </rule>
+
+  <!-- Disable class-classname.php file naming for app folder -->
+  <rule ref="WordPress.Files.FileName.InvalidClassFileName">
+    <exclude-pattern>/app/</exclude-pattern>
+  </rule>
+
+  <!-- Allow UpperCaseClasses file names in app folder -->
+  <rule ref="WordPress.Files.FileName.NotHyphenatedLowercase">
+    <exclude-pattern>/app/</exclude-pattern>
+  </rule>
 </ruleset>
