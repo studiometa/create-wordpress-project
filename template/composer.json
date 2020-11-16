@@ -10,7 +10,7 @@
   "require": {
     "php": "^7.3",
     "vlucas/phpdotenv": "^3.4",
-    "johnpbloch/wordpress": "^5.2",
+    "johnpbloch/wordpress": "5.*",
     "timber/timber": "^1.10",
     "studiometa/wp-mu-cleanup": "^1.0",
     "studiometa/wp-assets": "dev-feature/v2",
