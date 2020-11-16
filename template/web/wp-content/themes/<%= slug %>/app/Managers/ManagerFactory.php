@@ -12,7 +12,7 @@ class ManagerFactory {
 	/**
 	 * Init managers
 	 *
-	 * @param array $managers to init
+	 * @param array $managers to init.
 	 * @return void
 	 */
 	static public function init( array $managers ) {
