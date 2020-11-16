@@ -19,6 +19,7 @@ class ThemeManager implements ManagerInterface {
 	public function run() {
 		add_theme_support( 'post-thumbnails' );
 		add_theme_support( 'menus' );
+		add_theme_support( 'title-tag' );
 
 		add_filter( 'timber/context', array( $this, 'add_app_env_to_context' ) );
 		add_filter( 'timber/context', array( $this, 'add_site_to_context' ) );

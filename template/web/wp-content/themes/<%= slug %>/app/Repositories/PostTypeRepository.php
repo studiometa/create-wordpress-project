@@ -26,6 +26,7 @@ class PostTypeRepository extends Repository {
 
 		// Set sane defaults so we don't do full table scans.
 		if ( $limit <= 0 || $limit > 100 ) {
+			// phpcs:ignore WordPress.PHP.DevelopmentFunctions.error_log_trigger_error
 			trigger_error( __CLASS__ . ' ' . __FUNCTION__ . ' : $limit parameter should not be over 100 to avoid full sql table scans', E_USER_WARNING );
 			$limit = 100;
 		}
@@ -70,6 +71,7 @@ class PostTypeRepository extends Repository {
 
 		// Set sane defaults so we don't do full table scans.
 		if ( $limit <= 0 || $limit > 100 ) {
+			// phpcs:ignore WordPress.PHP.DevelopmentFunctions.error_log_trigger_error
 			trigger_error( __CLASS__ . ' ' . __FUNCTION__ . ' : $limit parameter should not be over 100 to avoid full sql table scans', E_USER_WARNING );
 			$limit = 100;
 		}

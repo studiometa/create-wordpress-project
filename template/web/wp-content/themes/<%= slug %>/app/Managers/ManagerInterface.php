@@ -1,7 +1,10 @@
 <?php
 /**
  * Interface for Managers
+ *
+ * @package Studiometa
  */
+
 namespace Studiometa\Managers;
 
 /** Interface **/
