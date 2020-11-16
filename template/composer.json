@@ -27,7 +27,7 @@
     "yoast/wordpress-seo": "^12.9",
     <%_ } _%>
     <%_ if (acf) { _%>
-    "advanced-custom-fields/advanced-custom-fields-pro": "^5.0.0",
+    "advanced-custom-fields/advanced-custom-fields-pro": "5.*",
     "stoutlogic/acf-builder": "^1.10",
     <%_ } _%>
     "lkwdwrd/wp-muplugin-loader": "^1.0"
@@ -52,7 +52,7 @@
       "type": "package",
       "package": {
         "name": "advanced-custom-fields/advanced-custom-fields-pro",
-        "version": "5.7.12",
+        "version": "5.9.3",
         "type": "wordpress-plugin",
         "dist": {
           "type": "zip",
