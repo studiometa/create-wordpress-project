@@ -19,6 +19,7 @@ class TwigManager implements ManagerInterface {
 		add_filter( 'timber/twig', array( $this, 'add_twig_template_from_string' ) );
 		add_filter( 'timber/twig', array( $this, 'add_twig_template_include_comments' ) );
 		add_filter( 'timber/output', array( $this, 'add_twig_template_render_comments' ), 10, 3 );
+		add_filter( 'timber/loader/loader', array( $this, 'add_svg_path' ), 10, 1 );
 	}
 
 	/**
@@ -63,5 +64,17 @@ class TwigManager implements ManagerInterface {
 		}
 
 		return "\n<!-- Begin output of '" . $file . "' -->\n" . $output . "\n<!-- / End output of '" . $file . "' -->\n";
+	}
+
+	/**
+	 * Add an alias for the SVG folder.
+	 *
+	 * @example {{ source('@svg/icon.svg') }}
+	 * @param \Twig\Loader\FilesystemLoader $fs The loader to extend.
+	 * @return \Twig\Loader\FilesystemLoader
+	 */
+	public function add_svg_path( \Twig\Loader\FilesystemLoader $fs ) {
+		$fs->addPath( get_template_directory() . '/static/svg', 'svg' );
+		return $fs;
 	}
 }
