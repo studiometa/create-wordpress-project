@@ -3,8 +3,8 @@
  * Boostrap ACF
  *
  * Create ACF Fields group with stoutlogic/acf-builder package
- * @see https://github.com/stoutlogic/acf-builder
  *
+ * @see https://github.com/stoutlogic/acf-builder
  * @package Studiometa
  */
 
@@ -15,6 +15,7 @@ use StoutLogic\AcfBuilder\FieldsBuilder;
 
 /** Class **/
 class ACFManager implements ManagerInterface {
+	// phpcs:ignore Generic.Commenting.DocComment.MissingShort
 	/**
 	 * @inheritDoc
 	 */

@@ -13,6 +13,7 @@ use Studiometa\Managers\ManagerInterface;
 
 /** Class */
 class ThemeManager implements ManagerInterface {
+	// phpcs:ignore Generic.Commenting.DocComment.MissingShort
 	/**
 	 * @inheritDoc
 	 */
