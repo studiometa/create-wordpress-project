@@ -8,6 +8,9 @@
   <!-- Skip seed data -->
   <exclude-pattern>/data/</exclude-pattern>
 
+  <!-- Skip LocalValetDriver -->
+  <exclude-pattern>LocalValetDriver.php</exclude-pattern>
+
   <!-- Don't check composer dependencies -->
   <exclude-pattern>/vendor/</exclude-pattern>
 
