@@ -12,6 +12,7 @@ git clone <%= repository %>
 ```
 
 Créer et configurer le fichier `.env` en vous basant sur le fichier `.env.example`.
+Créer et configurer le fichier `.htaccess` en vous basant sur le fichier `.htaccess.example`.
 
 Installer les dépendances nécessaires :
 
