@@ -30,7 +30,8 @@
     "advanced-custom-fields/advanced-custom-fields-pro": "5.*",
     "stoutlogic/acf-builder": "^1.10",
     <%_ } _%>
-    "lkwdwrd/wp-muplugin-loader": "^1.0"
+    "lkwdwrd/wp-muplugin-loader": "^1.0",
+    "djboris88/twig-commented-include": "^1.2"
   },
   "require-dev": {
     "wpackagist-plugin/query-monitor": "^3.6",
