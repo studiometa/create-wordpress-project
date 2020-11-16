@@ -95,7 +95,7 @@
   },
   "autoload": {
     "psr-4": {
-      "Studiometa\\": "web/wp-content/themes/studiometa/app"
+      "Studiometa\\": "web/wp-content/themes/<?= slug %>/app"
     }
   },
   "extra": {
