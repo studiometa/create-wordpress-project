@@ -28,6 +28,7 @@
     <%_ } _%>
     <%_ if (acf) { _%>
     "advanced-custom-fields/advanced-custom-fields-pro": "^5.0.0",
+    "stoutlogic/acf-builder": "^1.10",
     <%_ } _%>
     "lkwdwrd/wp-muplugin-loader": "^1.0"
   },
