@@ -7,8 +7,10 @@
 
 ## Example
 ```php
+use Studiometa\Repositories\PostRepository;
+
 // Get the 10 latest posts
-$post_repo        = new PostTypeRepository();
+$post_repo        = new PostRepository();
 $context['posts'] = $post_repo->latest_posts(10)->get();
 
 // Full list of available arguments
