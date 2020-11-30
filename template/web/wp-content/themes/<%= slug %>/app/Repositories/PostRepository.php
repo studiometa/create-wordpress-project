@@ -10,14 +10,19 @@ namespace Studiometa\Repositories;
 use Timber\PostQuery;
 
 /** Class */
-class PostRepository extends Repository {
+final class PostRepository extends Repository {
+	const CLASS_TYPE = '\Timber\Post';
 	const POST_TYPES = array( 'post' ); // Main post types.
 
 	/**
-	 * @inheritDoc
+	 * Implement do_query
+	 *
+	 * @param array  $params for the query.
+	 * @param string $class_type to return.
+	 * @return \Timber\PostQuery
 	 */
-	public function do_query($params, $class_type) {
-		return new PostQuery( $params, '\Timber\Post' );
+	public function do_query( $params, $class_type ) {
+		return new PostQuery( $params, self::CLASS_TYPE );
 	}
 
 	/**
@@ -62,7 +67,7 @@ class PostRepository extends Repository {
 			$params['paged'] = $paged;
 		}
 
-		return $this->query( $params );
+		return $this->query( $params, self::CLASS_TYPE );
 	}
 
 	/**
@@ -101,6 +106,6 @@ class PostRepository extends Repository {
 			$params['paged'] = $paged;
 		}
 
-		return $this->query( $params );
+		return $this->query( $params, self::CLASS_TYPE );
 	}
 }

@@ -73,7 +73,7 @@ abstract class Repository {
 		// Clear old result sets.
 		$this->reset();
 
-		$cache_key    = __FUNCTION__ . md5( http_build_query( $params ) );
+		$cache_key      = __FUNCTION__ . md5( http_build_query( $params ) );
 		$cached_results = wp_cache_get( $cache_key, __CLASS__ );
 
 		if ( false !== $cached_results && count( $cached_results ) > 0 ) {
@@ -91,7 +91,14 @@ abstract class Repository {
 		return $this->result_set( $results );
 	}
 
-	abstract function do_query( $params, $class_type );
+	/**
+	 * Function to implement in an extended Repository
+	 *
+	 * @param array  $params     Query params.
+	 * @param string $class_type Class type for the query to return.
+	 * @return mixed
+	 */
+	abstract protected function do_query( $params, $class_type );
 
 	/**
 	 * Clears the current result set.
