@@ -6,7 +6,7 @@
  *
  * @see https://laravel.com/docs/8.x/valet#custom-valet-drivers
  */
-class LocalValetDriver extends WordPressValetDriver {
+class LocalValetDriver extends BasicValetDriver {
 	/**
 	 * Determine if the driver serves the request.
 	 *
@@ -48,5 +48,20 @@ class LocalValetDriver extends WordPressValetDriver {
 			$siteName,
 			$this->forceTrailingSlash($uri)
 		);
+	}
+
+
+	/**
+	 * Redirect to uri with trailing slash.
+	 *
+	 * @param  string $uri
+	 * @return string
+	 */
+	private function forceTrailingSlash($uri) {
+		if (substr($uri, -1 * strlen('/wp-admin')) == '/wp-admin') {
+			header('Location: '.$uri.'/'); die;
+		}
+
+		return $uri;
 	}
 }
