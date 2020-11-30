@@ -8,9 +8,9 @@
   "license": "MIT",
   "type": "project",
   "require": {
-    "php": "^7.0",
+    "php": "^7.3",
     "vlucas/phpdotenv": "^3.4",
-    "johnpbloch/wordpress": "^5.2",
+    "johnpbloch/wordpress": "5.*",
     "timber/timber": "^1.10",
     "studiometa/wp-mu-cleanup": "^1.0",
     "studiometa/wp-assets": "dev-feature/v2",
@@ -23,13 +23,15 @@
     <%_ if (classicEditor) { _%>
     "wpackagist-plugin/classic-editor": "^1.5",
     <%_ } _%>
-    <%_ if (yoastSeo) { _%>
-    "yoast/wordpress-seo": "^12.9",
+    <%_ if (rankMath) { _%>
+    "wpackagist-plugin/seo-by-rank-math": "^1.0",
     <%_ } _%>
     <%_ if (acf) { _%>
-    "advanced-custom-fields/advanced-custom-fields-pro": "^5.0.0",
+    "advanced-custom-fields/advanced-custom-fields-pro": "5.*",
+    "stoutlogic/acf-builder": "^1.10",
     <%_ } _%>
-    "lkwdwrd/wp-muplugin-loader": "^1.0"
+    "lkwdwrd/wp-muplugin-loader": "^1.0",
+    "djboris88/twig-commented-include": "^1.2"
   },
   "require-dev": {
     "wpackagist-plugin/query-monitor": "^3.6",
@@ -51,7 +53,7 @@
       "type": "package",
       "package": {
         "name": "advanced-custom-fields/advanced-custom-fields-pro",
-        "version": "5.7.12",
+        "version": "5.9.3",
         "type": "wordpress-plugin",
         "dist": {
           "type": "zip",
@@ -93,7 +95,7 @@
   },
   "autoload": {
     "psr-4": {
-      "Studiometa\\": "web/wp-content/themes/studiometa/app"
+      "Studiometa\\": "web/wp-content/themes/<?= slug %>/app"
     }
   },
   "extra": {

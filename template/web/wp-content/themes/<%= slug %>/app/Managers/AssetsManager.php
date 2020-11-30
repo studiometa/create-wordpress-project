@@ -13,6 +13,7 @@ use Studiometa\WP\Assets;
 
 /** Class */
 class AssetsManager implements ManagerInterface {
+	// phpcs:ignore Generic.Commenting.DocComment.MissingShort
 	/**
 	 * @inheritDoc
 	 */

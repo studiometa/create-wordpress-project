@@ -15,7 +15,7 @@ class ManagerFactory {
 	 * @param array $managers to init.
 	 * @return void
 	 */
-	static public function init( array $managers ) {
+	public static function init( array $managers ) {
 		foreach ( $managers as $manager ) {
 			$manager->run();
 		}
