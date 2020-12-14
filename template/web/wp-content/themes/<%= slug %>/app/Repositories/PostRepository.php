@@ -22,7 +22,7 @@ class PostRepository extends Repository {
 	 * @return \Timber\PostQuery
 	 */
 	public function do_query( $params, $class_type ) {
-		return new PostQuery( $params, self::CLASS_TYPE );
+		return new PostQuery( $params, static::CLASS_TYPE );
 	}
 
 	/**
@@ -67,7 +67,7 @@ class PostRepository extends Repository {
 			$params['paged'] = $paged;
 		}
 
-		return $this->query( $params, self::CLASS_TYPE );
+		return $this->query( $params );
 	}
 
 	/**
@@ -81,7 +81,7 @@ class PostRepository extends Repository {
 	 *
 	 * @return Repository
 	 */
-	public function latest_posts( $limit = 10, $post_types = self::POST_TYPES, array $exclude = array(), $paged = 0 ) {
+	public function latest_posts( $limit = 10, $post_types = static::POST_TYPES, array $exclude = array(), $paged = 0 ) {
 
 		// Set sane defaults so we don't do full table scans.
 		if ( $limit <= 0 || $limit > 100 ) {
@@ -106,6 +106,6 @@ class PostRepository extends Repository {
 			$params['paged'] = $paged;
 		}
 
-		return $this->query( $params, self::CLASS_TYPE );
+		return $this->query( $params );
 	}
 }

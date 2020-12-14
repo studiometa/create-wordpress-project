@@ -21,7 +21,7 @@ final class TermRepository extends Repository {
 	 * @return Timber\Term
 	 */
 	public function do_query( $params, $class_type ) {
-		return TermGetter::get_terms( $params, array(), self::CLASS_TYPE );
+		return TermGetter::get_terms( $params, array(), static::CLASS_TYPE );
 	}
 
 	/**
@@ -51,6 +51,6 @@ final class TermRepository extends Repository {
 			$params['exclude'] = $exclude;
 		}
 
-		return $this->query( $params, self::CLASS_TYPE );
+		return $this->query( $params );
 	}
 }

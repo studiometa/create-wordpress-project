@@ -69,7 +69,7 @@ abstract class Repository {
 	 *
 	 * @return Repository
 	 */
-	protected function query( array $params, $class_type ) {
+	protected function query( array $params ) {
 		// Clear old result sets.
 		$this->reset();
 
@@ -81,7 +81,7 @@ abstract class Repository {
 			return $this->result_set( $cached_results );
 		}
 
-		$results = $this->do_query( $params, $class_type );
+		$results = $this->do_query( $params );
 
 		// Cache our results.
 		if ( count( $results ) > 0 ) {
@@ -100,7 +100,7 @@ abstract class Repository {
 	 * @param string $class_type Class type for the query to return.
 	 * @return mixed
 	 */
-	abstract protected function do_query( $params, $class_type );
+	abstract protected function do_query( $params );
 
 	/**
 	 * Clears the current result set.
