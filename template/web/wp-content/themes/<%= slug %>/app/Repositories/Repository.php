@@ -92,7 +92,9 @@ abstract class Repository {
 	}
 
 	/**
-	 * Function to implement in an extended Repository
+	 * Function to implement when extendding the Repository.
+	 *
+	 * Define the query the Repository will run.
 	 *
 	 * @param array  $params     Query params.
 	 * @param string $class_type Class type for the query to return.

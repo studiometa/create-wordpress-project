@@ -10,7 +10,7 @@ namespace Studiometa\Repositories;
 use Timber\PostQuery;
 
 /** Class */
-final class PostRepository extends Repository {
+class PostRepository extends Repository {
 	const CLASS_TYPE = '\Timber\Post';
 	const POST_TYPES = array( 'post' ); // Main post types.
 
