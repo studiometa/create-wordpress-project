@@ -52,11 +52,11 @@ variables:
         - web/wp-content/themes/**/*.{js,scss,vue}
 
 .Composer default config: &composer_default_config
-  image: php:7.2
+  image: php:7.3
   before_script:
     - apt-get update
     - apt-get install -y git wget unzip zip
-    - wget https://raw.githubusercontent.com/composer/getcomposer.org/6e874537c7ff87f03f99dc8dea1f2c48e4274da3/web/installer -O - -q | php -- --quiet --version=1.10.16
+    - wget https://raw.githubusercontent.com/composer/getcomposer.org/6e874537c7ff87f03f99dc8dea1f2c48e4274da3/web/installer -O - -q | php -- --quiet --version=1.10.19
     - php -d memory_limit=-1 composer.phar install --prefer-dist --no-progress --no-suggest
   cache:
     <<: *composer_cache
