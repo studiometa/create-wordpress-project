@@ -65,7 +65,6 @@ abstract class Repository {
 	 * Runs a query.
 	 *
 	 * @param array  $params     Query params.
-	 * @param string $class_type Post class to return.
 	 *
 	 * @return Repository
 	 */
@@ -97,7 +96,6 @@ abstract class Repository {
 	 * Define the query the Repository will run.
 	 *
 	 * @param array  $params     Query params.
-	 * @param string $class_type Class type for the query to return.
 	 * @return mixed
 	 */
 	abstract protected function do_query( $params );
