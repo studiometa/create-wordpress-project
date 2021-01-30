@@ -33,7 +33,7 @@ variables:
   policy: pull-push
 
 .NPM default config: &npm_default_config
-  image: node:12
+  image: node:14
   cache:
     <<: *npm_cache
     policy: pull
