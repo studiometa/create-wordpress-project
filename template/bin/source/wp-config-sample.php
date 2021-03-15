@@ -111,11 +111,6 @@ define( 'WP_SITEURL', WP_HOME . '/wp' );
 /** Configure directory paths if WP core is in a different directory */
 define( 'WP_CONTENT_URL', WP_HOME . '/wp-content' );
 define( 'WP_CONTENT_DIR', realpath( ABSPATH . '../wp-content/' ) );
-<%_ if (acf) { _%>
-
-/* ACF Configuration */
-define( 'ACF_PRO_KEY', getenv( 'ACF_PRO_KEY' ) );
-<%_ } _%>
 <%_ if (wpRocket) { _%>
 
 /* WP Rocket config */
