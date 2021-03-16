@@ -14,10 +14,10 @@
  */
 
 use Timber\Timber;
-use Studiometa\Repositories\PostTypeRepository;
+use Studiometa\Repositories\PostRepository;
 
 $context          = Timber::context();
-$post_repo        = new PostTypeRepository();
+$post_repo        = new PostRepository();
 $context['posts'] = $post_repo->latest_posts( 10 )->get();
 $templates        = array( 'pages/index.twig' );
 
