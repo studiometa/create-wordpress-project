@@ -52,9 +52,9 @@ module.exports = {
         { name: 'Classic editor', value: 'classicEditor' },
         { name: 'Wordfence', value: 'wordfence' },
         { name: 'WP Rocket', value: 'wpRocket' },
-        { name: 'Yoast SEO', value: 'yoastSeo' },
+        { name: 'Rank Math', value: 'rankMath' },
       ],
-      default: [],
+      default: ['acf', 'wpRocket', 'classicEditor'],
     },
   ],
   templateData() {
@@ -63,14 +63,14 @@ module.exports = {
     const classicEditor = features.includes('classicEditor');
     const wordfence = features.includes('wordfence');
     const wpRocket = features.includes('wpRocket');
-    const yoastSeo = features.includes('yoastSeo');
+    const rankMath = features.includes('rankMath');
 
     return {
       acf,
       classicEditor,
       wordfence,
       wpRocket,
-      yoastSeo,
+      rankMath,
     };
   },
   actions() {
@@ -106,7 +106,7 @@ module.exports = {
     if (!this.answers.features.includes('acf')) {
       actions.push({
         type: 'remove',
-        files: 'web/wp-content/themes/studiometa/app/Managers/ACFManager.php',
+        files: 'web/wp-content/themes/<?= slug %>/app/Managers/ACFManager.php',
       });
     }
 

@@ -7,9 +7,23 @@
 
 namespace Studiometa\Repositories;
 
+use Timber\PostQuery;
+
 /** Class */
-class PostTypeRepository extends Repository {
+class PostRepository extends Repository {
+	const CLASS_TYPE = '\Timber\Post';
 	const POST_TYPES = array( 'post' ); // Main post types.
+
+	/**
+	 * Implement do_query
+	 *
+	 * @param array  $params for the query.
+	 * @param string $class_type to return.
+	 * @return \Timber\PostQuery
+	 */
+	public function do_query( $params ) {
+		return new PostQuery( $params, static::CLASS_TYPE );
+	}
 
 	/**
 	 * Returns a chronological list of latest "Post" (articles) posts for a given
@@ -61,13 +75,12 @@ class PostTypeRepository extends Repository {
 	 * This acts as a "firehose" of new content so to speak.
 	 *
 	 * @param integer $limit      Number of posts to return.
-	 * @param array   $post_types WordPress post types.
 	 * @param array   $exclude    IDs of posts to exclude.
 	 * @param integer $paged      Enable pagination.
 	 *
 	 * @return Repository
 	 */
-	public function latest_posts( $limit = 10, $post_types = self::POST_TYPES, array $exclude = array(), $paged = 0 ) {
+	public function latest_posts( $limit = 10, array $exclude = array(), $paged = 0 ) {
 
 		// Set sane defaults so we don't do full table scans.
 		if ( $limit <= 0 || $limit > 100 ) {
@@ -78,7 +91,7 @@ class PostTypeRepository extends Repository {
 
 		$params = array(
 			'posts_per_page' => (int) $limit,
-			'post_type'      => $post_types,
+			'post_type'      => self::POST_TYPES,
 			'post_status'    => 'publish',
 			'orderby'        => 'date',
 			'order'          => 'DESC',

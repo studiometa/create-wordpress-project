@@ -11,6 +11,7 @@ use Studiometa\Managers\ManagerInterface;
 
 /** Class **/
 class CustomPostTypesManager implements ManagerInterface {
+	// phpcs:ignore Generic.Commenting.DocComment.MissingShort
 	/**
 	 * @inheritDoc
 	 */
