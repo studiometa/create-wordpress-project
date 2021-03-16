@@ -27,7 +27,7 @@
     "wpackagist-plugin/seo-by-rank-math": "^1.0",
     <%_ } _%>
     <%_ if (acf) { _%>
-    "advanced-custom-fields/advanced-custom-fields-pro": "5.*",
+    "acf/advanced-custom-fields-pro": "dev-master",
     "stoutlogic/acf-builder": "^1.10",
     <%_ } _%>
     "lkwdwrd/wp-muplugin-loader": "^1.0",
@@ -52,16 +52,15 @@
     {
       "type": "package",
       "package": {
-        "name": "advanced-custom-fields/advanced-custom-fields-pro",
-        "version": "5.9.3",
+        "name": "acf/advanced-custom-fields-pro",
         "type": "wordpress-plugin",
+        "version": "dev-master",
         "dist": {
           "type": "zip",
-          "url": "https://connect.advancedcustomfields.com/index.php?a=download&p=pro&k={%ACF_PRO_KEY}&t={%version}"
+          "url": "https://github.com/studiometa/advanced-custom-fields-pro/archive/master.zip"
         },
         "require": {
-          "composer/installers": "^1.4",
-          "ffraenz/private-composer-installer": "^2.0"
+          "composer/installers": "^1.4"
         }
       }
     },
