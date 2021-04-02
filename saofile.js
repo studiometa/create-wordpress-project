@@ -106,7 +106,7 @@ module.exports = {
     if (!this.answers.features.includes('acf')) {
       actions.push({
         type: 'remove',
-        files: 'web/wp-content/themes/<?= slug %>/app/Managers/ACFManager.php',
+        files: 'web/wp-content/themes/<%= slug %>/app/Managers/ACFManager.php',
       });
     }
 
