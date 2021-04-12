@@ -17,6 +17,7 @@ use Studiometa\Managers\CustomPostTypesManager;
 use Studiometa\Managers\ManagerFactory;
 use Studiometa\Managers\TaxonomiesManager;
 use Studiometa\Managers\ThemeManager;
+use Studiometa\Managers\TransientsManager;
 use Studiometa\Managers\TwigManager;
 use Studiometa\Managers\WordPressManager;
 
@@ -58,6 +59,7 @@ add_action(
 	'after_setup_theme',
 	function () {
 		$managers = array(
+			new TransientsManager(),
 			new ThemeManager(),
 			new WordPressManager(),
 			new TwigManager(),

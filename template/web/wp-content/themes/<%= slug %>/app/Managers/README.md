@@ -23,6 +23,10 @@ Add functionnality to WordPress
 ## CustomPostTypesManager
 Register custom post types
 
+## TransientsManager
+Bootstraps Transients related functions
+- Run transients cleaner tool if a configuration is specified in `config/transients_cleaner.yml` (see [configuration documentation](https://github.com/studiometa/wp-toolkit/tree/master#transient-cleaner)).
+
 ## TaxonomiesManager
 Register custom taxonomies
 
