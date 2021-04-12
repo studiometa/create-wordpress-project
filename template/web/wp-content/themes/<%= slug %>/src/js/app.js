@@ -1,5 +1,6 @@
 import Base from '@studiometa/js-toolkit';
 import { isDev } from './config';
+import Component from './components/Component';
 
 /**
  * Main App class.
@@ -9,13 +10,13 @@ class App extends Base {
    * App config.
    * @return {Object}
    */
-  get config() {
-    return {
-      log: isDev(),
-      name: 'App',
-      components: {},
-    };
-  }
+  static config = {
+    log: isDev(),
+    name: 'App',
+    components: {
+      Component,
+    },
+  };
 
   /**
    * Log a nice message when app is ready.
@@ -28,5 +29,5 @@ class App extends Base {
 }
 
 const app = new App(document.documentElement);
-window.app = app;
+app.$mount();
 export default app;
