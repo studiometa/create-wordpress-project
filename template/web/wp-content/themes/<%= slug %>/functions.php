@@ -17,6 +17,7 @@ use Studiometa\Managers\CustomPostTypesManager;
 use Studiometa\Managers\ManagerFactory;
 use Studiometa\Managers\TaxonomiesManager;
 use Studiometa\Managers\ThemeManager;
+use Studiometa\Managers\TinyMCEManager;
 use Studiometa\Managers\TwigManager;
 use Studiometa\Managers\WordPressManager;
 
@@ -64,6 +65,7 @@ add_action(
 			new AssetsManager(),
 			new CustomPostTypesManager(),
 			new TaxonomiesManager(),
+			new TinyMCEManager(),
 			<%_ if (acf) { _%>
 			new ACFManager(),
 			<%_ } _%>
