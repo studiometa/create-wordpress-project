@@ -25,7 +25,7 @@
     "wpackagist-plugin/seo-by-rank-math": "^1.0",
     <%_ } _%>
     <%_ if (acf) { _%>
-    "acf/advanced-custom-fields-pro": "dev-master",
+    "studiometa/advanced-custom-fields-pro": "dev-master",
     "stoutlogic/acf-builder": "^1.10",
     <%_ } _%>
     "lkwdwrd/wp-muplugin-loader": "^1.0",
@@ -46,23 +46,6 @@
       "type": "composer",
       "url": "https://wpackagist.org"
     },
-    <%_ if (acf) { _%>
-    {
-      "type": "package",
-      "package": {
-        "name": "acf/advanced-custom-fields-pro",
-        "type": "wordpress-plugin",
-        "version": "dev-master",
-        "dist": {
-          "type": "zip",
-          "url": "https://github.com/studiometa/advanced-custom-fields-pro/archive/master.zip"
-        },
-        "require": {
-          "composer/installers": "^1.4"
-        }
-      }
-    },
-    <%_ } _%>
     {
       "type": "vcs",
       "url": "https://github.com/tabrisrp/wp-background-processing"
