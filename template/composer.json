@@ -12,8 +12,6 @@
     "vlucas/phpdotenv": "^3.4",
     "johnpbloch/wordpress": "5.*",
     "timber/timber": "^1.10",
-    "studiometa/wp-mu-cleanup": "^1.0",
-    "studiometa/wp-assets": "dev-feature/v2",
     <%_ if (wpRocket) { _%>
     "wp-media/wp-rocket": "^3.3",
     <%_ } _%>
