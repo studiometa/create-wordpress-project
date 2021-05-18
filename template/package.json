@@ -17,21 +17,21 @@
   "author": "Studio Meta <agence@studiometa.fr> (https://www.studiometa.fr)",
   "license": "MIT",
   "devDependencies": {
-    "@babel/plugin-proposal-class-properties": "^7.12.1",
-    "@babel/plugin-transform-runtime": "^7.12.10",
-    "@babel/preset-env": "^7.12.11",
-    "@studiometa/meta-configs": "^1.0.0",
+    "@babel/plugin-proposal-class-properties": "^7.13.0",
+    "@babel/plugin-transform-runtime": "^7.14.3",
+    "@babel/preset-env": "^7.14.2",
+    "@studiometa/meta-configs": "^1.0.2",
     "@studiometa/prettier-formatter-gitlab": "^1.1.1",
-    "eslint": "^7.18.0",
+    "eslint": "^7.26.0",
     "eslint-formatter-gitlab": "^2.2.0",
-    "postcss": "^8.2.4",
-    "prettier": "^2.2.1",
+    "postcss": "^8.2.15",
+    "prettier": "^2.3.0",
     "prettier-plugin-twig-melody": "^0.4.6",
-    "stylelint": "^13.9.0",
+    "stylelint": "^13.13.1",
     "stylelint-formatter-gitlab": "^1.0.1",
-    "tailwindcss": "^2.0.2"
+    "tailwindcss": "^2.1.2"
   },
   "dependencies": {
-    "@studiometa/js-toolkit": "^1.0.0"
+    "@studiometa/js-toolkit": "^1.1.1"
   }
 }

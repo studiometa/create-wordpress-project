@@ -28,14 +28,14 @@
   },
   "homepage": "https://github.com/studiometa/create-wordpress-project#readme",
   "dependencies": {
-    "cac": "^6.5.2",
-    "chalk": "^4.1.0",
+    "cac": "^6.7.3",
+    "chalk": "^4.1.1",
     "sao": "^1.7.1"
   },
   "devDependencies": {
-    "@studiometa/eslint-config": "^2.1.2",
+    "@studiometa/eslint-config": "^2.1.3",
     "@studiometa/prettier-config": "^2.0.1",
-    "eslint": "^7.8.1",
-    "prettier": "^2.1.1"
+    "eslint": "^7.26.0",
+    "prettier": "^2.3.0"
   }
 }
