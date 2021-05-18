@@ -34,6 +34,20 @@ class LocalValetDriver extends WordPressValetDriver {
 	}
 
 	/**
+	 * Redirect to uri with trailing slash.
+	 *
+	 * @param  string $uri
+	 * @return string
+	 */
+	private function forceTrailingSlash($uri) {
+			if (substr($uri, -1 * strlen('/wp-admin')) == '/wp-admin') {
+					header('Location: '.$uri.'/'); die;
+			}
+
+			return $uri;
+	}
+
+	/**
 	 * Get the fully resolved path to the application's front controller.
 	 *
 	 * @param  string  $sitePath
