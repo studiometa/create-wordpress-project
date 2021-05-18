@@ -12,13 +12,15 @@ use Timber\Timber;
 <%_ if (acf) { _%>
 use Studiometa\Managers\ACFManager;
 <%_ } _%>
-use Studiometa\Managers\AssetsManager;
 use Studiometa\Managers\CustomPostTypesManager;
 use Studiometa\Managers\ManagerFactory;
 use Studiometa\Managers\TaxonomiesManager;
 use Studiometa\Managers\ThemeManager;
+use Studiometa\Managers\TinyMCEManager;
 use Studiometa\Managers\TwigManager;
 use Studiometa\Managers\WordPressManager;
+use Studiometa\WPToolkit\Managers\AssetsManager;
+use Studiometa\WPToolkit\Managers\CleanupManager;
 
 /**
  * This ensures that Timber is loaded and available as a PHP class.
@@ -61,9 +63,11 @@ add_action(
 			new ThemeManager(),
 			new WordPressManager(),
 			new TwigManager(),
-			new AssetsManager(),
+			new AssetsManager( get_template_directory() ),
+			new CleanupManager(),
 			new CustomPostTypesManager(),
 			new TaxonomiesManager(),
+			new TinyMCEManager(),
 			<%_ if (acf) { _%>
 			new ACFManager(),
 			<%_ } _%>
