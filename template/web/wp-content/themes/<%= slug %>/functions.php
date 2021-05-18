@@ -15,6 +15,7 @@ use Studiometa\Managers\ACFManager;
 use Studiometa\Managers\AssetsManager;
 use Studiometa\Managers\CustomPostTypesManager;
 use Studiometa\Managers\ManagerFactory;
+use Studiometa\Managers\ShortcodesManager;
 use Studiometa\Managers\TaxonomiesManager;
 use Studiometa\Managers\ThemeManager;
 use Studiometa\Managers\TwigManager;
@@ -64,6 +65,7 @@ add_action(
 			new AssetsManager(),
 			new CustomPostTypesManager(),
 			new TaxonomiesManager(),
+			new ShortcodesManager(),
 			<%_ if (acf) { _%>
 			new ACFManager(),
 			<%_ } _%>
