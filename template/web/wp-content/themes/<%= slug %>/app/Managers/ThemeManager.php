@@ -13,9 +13,8 @@ use Studiometa\Managers\ManagerInterface;
 
 /** Class */
 class ThemeManager implements ManagerInterface {
-	// phpcs:ignore Generic.Commenting.DocComment.MissingShort
 	/**
-	 * @inheritDoc
+	 * {@inheritdoc}
 	 */
 	public function run() {
 		add_theme_support( 'post-thumbnails' );

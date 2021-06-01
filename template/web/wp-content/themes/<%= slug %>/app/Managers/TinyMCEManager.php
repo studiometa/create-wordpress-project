@@ -12,9 +12,8 @@ use Studiometa\Managers\ManagerInterface;
 
 /** Class */
 class TinyMCEManager implements ManagerInterface {
-	// phpcs:ignore Generic.Commenting.DocComment.MissingShort
 	/**
-	 * @inheritDoc
+	 * {@inheritdoc}
 	 */
 	public function run() {
 		add_filter( 'tiny_mce_before_init', array( $this, 'set_editor_config' ) );

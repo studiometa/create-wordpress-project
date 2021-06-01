@@ -13,9 +13,8 @@ use Studiometa\WP\Assets;
 
 /** Class */
 class AssetsManager implements ManagerInterface {
-	// phpcs:ignore Generic.Commenting.DocComment.MissingShort
 	/**
-	 * @inheritDoc
+	 * {@inheritdoc}
 	 */
 	public function run() {
 		new Assets( get_template_directory() );

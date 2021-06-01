@@ -11,9 +11,8 @@ use Studiometa\Managers\ManagerInterface;
 
 /** Class **/
 class TaxonomiesManager implements ManagerInterface {
-	// phpcs:ignore Generic.Commenting.DocComment.MissingShort
 	/**
-	 * @inheritDoc
+	 * {@inheritdoc}
 	 */
 	public function run() {
 		add_action( 'init', array( $this, 'register_taxonomies' ), 1 );
