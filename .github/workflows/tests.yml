@@ -45,11 +45,16 @@ jobs:
           name: test-project
 
       - name: Extract archive
-        run: tar -xvf __test-project__.tar.gz && ls -al
+        run: tar -xf __test-project__.tar.gz && ls -al
 
       - name: Determine composer cache directory
         shell: bash
         run: "echo \"COMPOSER_CACHE_DIR=$(composer config cache-dir)\" >> $GITHUB_ENV"
+
+      - uses: php-actions/composer@v5
+        with:
+          php_version: 7.3
+          version: 1
 
       - name: Cache dependencies
         uses: actions/cache@v2
@@ -58,15 +63,8 @@ jobs:
           key: ${{ runner.os }}-composer-${{ hashFiles('composer.lock') }}
           restore-keys: ${{ runner.os }}-composer-
 
-      - uses: php-actions/composer@v5
-        with:
-          php_version: 7.3
-          version: 1
-
       - name: PHPCS
-        uses: chekalsky/phpcs-action@v1
-        with:
-          phpcs_bin_path: ./vendor/bin/phpcs
+        run: composer run phpcs
 
   phpstan:
     name: PHPStan
@@ -78,19 +76,26 @@ jobs:
           name: test-project
 
       - name: Extract archive
-        run: tar -xvf __test-project__.tar.gz && ls -al
+        run: tar -xf __test-project__.tar.gz && ls -al
+
+      - name: Determine composer cache directory
+        shell: bash
+        run: "echo \"COMPOSER_CACHE_DIR=$(composer config cache-dir)\" >> $GITHUB_ENV"
 
       - uses: php-actions/composer@v5
         with:
           php_version: 7.3
           version: 1
 
-      - name: PHPStan
-        uses: docker://oskarstark/phpstan-ga
-        env:
-          REQUIRE_DEV: true
+      - name: Cache dependencies
+        uses: actions/cache@v2
         with:
-          args: analyse
+          path: ${{ env.COMPOSER_CACHE_DIR }}
+          key: ${{ runner.os }}-composer-${{ hashFiles('composer.lock') }}
+          restore-keys: ${{ runner.os }}-composer-
+
+      - name: PHPStan
+        run: composer run phpstan
 
   lint:
     name: ESLint & Stylelint
@@ -107,6 +112,6 @@ jobs:
           name: test-project
 
       - name: Extract archive
-        run: tar -xvf __test-project__.tar.gz && ls -al
+        run: tar -xf __test-project__.tar.gz && ls -al
 
       - run: npm run lint

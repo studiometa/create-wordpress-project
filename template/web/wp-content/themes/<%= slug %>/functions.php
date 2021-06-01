@@ -63,7 +63,7 @@ add_action(
 			new ThemeManager(),
 			new WordPressManager(),
 			new TwigManager(),
-			new AssetsManager( get_template_directory() ),
+			new AssetsManager(),
 			new CleanupManager(),
 			new CustomPostTypesManager(),
 			new TaxonomiesManager(),

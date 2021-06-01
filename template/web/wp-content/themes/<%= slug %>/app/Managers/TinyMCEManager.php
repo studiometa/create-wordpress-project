@@ -1,5 +1,4 @@
 <?php
-
 /**
  * Bootstraps TinyMCE related functions.
  *
@@ -17,7 +16,7 @@ class TinyMCEManager implements ManagerInterface {
 	 */
 	public function run() {
 		add_filter( 'tiny_mce_before_init', array( $this, 'set_editor_config' ) );
-		add_action( 'admin_print_styles', array( $this, 'add_editor_stylesheet' ), 11 );
+		add_action( 'admin_enqueue_scripts', array( $this, 'add_editor_stylesheet' ), 11 );
 		add_filter( 'mce_buttons', array( $this, 'add_editor_buttons' ) );
 	}
 
@@ -25,6 +24,7 @@ class TinyMCEManager implements ManagerInterface {
 	 * Add a buttons to the TinyMCE editor
 	 *
 	 * @param array $buttons Buttons list.
+	 * @return array
 	 */
 	public function add_editor_buttons( $buttons ) {
 		array_unshift( $buttons, 'styleselect' );
@@ -73,11 +73,12 @@ class TinyMCEManager implements ManagerInterface {
 	/**
 	 * Load a custom stylesheet for TinyMCE wysiwyg editor
 	 *
-	 * @param string $plugins Plugins.
+	 * @param string $hook_suffix Plugins.
+	 * @return string
 	 */
-	public function add_editor_stylesheet( $plugins ) {
+	public function add_editor_stylesheet( $hook_suffix ) {
 		add_editor_style( get_template_directory_uri() . '/dist/css/admin/editor-style.css' );
-		return $plugins;
+		return $hook_suffix;
 	}
 
 }
