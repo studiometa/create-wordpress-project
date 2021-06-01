@@ -47,14 +47,14 @@ jobs:
       - name: Extract archive
         run: tar -xf __test-project__.tar.gz && ls -al
 
-      - name: Determine composer cache directory
-        shell: bash
-        run: "echo \"COMPOSER_CACHE_DIR=$(composer config cache-dir)\" >> $GITHUB_ENV"
-
       - uses: php-actions/composer@v5
         with:
           php_version: 7.3
           version: 1
+
+      - name: Determine composer cache directory
+        shell: bash
+        run: "echo \"COMPOSER_CACHE_DIR=$(composer config cache-dir)\" >> $GITHUB_ENV"
 
       - name: Cache dependencies
         uses: actions/cache@v2
@@ -78,14 +78,14 @@ jobs:
       - name: Extract archive
         run: tar -xf __test-project__.tar.gz && ls -al
 
-      - name: Determine composer cache directory
-        shell: bash
-        run: "echo \"COMPOSER_CACHE_DIR=$(composer config cache-dir)\" >> $GITHUB_ENV"
-
       - uses: php-actions/composer@v5
         with:
           php_version: 7.3
           version: 1
+
+      - name: Determine composer cache directory
+        shell: bash
+        run: "echo \"COMPOSER_CACHE_DIR=$(composer config cache-dir)\" >> $GITHUB_ENV"
 
       - name: Cache dependencies
         uses: actions/cache@v2
