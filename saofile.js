@@ -35,7 +35,7 @@ module.exports = {
         { name: 'GitLab', value: 'git@gitlab.com:studiometa' },
         { name: 'GitHub', value: 'git@github.com:studiometa' },
       ],
-      default: 0,
+      default: 'git@gitlab.com:studiometa',
     },
     {
       name: 'repository',
@@ -127,9 +127,7 @@ module.exports = {
     });
 
     // Execute installation related shell scripts
-    [
-      'bin/generate-wp-config.sh',
-    ].forEach((file) => {
+    ['bin/generate-wp-config.sh'].forEach((file) => {
       exec(path.resolve(outDir, file));
     });
 
