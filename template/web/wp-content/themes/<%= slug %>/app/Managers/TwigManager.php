@@ -11,9 +11,8 @@ use Studiometa\Managers\ManagerInterface;
 
 /** Class */
 class TwigManager implements ManagerInterface {
-	// phpcs:ignore Generic.Commenting.DocComment.MissingShort
 	/**
-	 * @inheritDoc
+	 * {@inheritdoc}
 	 */
 	public function run() {
 		add_filter( 'timber/twig', array( $this, 'add_twig_toolkit' ) );

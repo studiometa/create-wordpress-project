@@ -15,10 +15,9 @@ class PostRepository extends Repository {
 	const POST_TYPES = array( 'post' ); // Main post types.
 
 	/**
-	 * Implement do_query
+	 * Implement do_query.
 	 *
-	 * @param array  $params for the query.
-	 * @param string $class_type to return.
+	 * @param array $params for the query.
 	 * @return \Timber\PostQuery
 	 */
 	public function do_query( $params ) {

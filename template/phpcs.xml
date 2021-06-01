@@ -38,4 +38,11 @@
   <rule ref="WordPress.Files.FileName.NotHyphenatedLowercase">
     <exclude-pattern>/app/</exclude-pattern>
   </rule>
+
+  <!-- Allow usage of `{@inheritdoc}` in doc blocks -->
+  <rule ref="Squiz.Commenting.FunctionComment">
+    <properties>
+      <property name="skipIfInheritdoc" value="true" />
+    </properties>
+  </rule>
 </ruleset>

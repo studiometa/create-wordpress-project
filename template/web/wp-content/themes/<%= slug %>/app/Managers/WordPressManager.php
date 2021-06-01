@@ -11,9 +11,8 @@ use Studiometa\Managers\ManagerInterface;
 
 /** Class **/
 class WordPressManager implements ManagerInterface {
-	// phpcs:ignore Generic.Commenting.DocComment.MissingShort
 	/**
-	 * @inheritDoc
+	 * {@inheritdoc}
 	 */
 	public function run() {
 		add_action( 'wp_head', array( $this, 'add_no_index' ), 10 );
