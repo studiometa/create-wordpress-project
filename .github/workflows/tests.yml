@@ -97,8 +97,8 @@ jobs:
       - name: PHPStan
         run: composer run phpstan
 
-  lint:
-    name: ESLint & Stylelint
+  eslint:
+    name: ESLint
     runs-on: ubuntu-latest
     needs: build
     steps:
@@ -114,7 +114,45 @@ jobs:
       - name: Extract archive
         run: tar -xf __test-project__.tar.gz && ls -al
 
-      - run: npm run lint
+      - run: npm run lint:scripts
+
+  stylelint:
+    name: Stylelint
+    runs-on: ubuntu-latest
+    needs: build
+    steps:
+      - uses: actions/setup-node@v1
+        with:
+          node-version: 12
+          registry-url: https://registry.npmjs.org/
+
+      - uses: actions/download-artifact@v2
+        with:
+          name: test-project
+
+      - name: Extract archive
+        run: tar -xf __test-project__.tar.gz && ls -al
+
+      - run: npm run lint:styles
+
+  prettier:
+    name: Twig Prettier
+    runs-on: ubuntu-latest
+    needs: build
+    steps:
+      - uses: actions/setup-node@v1
+        with:
+          node-version: 12
+          registry-url: https://registry.npmjs.org/
+
+      - uses: actions/download-artifact@v2
+        with:
+          name: test-project
+
+      - name: Extract archive
+        run: tar -xf __test-project__.tar.gz && ls -al
+
+      - run: npm run lint:templates
 
   build-assets:
     name: Build assets
