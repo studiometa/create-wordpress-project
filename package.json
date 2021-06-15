@@ -37,6 +37,7 @@
     "@studiometa/prettier-config": "^2.0.1",
     "@types/node": "^15.6.1",
     "eslint": "^7.26.0",
-    "prettier": "^2.3.0"
+    "prettier": "^2.3.0",
+    "prettier-plugin-twig-melody": "^0.4.6"
   }
 }
