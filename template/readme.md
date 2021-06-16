@@ -17,11 +17,11 @@ Créer et configurer le fichier `.htaccess` en vous basant sur le fichier `.htac
 Installer les dépendances nécessaires :
 
 ```bash
-# Installer les dépendances Composer avec PHP 7.0
-php7.0 $(which composer) install
+# Installer les dépendances Composer avec PHP 7.3
+php7.3 $(which composer) install
 
-# Installer les dépendances NPM avec Node 12
-nvm use 12
+# Installer les dépendances NPM avec Node 16
+nvm use 16
 npm install
 ```
 
