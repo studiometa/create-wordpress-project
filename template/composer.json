@@ -26,7 +26,7 @@
     "wpackagist-plugin/seo-by-rank-math": "^1.0",
     <%_ } _%>
     <%_ if (acf) { _%>
-    "studiometa/advanced-custom-fields-pro": "dev-master",
+    "studiometa/advanced-custom-fields-pro": "^5.9.6",
     "stoutlogic/acf-builder": "^1.10",
     <%_ } _%>
     "boxuk/wp-muplugin-loader": "^1.0",
