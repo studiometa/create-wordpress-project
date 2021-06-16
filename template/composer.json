@@ -47,14 +47,6 @@
     {
       "type": "composer",
       "url": "https://wpackagist.org"
-    },
-    {
-      "type": "vcs",
-      "url": "https://github.com/tabrisrp/wp-background-processing"
-    },
-    {
-      "type": "vcs",
-      "url": "https://github.com/studiometa/wp-assets"
     }
   ],
   "scripts": {
