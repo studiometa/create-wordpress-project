@@ -19,6 +19,8 @@ node_modules/
 
 # Ignore dynamic files that might be edited by WordPress
 /web/.htaccess
+/web/wp-content/db.php
+/web/wp-content/advanced-cache.php
 
 # Ignore mu-plugins, plugins and themes installed via composer
 # but do not ignore custom ones for the current project
