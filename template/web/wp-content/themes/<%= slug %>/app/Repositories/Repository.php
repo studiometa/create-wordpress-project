@@ -8,8 +8,6 @@
 
 namespace Studiometa\Repositories;
 
-use Timber\PostCollection;
-
 /** Class */
 abstract class Repository {
 	/**
@@ -37,28 +35,6 @@ abstract class Repository {
 	public function first() {
 		$local_array = $this->get();
 		return isset( $local_array[0] ) ? $local_array[0] : null;
-	}
-
-	/**
-	 * Returns a slice of the collection starting at the given index.
-	 * Similar to Laravel's slice().
-	 *
-	 * @param int $start Start index.
-	 *
-	 * @return array
-	 */
-	public function slice( $start ) {
-		$local_array = $this->get();
-
-		if ( count( $local_array ) < 1 ) {
-			return array();
-		}
-
-		if ( is_object( $local_array ) && $local_array instanceof PostCollection ) {
-			$local_array = $local_array->getArrayCopy();
-		}
-
-		return array_slice( $local_array, (int) $start );
 	}
 
 	/**
