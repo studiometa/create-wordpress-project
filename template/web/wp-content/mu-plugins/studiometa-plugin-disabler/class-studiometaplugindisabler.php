@@ -29,13 +29,7 @@ class StudiometaPluginDisabler {
 	 * @return void
 	 */
 	public function run() {
-		$env = getenv( 'WP_ENV' );
-
-		if ( ! $env ) {
-			return;
-		}
-
-		$plugins_to_disable_raw = getenv( 'DISABLE_PLUGINS_' . strtoupper( $env ) );
+		$plugins_to_disable_raw = getenv( 'DISABLE_PLUGINS_' . strtoupper( WP_ENV ) );
 
 		if ( ! $plugins_to_disable_raw ) {
 			return;
