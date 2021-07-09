@@ -126,10 +126,30 @@ trait ObjectCacheRepositoryTrait {
 	}
 }
 
+trait ValidateLimitTrait {
+	/**
+	 * Validate the limit parameter.
+	 *
+	 * @param  int $limit The limit to validate.
+	 * @return int        The adjusted limit, minimum 0, maximu 100.
+	 */
+	private function validate_limit_parameter( int $limit ) {
+		if ( $limit <= 0 || $limit > 100 ) {
+			// phpcs:ignore WordPress.PHP.DevelopmentFunctions.error_log_trigger_error
+			trigger_error( __CLASS__ . ' ' . __FUNCTION__ . ' : $limit parameter should not be over 100 to avoid full sql table scans', E_USER_WARNING );
+			$limit = $limit <= 0 ? 0 : 100;
+		}
+
+		return $limit;
+	}
+}
+
 /**
  * Post repository trait.
  */
 trait PostRepositoryTrait {
+	use ValidateLimitTrait;
+
 	/**
 	 * Define the post type to query.
 	 *
@@ -180,14 +200,8 @@ trait PostRepositoryTrait {
 	 *
 	 * @return $this
 	 */
-	public function latest_posts( $limit = 10, array $exclude = array(), $paged = 0 ) {
-
-		// Set sane defaults so we don't do full table scans.
-		if ( $limit <= 0 || $limit > 100 ) {
-			// phpcs:ignore WordPress.PHP.DevelopmentFunctions.error_log_trigger_error
-			trigger_error( __CLASS__ . ' ' . __FUNCTION__ . ' : $limit parameter should not be over 100 to avoid full sql table scans', E_USER_WARNING );
-			$limit = 100;
-		}
+	public function latest_posts( int $limit = (int) get_option( 'posts_per_page' ), array $exclude = array(), $paged = 0 ) {
+		$limit = $this->validate_limit_parameter( $limit );
 
 		$this->params = array(
 			'posts_per_page' => (int) $limit,
