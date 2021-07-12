@@ -84,3 +84,9 @@ Par défaut, tout ce qui se trouve dans les sous-dossiers de `web/wp-content` es
 !/web/wp-content/mu-plugins/my-mu-plugin.php
 !/web/wp-content/plugins/my-plugin/
 ```
+
+## Fonctionnalités additionnelles
+
+### Désactivation de plugins par environnement
+
+Le MU-plugin [Studiometa plugin disabler](./web/wp-content/mu-plugins/studiometa-plugin-disabler/README.md) permet de forcer la désactivation des plugins en fonction de l'environnement. [Voir le readme](./web/wp-content/mu-plugins/studiometa-plugin-disabler/README.md) pour plus d'informations.
