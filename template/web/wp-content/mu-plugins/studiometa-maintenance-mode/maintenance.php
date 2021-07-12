@@ -10,14 +10,15 @@
 
 <!DOCTYPE html>
 <html <?php language_attributes(); ?>>
-<head>
-	<meta charset="<?php bloginfo( 'charset' ); ?>" />
-	<meta name="viewport" content="width=device-width, initial-scale=1" />
-	<title><?php bloginfo( 'name' ) . ( ! empty( get_bloginfo( 'description' ) ) ? ' – ' . bloginfo( 'description' ) : '' ); ?></title>
-	<link rel="stylesheet" href="./wp-content/mu-plugins/studiometa-maintenance-mode/maintenance.css">
-</head>
+	<head>
+		<meta charset="<?php bloginfo( 'charset' ); ?>" />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		<title><?php bloginfo( 'name' ) . ( ! empty( get_bloginfo( 'description' ) ) ? ' – ' . bloginfo( 'description' ) : '' ); ?></title>
+		<link rel="stylesheet" href="/wp-content/mu-plugins/studiometa-maintenance-mode/maintenance.css">
+	</head>
 
-<body <?php body_class(); ?>>
-	<?php wp_body_open(); ?>
-	<h1><?php esc_html_e( 'Site under maintenance' ); ?></h1>
-</body>
+	<body <?php body_class(); ?>>
+		<?php wp_body_open(); ?>
+		<h1><?php esc_html_e( 'Site under maintenance' ); ?></h1>
+	</body>
+</html>
