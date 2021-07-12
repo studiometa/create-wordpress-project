@@ -2,6 +2,7 @@
 <ruleset name="<%= name %>">
   <!-- Define file and folders to lint -->
   <file>./web/wp-content/themes/<%= slug %>/</file>
+  <file>./web/wp-content/mu-plugins/studiometa-plugin-disabler/</file>
   <!-- <file>./web/wp-content/plugins/<%= slug %>-.../</file> -->
   <!-- <file>./web/wp-content/mu-plugins/<%= slug %>-.../</file> -->
 
