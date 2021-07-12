@@ -6,11 +6,8 @@
  * @author     Studio Meta <agence@studiometa.fr>
  * @copyright  2021 Studio Meta
  * @license    https://opensource.org/licenses/MIT
- * @since      1.0.0
  * @version    1.0.0
  */
-
-require_once __DIR__ . '/class-disableplugins.php';
 
 /**
  * StudiometaPluginDisabler class.
@@ -29,6 +26,10 @@ class StudiometaPluginDisabler {
 	 * @return void
 	 */
 	public function run() {
+		if ( ! defined( 'WP_ENV' ) ) {
+			return;
+		}
+
 		$plugins_to_disable_raw = getenv( 'DISABLE_PLUGINS_' . strtoupper( WP_ENV ) );
 
 		if ( ! $plugins_to_disable_raw ) {
@@ -44,5 +45,7 @@ class StudiometaPluginDisabler {
 		new DisablePlugins( $plugins_to_disable );
 	}
 }
+
+require_once __DIR__ . '/class-disableplugins.php';
 
 new StudiometaPluginDisabler();

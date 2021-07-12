@@ -15,10 +15,18 @@
  * DisablePlugins class.
  */
 class DisablePlugins {
-	/** @var object Instance */
+	/**
+	 * Instance.
+	 *
+	 * @var object
+	 */
 	public static $instance;
 
-	/** @var array Disabled plugins */
+	/**
+	 * Disabled plugins.
+	 *
+	 * @var array
+	 */
 	private $disabled = array();
 
 	/**
