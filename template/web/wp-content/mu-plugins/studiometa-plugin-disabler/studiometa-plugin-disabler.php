@@ -14,18 +14,11 @@
  */
 class StudiometaPluginDisabler {
 	/**
-	 * Constructor.
-	 */
-	public function __construct() {
-		$this->run();
-	}
-
-	/**
 	 * Disable plugins.
 	 *
 	 * @return void
 	 */
-	public function run() {
+	public static function init() {
 		if ( ! defined( 'WP_ENV' ) ) {
 			return;
 		}
@@ -46,6 +39,6 @@ class StudiometaPluginDisabler {
 	}
 }
 
-require_once __DIR__ . '/class-disableplugins.php';
+require_once __DIR__ . '/includes/class-disableplugins.php';
 
-new StudiometaPluginDisabler();
+StudiometaPluginDisabler::init();

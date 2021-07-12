@@ -33,6 +33,7 @@
   <!-- Disable class-classname.php file naming for app folder -->
   <rule ref="WordPress.Files.FileName.InvalidClassFileName">
     <exclude-pattern>/app/</exclude-pattern>
+    <exclude-pattern>/studiometa-plugin-disabler/studiometa-plugin-disabler.php</exclude-pattern>
   </rule>
 
   <!-- Allow UpperCaseClasses file names in app folder -->
