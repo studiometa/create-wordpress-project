@@ -10,7 +10,7 @@ namespace Studiometa\Repositories;
 use Timber\TermGetter;
 
 /** Class */
-final class TermRepository extends Repository {
+final class TermRepository extends AbstractRepository {
 	const CLASS_TYPE = '\Timber\Term';
 
 	/**
@@ -30,7 +30,7 @@ final class TermRepository extends Repository {
 	 * @param array        $exclude  IDs of posts to exclude.
 	 * @param int          $limit    Number of maximum results.
 	 *
-	 * @return Repository
+	 * @return $this
 	 */
 	public function top_level_terms( $taxonomy, $exclude = array(), $limit = 100 ) {
 		// Set sane defaults so we don't do full table scans.

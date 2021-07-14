@@ -10,7 +10,7 @@ namespace Studiometa\Repositories;
 use Timber\PostQuery;
 
 /** Class */
-class PostRepository extends Repository {
+class PostRepository extends AbstractRepository {
 	const CLASS_TYPE = '\Timber\Post';
 	const POST_TYPES = array( 'post' ); // Main post types.
 
@@ -33,7 +33,7 @@ class PostRepository extends Repository {
 	 * @param array        $exclude Posts to exclude (optional).
 	 * @param integer      $paged   Enable pagination (optional).
 	 *
-	 * @return Repository
+	 * @return $this
 	 */
 	public function posts_by_category_slug( $slug, $limit = 10, $exclude = array(), $paged = 0 ) {
 
@@ -77,7 +77,7 @@ class PostRepository extends Repository {
 	 * @param array   $exclude    IDs of posts to exclude.
 	 * @param integer $paged      Enable pagination.
 	 *
-	 * @return Repository
+	 * @return $this
 	 */
 	public function latest_posts( $limit = 10, array $exclude = array(), $paged = 0 ) {
 
