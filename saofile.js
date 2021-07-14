@@ -89,6 +89,7 @@ module.exports = {
         type: 'move',
         patterns: {
           'web/wp-content/themes/<%= slug %>': `web/wp-content/themes/${this.answers.slug}`,
+          _gitattributes: '.gitattributes',
           _gitignore: '.gitignore',
         },
       },
