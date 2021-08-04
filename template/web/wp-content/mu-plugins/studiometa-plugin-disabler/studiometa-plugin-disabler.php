@@ -1,6 +1,10 @@
 <?php
 /**
- * Disable plugins depends on environment.
+ * Plugin Name: Studio Meta - Plugin Disabler
+ * Description: Disable plugins depends on environment.
+ * Version: 1.0.0
+ * Author: Studio Meta
+ * Author URI: https://www.studiometa.fr/
  *
  * @package    studiometa/create-wordpress-project
  * @author     Studio Meta <agence@studiometa.fr>
