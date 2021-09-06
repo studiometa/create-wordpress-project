@@ -41,6 +41,12 @@
     <exclude-pattern>/app/</exclude-pattern>
   </rule>
 
+  <!-- Run against the PHPCompatibilityWP ruleset -->
+  <rule ref="PHPCompatibilityWP" />
+
+  <!-- Check for cross-version support for PHP 7.3 and higher -->
+  <config name="testVersion" value="7.3-"/>
+
   <!-- Allow usage of `{@inheritdoc}` in doc blocks -->
   <rule ref="Squiz.Commenting.FunctionComment">
     <properties>
