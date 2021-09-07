@@ -41,7 +41,8 @@
     "dealerdirect/phpcodesniffer-composer-installer": "^0.7.1",
     "phpstan/phpstan": "^0.12.50",
     "szepeviktor/phpstan-wordpress": "^0.7.5",
-    "satesh/phpcs-gitlab-report": "^1.0"
+    "satesh/phpcs-gitlab-report": "^1.0",
+    "roave/security-advisories": "dev-latest"
   },
   "repositories": [
     {
