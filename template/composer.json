@@ -42,6 +42,7 @@
     "phpstan/phpstan": "^0.12.50",
     "szepeviktor/phpstan-wordpress": "^0.7.5",
     "satesh/phpcs-gitlab-report": "^1.0",
+    "phpcompatibility/phpcompatibility-wp": "^2.1.2",
     "roave/security-advisories": "dev-latest"
   },
   "repositories": [
