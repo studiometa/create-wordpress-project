@@ -1,4 +1,4 @@
-import Base from '@studiometa/js-toolkit';
+import { Base, createApp } from '@studiometa/js-toolkit';
 import { isDev } from './config';
 import Component from './components/Component';
 
@@ -28,6 +28,4 @@ class App extends Base {
   }
 }
 
-const app = new App(document.documentElement);
-app.$mount();
-export default app;
+export default createApp(App, document.body);
