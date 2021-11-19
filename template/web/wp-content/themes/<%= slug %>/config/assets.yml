@@ -10,7 +10,3 @@ all:
     vendors: dist/vendors.js
     app: dist/js/app.js
 
-front-page:
-  js:
-    front-page: dist/js/pages/front-page.js
-
