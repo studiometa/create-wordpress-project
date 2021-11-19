@@ -33,7 +33,7 @@ class StudiometaPluginDisabler {
 			return;
 		}
 
-		$plugins_to_disable = explode( ',', $plugins_to_disable_raw );
+		$plugins_to_disable = array_filter( explode( ',', $plugins_to_disable_raw ) );
 
 		if ( empty( $plugins_to_disable ) || ! is_array( $plugins_to_disable ) ) {
 			return;
