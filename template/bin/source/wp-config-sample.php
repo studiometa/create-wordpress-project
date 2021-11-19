@@ -122,5 +122,13 @@ define( 'WP_CACHE', getenv( 'WP_CACHE' ) === 'true' );
 /* Set default theme */
 define( 'WP_DEFAULT_THEME', '<%= slug %>' );
 
+/**
+ * Allow WordPress to detect HTTPS when used behind a reverse proxy or a load balancer
+ * @see https://codex.wordpress.org/Function_Reference/is_ssl#Notes
+ */
+if ( isset( $_SERVER['HTTP_X_FORWARDED_PROTO'] ) && 'https' === $_SERVER['HTTP_X_FORWARDED_PROTO'] ) {
+	$_SERVER['HTTPS'] = 'on';
+}
+
 /** Sets up WordPress vars and included files. */
 require_once ABSPATH . 'wp-settings.php';
