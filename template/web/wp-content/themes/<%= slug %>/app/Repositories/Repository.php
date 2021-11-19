@@ -64,7 +64,7 @@ abstract class Repository {
 	/**
 	 * Runs a query.
 	 *
-	 * @param array  $params     Query params.
+	 * @param array $params Query params.
 	 *
 	 * @return Repository
 	 */
@@ -95,7 +95,7 @@ abstract class Repository {
 	 *
 	 * Define the query the Repository will run.
 	 *
-	 * @param array  $params     Query params.
+	 * @param array $params Query params.
 	 * @return mixed
 	 */
 	abstract protected function do_query( $params );

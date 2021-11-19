@@ -11,15 +11,27 @@ use Studiometa\Managers\ManagerInterface;
 
 /** Class */
 class TwigManager implements ManagerInterface {
-	// phpcs:ignore Generic.Commenting.DocComment.MissingShort
 	/**
-	 * @inheritDoc
+	 * {@inheritdoc}
 	 */
 	public function run() {
+		add_filter( 'timber/twig', array( $this, 'add_twig_toolkit' ) );
 		add_filter( 'timber/twig', array( $this, 'add_twig_template_from_string' ) );
 		add_filter( 'timber/twig', array( $this, 'add_twig_template_include_comments' ) );
 		add_filter( 'timber/output', array( $this, 'add_twig_template_render_comments' ), 10, 3 );
 		add_filter( 'timber/loader/loader', array( $this, 'add_svg_path' ), 10, 1 );
+	}
+
+	/**
+	 * Add Studio Meta's Twig Toolkit extension.
+	 *
+	 * @link https://github.com/studiometa/twig-toolkit/
+	 * @param \Twig\Environment $twig The Twig environment.
+	 * @return \Twig\Environment
+	 */
+	public function add_twig_toolkit( \Twig\Environment $twig ) {
+		$twig->addExtension( new \Studiometa\TwigToolkit\Extension() );
+		return $twig;
 	}
 
 	/**

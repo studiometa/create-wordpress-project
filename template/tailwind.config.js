@@ -14,7 +14,8 @@ module.exports = {
     content: [
       './web/wp-content/themes/<%= slug %>/src/js/**/*.js',
       './web/wp-content/themes/<%= slug %>/src/js/**/*.vue',
-      './web/wp-content/themes/<%= slug %>/**/*.twig',
+      './web/wp-content/themes/<%= slug %>/templates/**/*.twig',
     ],
   },
+  mode: 'jit',
 };

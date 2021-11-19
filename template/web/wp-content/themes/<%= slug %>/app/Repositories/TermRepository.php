@@ -16,8 +16,8 @@ final class TermRepository extends Repository {
 	/**
 	 * Set what the Query will return
 	 *
-	 * @param array  $params     Query params.
-	 * @return Timber\Term
+	 * @param array $params Query params.
+	 * @return \Timber\Term
 	 */
 	public function do_query( $params ) {
 		return TermGetter::get_terms( $params, array(), static::CLASS_TYPE );

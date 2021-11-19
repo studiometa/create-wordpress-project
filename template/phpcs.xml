@@ -2,6 +2,7 @@
 <ruleset name="<%= name %>">
   <!-- Define file and folders to lint -->
   <file>./web/wp-content/themes/<%= slug %>/</file>
+  <file>./web/wp-content/mu-plugins/studiometa-plugin-disabler/</file>
   <!-- <file>./web/wp-content/plugins/<%= slug %>-.../</file> -->
   <!-- <file>./web/wp-content/mu-plugins/<%= slug %>-.../</file> -->
 
@@ -32,10 +33,24 @@
   <!-- Disable class-classname.php file naming for app folder -->
   <rule ref="WordPress.Files.FileName.InvalidClassFileName">
     <exclude-pattern>/app/</exclude-pattern>
+    <exclude-pattern>/studiometa-plugin-disabler/studiometa-plugin-disabler.php</exclude-pattern>
   </rule>
 
   <!-- Allow UpperCaseClasses file names in app folder -->
   <rule ref="WordPress.Files.FileName.NotHyphenatedLowercase">
     <exclude-pattern>/app/</exclude-pattern>
+  </rule>
+
+  <!-- Run against the PHPCompatibilityWP ruleset -->
+  <rule ref="PHPCompatibilityWP" />
+
+  <!-- Check for cross-version support for PHP 7.3 and higher -->
+  <config name="testVersion" value="7.3-"/>
+
+  <!-- Allow usage of `{@inheritdoc}` in doc blocks -->
+  <rule ref="Squiz.Commenting.FunctionComment">
+    <properties>
+      <property name="skipIfInheritdoc" value="true" />
+    </properties>
   </rule>
 </ruleset>

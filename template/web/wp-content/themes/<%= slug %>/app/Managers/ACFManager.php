@@ -15,9 +15,8 @@ use StoutLogic\AcfBuilder\FieldsBuilder;
 
 /** Class **/
 class ACFManager implements ManagerInterface {
-	// phpcs:ignore Generic.Commenting.DocComment.MissingShort
 	/**
-	 * @inheritDoc
+	 * {@inheritdoc}
 	 */
 	public function run() {
 		add_action( 'acf/init', array( $this, 'register_acf_example_group' ) );

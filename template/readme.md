@@ -17,11 +17,11 @@ Créer et configurer le fichier `.htaccess` en vous basant sur le fichier `.htac
 Installer les dépendances nécessaires :
 
 ```bash
-# Installer les dépendances Composer avec PHP 7.0
-php7.0 $(which composer) install
+# Installer les dépendances Composer avec PHP 7.3
+php7.3 $(which composer) install
 
-# Installer les dépendances NPM avec Node 12
-nvm use 12
+# Installer les dépendances NPM avec Node 16
+nvm use 16
 npm install
 ```
 
@@ -84,3 +84,9 @@ Par défaut, tout ce qui se trouve dans les sous-dossiers de `web/wp-content` es
 !/web/wp-content/mu-plugins/my-mu-plugin.php
 !/web/wp-content/plugins/my-plugin/
 ```
+
+## Fonctionnalités additionnelles
+
+### Désactivation de plugins par environnement
+
+Le MU-plugin [Studiometa plugin disabler](./web/wp-content/mu-plugins/studiometa-plugin-disabler/README.md) permet de forcer la désactivation des plugins en fonction de l'environnement. [Voir le readme](./web/wp-content/mu-plugins/studiometa-plugin-disabler/README.md) pour plus d'informations.

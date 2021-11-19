@@ -1,6 +1,6 @@
 {
   "name": "@studiometa/create-wordpress-project",
-  "version": "1.0.0-beta.9",
+  "version": "1.0.0-beta.10",
   "description": "A generator to kickstart a WordPress project in a few seconds! ⚡",
   "bin": "cli.js",
   "files": [
@@ -35,7 +35,9 @@
   "devDependencies": {
     "@studiometa/eslint-config": "^2.1.3",
     "@studiometa/prettier-config": "^2.0.1",
+    "@types/node": "^15.6.1",
     "eslint": "^7.26.0",
-    "prettier": "^2.3.0"
+    "prettier": "^2.3.0",
+    "prettier-plugin-twig-melody": "^0.4.6"
   }
 }

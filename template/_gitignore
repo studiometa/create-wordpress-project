@@ -19,6 +19,8 @@ node_modules/
 
 # Ignore dynamic files that might be edited by WordPress
 /web/.htaccess
+/web/wp-content/db.php
+/web/wp-content/advanced-cache.php
 
 # Ignore mu-plugins, plugins and themes installed via composer
 # but do not ignore custom ones for the current project
@@ -27,6 +29,7 @@ node_modules/
 
 # Add exception for the project's theme and plugins
 !/web/wp-content/themes/<%= slug %>
+!/web/wp-content/mu-plugins/studiometa-plugin-disabler/
 # !/web/wp-content/plugins/...
 # !/web/wp-content/mu-plugins/...
 
