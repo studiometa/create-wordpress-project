@@ -52,7 +52,7 @@ class PostRepository extends Repository {
 		$params = array(
 			'posts_per_page' => (int) $limit,
 			'category_name'  => $slug,
-			'post_type'      => 'post',
+			'post_type'      => self::POST_TYPES,
 			'post_status'    => 'publish',
 			'orderby'        => 'date',
 			'order'          => 'DESC',
