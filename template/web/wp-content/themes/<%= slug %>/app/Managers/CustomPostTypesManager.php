@@ -8,6 +8,7 @@
 namespace Studiometa\Managers;
 
 use Studiometa\Managers\ManagerInterface;
+use Studiometa\WPToolkit\Builders\PostTypeBuilder;
 
 /** Class **/
 class CustomPostTypesManager implements ManagerInterface {
@@ -22,12 +23,12 @@ class CustomPostTypesManager implements ManagerInterface {
 	/**
 	 * Register custom post types.
 	 *
-	 * @todo use Studiometa\WP_Factory
+	 * Use PostTypeBuilder from studiometa/wp-toolkit
+	 * @see https://github.com/studiometa/wp-toolkit
+	 *
 	 * @return void
 	 */
-	public function register_custom_post_types() {
-
-	}
+	public function register_custom_post_types() {}
 
 	/**
 	 * Set the class map for Timber instantiation of posts.
@@ -44,7 +45,7 @@ class CustomPostTypesManager implements ManagerInterface {
 		);
 
 		foreach ($post_types as $key => $post_type) {
-			// Do not change the class_map of $exclude_post_types.
+			// Do not change the class_map of default WordPress post_types.
 			if ( in_array($post_type, $exclude_post_types, true) ) {
 				continue;
 			}
