@@ -8,6 +8,7 @@
 namespace Studiometa\Managers;
 
 use Studiometa\Managers\ManagerInterface;
+use Studiometa\WPToolkit\Builders\TaxonomyBuilder;
 
 /** Class **/
 class TaxonomiesManager implements ManagerInterface {
@@ -21,9 +22,10 @@ class TaxonomiesManager implements ManagerInterface {
 	/**
 	 * Register custom taxonomies.
 	 *
-	 * @todo use Studiometa\WP_Factory
+	 * Use TaxonomyBuilder from studiometa/wp-toolkit
+	 * @see https://github.com/studiometa/wp-toolkit
+	 *
 	 * @return void
 	 */
-	public function register_taxonomies() {
-	}
+	public function register_taxonomies() {}
 }
