@@ -22,7 +22,8 @@ class TaxonomiesManager implements ManagerInterface {
 	/**
 	 * Register custom taxonomies.
 	 *
-	 * Use TaxonomyBuilder from studiometa/wp-toolkit
+	 * Use TaxonomyBuilder from studiometa/wp-toolkit.
+	 *
 	 * @see https://github.com/studiometa/wp-toolkit
 	 *
 	 * @return void
