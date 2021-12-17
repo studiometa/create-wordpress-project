@@ -50,8 +50,9 @@ class CustomPostTypesManager implements ManagerInterface {
 				continue;
 			}
 
-			$class_map[$post_type] = "\Studiometa\Models\\" . ucfirst($post_type);
+			$class_map[$key] = "\Studiometa\Models\\" . ucfirst($key);
 		}
+
 		return $class_map;
 	}
 }
