@@ -16,20 +16,25 @@ class CustomPostTypesManager implements ManagerInterface {
 	 * {@inheritdoc}
 	 */
 	public function run() {
-		add_action( 'init', array( $this, 'register_custom_post_types' ), 1 );
+		add_action( 'init', array( $this, 'register_custom_post_type_sample' ), 1 );
 		add_filter( 'Timber\PostClassMap', array( $this, 'set_timber_classmap' ) );
 	}
 
 	/**
-	 * Register custom post types.
+	 * Register a custom post type "Sample".
 	 *
-	 * Use PostTypeBuilder from studiometa/wp-toolkit.
+	 * Use one method per custom post type.
+	 * Use PostTypeBuilder from studiometa/wp-toolkit to register the post type.
 	 *
 	 * @see https://github.com/studiometa/wp-toolkit
 	 *
 	 * @return void
 	 */
-	public function register_custom_post_types() {}
+	public function register_custom_post_type_sample() {
+		$cpt = new PostTypeBuilder( 'sample' );
+		$cpt->set_labels( 'Sample', 'Samples' )
+			->register();
+	}
 
 	/**
 	 * Set the class map for Timber instantiation of posts.
