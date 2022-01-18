@@ -8,6 +8,7 @@
 namespace Studiometa\Managers;
 
 use Studiometa\Managers\ManagerInterface;
+use Studiometa\WPToolkit\Builders\TaxonomyBuilder;
 
 /** Class **/
 class TaxonomiesManager implements ManagerInterface {
@@ -15,15 +16,23 @@ class TaxonomiesManager implements ManagerInterface {
 	 * {@inheritdoc}
 	 */
 	public function run() {
-		add_action( 'init', array( $this, 'register_taxonomies' ), 1 );
+		add_action( 'init', array( $this, 'register_taxonomy_sample' ), 1 );
 	}
 
 	/**
-	 * Register custom taxonomies.
+	 * Register a custom taxonomy "sample".
 	 *
-	 * @todo use Studiometa\WP_Factory
+	 * Use one method per taxonomy.
+	 * Use TaxonomyBuilder from studiometa/wp-toolkit to register the taxonomy.
+	 *
+	 * @see https://github.com/studiometa/wp-toolkit
+	 *
 	 * @return void
 	 */
-	public function register_taxonomies() {
+	public function register_taxonomy_sample() {
+		$tax = new TaxonomyBuilder( 'sample-cat' );
+		$tax->set_post_types( 'sample' )
+			->set_labels( 'Sample Category', 'Sample Categories' )
+			->register();
 	}
 }
