@@ -118,6 +118,33 @@ define( 'WP_ROCKET_EMAIL', getenv( 'WP_ROCKET_EMAIL' ) );
 define( 'WP_ROCKET_KEY', getenv( 'WP_ROCKET_KEY' ) );
 define( 'WP_CACHE', getenv( 'WP_CACHE' ) === 'true' );
 <%_ } _%>
+<%_ if (sentry) { _%>
+
+/**
+ * Sentry config
+ * @see https://github.com/stayallive/wp-sentry
+ */
+
+$version_file_path = dirname( __DIR__ ) . '/package.json';
+$version = '';
+if ( file_exists( $version_file_path ) ) {
+	$package_content = file_get_contents( $version_file_path );
+
+	if ($package_content) {
+		$package = json_decode( $package_content );
+
+		if ( is_object( $package ) && isset( $package->name, $package->version ) ) {
+			$version = $package->name . '@' . $package->version;
+		}
+	}
+}
+
+define( 'WP_SENTRY_VERSION', $version );
+define( 'WP_SENTRY_PHP_DSN', getenv( 'WP_SENTRY_PHP_DSN' ) );
+define( 'WP_SENTRY_BROWSER_DSN', getenv( 'WP_SENTRY_BROWSER_DSN' ) );
+define( 'WP_SENTRY_BROWSER_TRACES_SAMPLE_RATE', getenv( 'WP_SENTRY_BROWSER_TRACES_SAMPLE_RATE' ) );
+define( 'WP_SENTRY_ENV', (getenv('WP_SENTRY_ENV')) ? getenv('WP_SENTRY_ENV') : getenv('APP_ENV') );
+<%_ } _%>
 
 /* Set default theme */
 define( 'WP_DEFAULT_THEME', '<%= slug %>' );
