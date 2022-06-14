@@ -1,7 +1,6 @@
 {
-  "name": "studiometa",
+  "name": "@studiometa/wordpress-project",
   "version": "0.0.0",
-  "description": "<%= description %>",
   "scripts": {
     "dev": "meta dev",
     "build": "meta build",

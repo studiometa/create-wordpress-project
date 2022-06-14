@@ -1,9 +1,6 @@
-# <%= url %>
-
-> <%= description %>
+# WordPress project
 
 ## Installation
-
 
 Cloner le dépôt :
 
