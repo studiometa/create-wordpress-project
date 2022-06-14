@@ -7,7 +7,8 @@
 
 namespace Studiometa\Managers;
 
-use Studiometa\Managers\ManagerInterface;
+use Studiometa\WPToolkit\Managers\ManagerInterface;
+use Studiometa\Ui\Extension;
 
 /** Class */
 class TwigManager implements ManagerInterface {
@@ -15,7 +16,7 @@ class TwigManager implements ManagerInterface {
 	 * {@inheritdoc}
 	 */
 	public function run() {
-		add_filter( 'timber/twig', array( $this, 'add_twig_toolkit' ) );
+		add_filter( 'timber/twig', array( $this, 'add_twig_ui' ) );
 		add_filter( 'timber/twig', array( $this, 'add_twig_template_from_string' ) );
 		add_filter( 'timber/twig', array( $this, 'add_twig_template_include_comments' ) );
 		add_filter( 'timber/output', array( $this, 'add_twig_template_render_comments' ), 10, 3 );
@@ -23,14 +24,27 @@ class TwigManager implements ManagerInterface {
 	}
 
 	/**
-	 * Add Studio Meta's Twig Toolkit extension.
+	 * Add Studio Meta's UI extension.
 	 *
-	 * @link https://github.com/studiometa/twig-toolkit/
+	 * @link https://ui.studiometa.dev
 	 * @param \Twig\Environment $twig The Twig environment.
 	 * @return \Twig\Environment
 	 */
-	public function add_twig_toolkit( \Twig\Environment $twig ) {
-		$twig->addExtension( new \Studiometa\TwigToolkit\Extension() );
+	public function add_twig_ui( \Twig\Environment $twig ) {
+		/**
+		 * The Twig loader
+		 *
+		 * @var \Twig\Loader\FilesystemLoader|null $loader.
+		 */
+		$loader = $twig->getLoader();
+		$twig->addExtension(
+			new Extension(
+				$loader,
+				get_template_directory() . '/templates',
+				get_template_directory() . '/static/svg',
+			)
+		);
+
 		return $twig;
 	}
 
@@ -65,9 +79,9 @@ class TwigManager implements ManagerInterface {
 	/**
 	 * Add debug comments to Timber::render
 	 *
-	 * @param string $output HTML.
-	 * @param array  $data data.
-	 * @param string $file name.
+	 * @param string  $output HTML.
+	 * @param mixed[] $data   Data.
+	 * @param string  $file   Name.
 	 * @return string
 	 */
 	public function add_twig_template_render_comments( $output, $data, $file ) {

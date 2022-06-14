@@ -13,14 +13,14 @@ abstract class Repository {
 	/**
 	 * List of posts.
 	 *
-	 * @var array
+	 * @var mixed[]
 	 */
 	private $result_set = array();
 
 	/**
 	 * Returns an array of posts.
 	 *
-	 * @return array
+	 * @return mixed[]
 	 */
 	public function get() {
 		return $this->result_set;
@@ -40,7 +40,7 @@ abstract class Repository {
 	/**
 	 * Runs a query.
 	 *
-	 * @param array $params Query params.
+	 * @param mixed[] $params Query params.
 	 *
 	 * @return Repository
 	 */
@@ -48,7 +48,13 @@ abstract class Repository {
 		// Clear old result sets.
 		$this->reset();
 
-		$cache_key      = __FUNCTION__ . md5( http_build_query( $params ) );
+		$cache_key = __FUNCTION__ . md5( http_build_query( $params ) );
+
+		/**
+		 * Cached results.
+		 *
+		 * @var mixed[]
+		 */
 		$cached_results = wp_cache_get( $cache_key, __CLASS__ );
 
 		if ( false !== $cached_results && count( $cached_results ) > 0 ) {
@@ -71,8 +77,8 @@ abstract class Repository {
 	 *
 	 * Define the query the Repository will run.
 	 *
-	 * @param array $params Query params.
-	 * @return mixed
+	 * @param mixed[] $params Query params.
+	 * @return mixed[]
 	 *
 	 * @example ./app/Repositories/PostRepository.php How to implement do_query().
 	 */
@@ -91,11 +97,11 @@ abstract class Repository {
 	/**
 	 * Returns current result set
 	 *
-	 * @param array $result_set Result set.
+	 * @param mixed[] $result_set Result set.
 	 *
 	 * @return Repository
 	 */
-	protected function result_set( $result_set = array() ) {
+	protected function result_set( $result_set ) {
 		$this->result_set = $result_set;
 		return $this;
 	}

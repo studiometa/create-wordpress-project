@@ -10,7 +10,7 @@
 
 namespace Studiometa\Managers;
 
-use Studiometa\Managers\ManagerInterface;
+use Studiometa\WPToolkit\Managers\ManagerInterface;
 use StoutLogic\AcfBuilder\FieldsBuilder;
 
 /** Class **/

@@ -7,7 +7,7 @@
 
 namespace Studiometa\Managers;
 
-use Studiometa\Managers\ManagerInterface;
+use Studiometa\WPToolkit\Managers\ManagerInterface;
 
 /** Class */
 class TinyMCEManager implements ManagerInterface {
@@ -23,8 +23,8 @@ class TinyMCEManager implements ManagerInterface {
 	/**
 	 * Add a buttons to the TinyMCE editor
 	 *
-	 * @param array $buttons Buttons list.
-	 * @return array
+	 * @param mixed[] $buttons Buttons list.
+	 * @return mixed[]
 	 */
 	public function add_editor_buttons( $buttons ) {
 		array_unshift( $buttons, 'styleselect' );
@@ -37,8 +37,8 @@ class TinyMCEManager implements ManagerInterface {
 	 * - add custom style formats dropdown
 	 * - add custom colors
 	 *
-	 * @param array $config Configuration.
-	 * @return array
+	 * @param mixed[] $config Configuration.
+	 * @return mixed[]
 	 */
 	public function set_editor_config( $config ) {
 		$style_formats = array(
