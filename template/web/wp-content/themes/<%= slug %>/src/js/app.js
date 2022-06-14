@@ -1,6 +1,6 @@
 import { Base, createApp } from '@studiometa/js-toolkit';
 import { isDev } from './config';
-import Component from './components/Component';
+import Component from './molecules/Component';
 
 /**
  * Main App class.
