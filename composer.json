@@ -32,7 +32,8 @@
     "szepeviktor/phpstan-wordpress": "^1.1",
     "satesh/phpcs-gitlab-report": "^1.0",
     "phpcompatibility/phpcompatibility-wp": "^2.1",
-    "roave/security-advisories": "dev-latest"
+    "roave/security-advisories": "dev-latest",
+    "mikehaertl/php-shellcommand": "^1.6"
   },
   "repositories": [
     {
@@ -44,12 +45,12 @@
     "db:export": "bin/db-export.sh",
     "db:import": "bin/db-import.sh",
     "post-install-cmd": [
-      "bin/cleanup-composer-install.sh",
-      "bin/generate-wp-config.sh"
+      "rm -rf ./web/wp/wp-content",
+      "cp config/scaffold/wp-config-sample.php web/wp-config.php"
     ],
     "post-update-cmd": [
-      "bin/cleanup-composer-install.sh",
-      "bin/generate-wp-config.sh"
+      "rm -rf ./web/wp/wp-content",
+      "cp config/scaffold/wp-config-sample.php web/wp-config.php"
     ],
     "phpstan": "phpstan analyse --memory-limit=512M",
     "test": "echo 'No test specified' && exit 0",
