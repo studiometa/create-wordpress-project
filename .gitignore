@@ -30,7 +30,12 @@ node_modules/
 # Add exception for the project's theme and plugins
 !/web/wp-content/themes/studiometa
 !/web/wp-content/mu-plugins/studiometa-plugin-disabler/
-# !/web/wp-content/plugins/...
+!/web/wp-content/plugins/acfml
+!/web/wp-content/plugins/sitepress-multilingual-cms
+!/web/wp-content/plugins/wpml-string-translation
+!/web/wp-content/plugins/wpml-translation-management
+!/web/wp-content/plugins/gravityforms
+!/web/wp-content/plugins/gravityforms-multilingual
 # !/web/wp-content/mu-plugins/...
 
 # Ignore .env and config files as they are personal
