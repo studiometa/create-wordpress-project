@@ -16,7 +16,6 @@ class TwigManager implements ManagerInterface {
 	 * {@inheritdoc}
 	 */
 	public function run() {
-		add_filter( 'timber/twig', array( $this, 'add_twig_toolkit' ) );
 		add_filter( 'timber/twig', array( $this, 'add_twig_ui' ) );
 		add_filter( 'timber/twig', array( $this, 'add_twig_template_from_string' ) );
 		add_filter( 'timber/twig', array( $this, 'add_twig_template_include_comments' ) );
@@ -46,18 +45,6 @@ class TwigManager implements ManagerInterface {
 			)
 		);
 
-		return $twig;
-	}
-
-	/**
-	 * Add Studio Meta's Twig Toolkit extension.
-	 *
-	 * @link https://github.com/studiometa/twig-toolkit/
-	 * @param \Twig\Environment $twig The Twig environment.
-	 * @return \Twig\Environment
-	 */
-	public function add_twig_toolkit( \Twig\Environment $twig ) {
-		$twig->addExtension( new \Studiometa\TwigToolkit\Extension() );
 		return $twig;
 	}
 
