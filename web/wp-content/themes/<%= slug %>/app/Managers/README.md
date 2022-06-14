@@ -26,13 +26,11 @@ Register custom post types
 ## TaxonomiesManager
 Register custom taxonomies
 
-<%_ if (acf) { _%>
 ## ACFManager
 Bootsrap ACF related features
 - Register ACF field groups
 - Register ACF Options pages
 - ...
-<%_ } _%>
 
 ## Add a new manager
 - Add it to the managers array in `functions.php`

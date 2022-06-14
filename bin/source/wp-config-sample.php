@@ -111,13 +111,11 @@ define( 'WP_SITEURL', WP_HOME . '/wp' );
 /** Configure directory paths if WP core is in a different directory */
 define( 'WP_CONTENT_URL', WP_HOME . '/wp-content' );
 define( 'WP_CONTENT_DIR', realpath( ABSPATH . '../wp-content/' ) );
-<%_ if (wpRocket) { _%>
 
 /* WP Rocket config */
 define( 'WP_ROCKET_EMAIL', getenv( 'WP_ROCKET_EMAIL' ) );
 define( 'WP_ROCKET_KEY', getenv( 'WP_ROCKET_KEY' ) );
 define( 'WP_CACHE', getenv( 'WP_CACHE' ) === 'true' );
-<%_ } _%>
 
 /* Set default theme */
 define( 'WP_DEFAULT_THEME', 'studiometa' );
