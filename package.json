@@ -1,14 +1,14 @@
 {
-  "name": "<%= slug %>",
+  "name": "studiometa",
   "version": "0.0.0",
   "description": "<%= description %>",
   "scripts": {
     "dev": "meta dev",
     "build": "meta build",
     "lint": "npm run lint:scripts && npm run lint:styles && npm run lint:templates",
-    "lint:scripts": "eslint web/wp-content/themes/<%= slug %>/src/js --ext=.js,.vue",
-    "lint:styles": "stylelint 'web/wp-content/themes/<%= slug %>/src/**/*.(scss|vue)'",
-    "lint:templates": "prettier -c web/wp-content/themes/<%= slug %>/templates/**/*.twig",
+    "lint:scripts": "eslint web/wp-content/themes/studiometa/src/js --ext=.js,.vue",
+    "lint:styles": "stylelint 'web/wp-content/themes/studiometa/src/**/*.(scss|vue)'",
+    "lint:templates": "prettier -c web/wp-content/themes/studiometa/templates/**/*.twig",
     "fix": "npm run fix:scripts && npm run fix:styles && npm run fix:templates",
     "fix:scripts": "npm run lint:scripts -- --fix",
     "fix:styles": "npm run lint:styles -- --fix",

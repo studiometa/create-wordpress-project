@@ -12,9 +12,9 @@ module.exports = {
   purge: {
     // Learn more on https://tailwindcss.com/docs/controlling-file-size/#removing-unused-css
     content: [
-      './web/wp-content/themes/<%= slug %>/src/js/**/*.js',
-      './web/wp-content/themes/<%= slug %>/src/js/**/*.vue',
-      './web/wp-content/themes/<%= slug %>/templates/**/*.twig',
+      './web/wp-content/themes/studiometa/src/js/**/*.js',
+      './web/wp-content/themes/studiometa/src/js/**/*.vue',
+      './web/wp-content/themes/studiometa/templates/**/*.twig',
     ],
   },
   mode: 'jit',

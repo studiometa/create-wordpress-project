@@ -28,7 +28,7 @@ node_modules/
 !/web/wp-content/*/.gitkeep
 
 # Add exception for the project's theme and plugins
-!/web/wp-content/themes/<%= slug %>
+!/web/wp-content/themes/studiometa
 !/web/wp-content/mu-plugins/studiometa-plugin-disabler/
 # !/web/wp-content/plugins/...
 # !/web/wp-content/mu-plugins/...

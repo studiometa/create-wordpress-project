@@ -120,7 +120,7 @@ define( 'WP_CACHE', getenv( 'WP_CACHE' ) === 'true' );
 <%_ } _%>
 
 /* Set default theme */
-define( 'WP_DEFAULT_THEME', '<%= slug %>' );
+define( 'WP_DEFAULT_THEME', 'studiometa' );
 
 /**
  * Allow WordPress to detect HTTPS when used behind a reverse proxy or a load balancer

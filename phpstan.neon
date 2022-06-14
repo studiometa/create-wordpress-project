@@ -25,11 +25,11 @@ parameters:
     scanDirectories:
     - ./web/wp-content/plugins/
     paths:
-        - ./web/wp-content/themes/<%= slug %>/
+        - ./web/wp-content/themes/studiometa/
         - ./web/wp-content/mu-plugins/studiometa-plugin-disabler/
-        # - ./web/wp-content/mu-plugins/<%= slug %>-…
+        # - ./web/wp-content/mu-plugins/studiometa-…
         # - ./web/wp-content/plugins/studiometa-…
-        # - ./web/wp-content/plugins/<%= slug %>-…
+        # - ./web/wp-content/plugins/studiometa-…
     # excludes_analyse:
     #     - %currentWorkingDirectory%/inc/views/
     ignoreErrors:
@@ -48,4 +48,4 @@ parameters:
         # - '/^Parameter #2 \$callable of static method WP_CLI::add_command\(\) expects callable\(\): mixed, \S+ given\.$/'
         # Please consider commenting ignores: issue URL or reason for ignoring
         - message: '#^Error(.+)thrown while looking(\s+)?for class Site\.#'
-          path: web/wp-content/themes/<%= slug %>/functions.php
+          path: web/wp-content/themes/studiometa/functions.php
