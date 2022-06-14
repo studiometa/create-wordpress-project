@@ -20,18 +20,18 @@
     "wpackagist-plugin/wordfence": "^7.4",
     <%_ } _%>
     <%_ if (classicEditor) { _%>
-    "wpackagist-plugin/classic-editor": "^1.5",
+    "wpackagist-plugin/classic-editor": "^1.4.1",
     <%_ } _%>
     <%_ if (rankMath) { _%>
-    "wpackagist-plugin/seo-by-rank-math": "^1.0",
+    "wpackagist-plugin/seo-by-rank-math": "^1.0.90",
     <%_ } _%>
     <%_ if (acf) { _%>
-    "studiometa/advanced-custom-fields-pro": "^5.9.6",
+    "studiometa/advanced-custom-fields-pro": "^5.11.14",
     "stoutlogic/acf-builder": "^1.10",
     <%_ } _%>
     "boxuk/wp-muplugin-loader": "^1.0",
     "djboris88/twig-commented-include": "^1.2",
-    "studiometa/twig-toolkit": "^1.0"
+    "studiometa/twig-toolkit": "^1.2.1"
   },
   "require-dev": {
     "wpackagist-plugin/query-monitor": "^3.6",
