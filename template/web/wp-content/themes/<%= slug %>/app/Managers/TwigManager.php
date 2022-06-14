@@ -8,6 +8,7 @@
 namespace Studiometa\Managers;
 
 use Studiometa\Managers\ManagerInterface;
+use Studiometa\Ui\Extension;
 
 /** Class */
 class TwigManager implements ManagerInterface {
@@ -16,10 +17,32 @@ class TwigManager implements ManagerInterface {
 	 */
 	public function run() {
 		add_filter( 'timber/twig', array( $this, 'add_twig_toolkit' ) );
+		add_filter( 'timber/twig', array( $this, 'add_twig_ui' ) );
 		add_filter( 'timber/twig', array( $this, 'add_twig_template_from_string' ) );
 		add_filter( 'timber/twig', array( $this, 'add_twig_template_include_comments' ) );
 		add_filter( 'timber/output', array( $this, 'add_twig_template_render_comments' ), 10, 3 );
 		add_filter( 'timber/loader/loader', array( $this, 'add_svg_path' ), 10, 1 );
+	}
+
+	/**
+	 * Add Studio Meta's UI extension.
+	 *
+	 * @link https://ui.studiometa.dev
+	 * @param \Twig\Environment $twig The Twig environment.
+	 * @return \Twig\Environment
+	 */
+	public function add_twig_ui( \Twig\Environment $twig ) {
+		/** @var \Twig\Loader\FilesystemLoader|null $loader */
+		$loader = $twig->getLoader();
+		$twig->addExtension(
+			new Extension(
+				$loader,
+				get_template_directory() . '/templates',
+				get_template_directory() . '/static/svg',
+			)
+		);
+
+		return $twig;
 	}
 
 	/**
