@@ -1,43 +1,92 @@
-# Create WordPress Project
+# <%= url %>
 
-[![NPM Version](https://img.shields.io/npm/v/@studiometa/create-wordpress-project.svg?style=flat-square)](https://www.npmjs.com/package/@studiometa/create-wordpress-project)
-[![Dependency Status](https://img.shields.io/david/studiometa/create-wordpress-project.svg?label=deps&style=flat-square)](https://david-dm.org/studiometa/create-wordpress-project)
-[![devDependency Status](https://img.shields.io/david/dev/studiometa/create-wordpress-project.svg?label=devDeps&style=flat-square)](https://david-dm.org/studiometa/create-wordpress-project?type=dev)
+> <%= description %>
 
-> A generator to kickstart your WordPress project in a few seconds! ⚡ 
+## Installation
 
-## Usage
 
-### Install
-Run the following command to bootstrap a WordPress project using Studio Meta's tools and workflows:
+Cloner le dépôt :
 
-```
-npx @studiometa/create-wordpress-project project-name
+```bash
+git clone <%= repository %>
 ```
 
-Follow the prompt steps to complete the project creation.
+Créer et configurer le fichier `.env` en vous basant sur le fichier `.env.example`.
+Créer et configurer le fichier `.htaccess` en vous basant sur le fichier `.htaccess.example`.
 
-### To get started
-- Go to your project folder
-- Create a `.env` file based on `.env.example`
-- Generate the salts `bin/get-wp-salts.sh` and put them in the `.env` file
-- Install composer dependencies `composer install`
-- Create a database with WPCLI `./vendor/bin/wp db create` (this command is using the variables filled in `.env` file)
-- Install WordPress with WPCLI `./vendor/bin/wp core install --url="<PROJECT_URL>" --admin_user="<ADMIN_USER>" --admin_email="<ADMIN_EMAIL>" --title="<SITE_TITLE>`
-- Install NPM dependencies `npm i`
-- Have fun !
+Installer les dépendances nécessaires :
 
-## Documentation
+```bash
+# Installer les dépendances Composer avec PHP 7.3
+php7.3 $(which composer) install
 
-This tool will generate a WordPress project managed by Composer and Webpack. See the [readme.md](./template#readme) file in the template folder for a more detailed documentation.
+# Installer les dépendances NPM avec Node 16
+nvm use 16
+npm install
+```
 
-## Contributing
+## Développement
 
-This project's branches are managed with [Git Flow](https://github.com/petervanderdoes/gitflow-avh), every feature branch must be merged into develop via a pull request.
+### Commandes disponibles
 
-## TODO
+#### NPM
 
-- [ ] Test if Wordpress loads plugins in a subfolder of `wp-content/plugins/`
-- [ ] Test if Wordpress loads mu-plugins in a subfolder of `wp-content/mu-plugins/`
-- [ ] Test if Wordpress loads themes in a subfolder of `wp-content/themes/`
-- [ ] Use a child theme
+| Commande | Description |
+|-|-|
+| `npm run dev` | Démarre le serveur de compilation des fichiers SCSS et JS du thème. |
+| `npm run build` | Build les fichiers SCSS, JS et Vue du thème. |
+| `npm run lint` | Lint les fichiers SCSS, JS, Vue et Twig du thème avec ESLint, Stylelint et Prettier. |
+| `npm run lint:scipts` | Lint les fichiers JS et Vue du thème avec ESLint et Prettier. |
+| `npm run lint:styles` | Lint les fichiers SCSS et Vue du thème avec Stylelint et Prettier. |
+| `npm run lint:templates` | Lint les fichiers Twig avec Prettier. |
+| `npm run fix` | Formate les fichiers SCSS, JS, Vue et Twig du thème avec ESLint, Stylelint et Prettier. |
+| `npm run fix:scipts` | Formate les fichiers JS et Vue du thème avec ESLint et Prettier. |
+| `npm run fix:styles` | Formate les fichiers SCSS et Vue du thème avec Stylelint et Prettier. |
+| `npm run fix:templates` | Formate les fichiers Twig du thème Prettier. |
+
+
+#### Composer
+
+| Commande | Description |
+|-|-|
+| `composer phpcs` | Lint les fichiers PHP du thème et des plugins customs |
+| `composer phpstan` | Analyse de manière statiques les fichiers PHP du thème et des plugins customs |
+
+
+#### WP CLI
+
+Une liste (non exaustive) des commandes utiles de [WPCLI](https://wp-cli.org/fr/)
+
+> Si wp cli est installé sur votre machine et configuré dans votre $PATH utiliser les commandes ci-dessous, sinon utiliser `./vendor/bin/wp` 
+
+| Commande | Description |
+|-|-|
+| `wp user create <USER_LOGIN> <USER_EMAIL> --role=<ROLE_NAME> --user_pass=<PASSWORD>` | Créer un utilisateur |
+| `wp transient delete --all` | Supprimer tous les transients de la base de données |
+| `wp post delete $(wp post list --post_type='revision' --format=ids) --force` | Supprimer toutes les révisions |
+| `wp plugin activate` | Activer un plugin |
+| `wp plugin deactivate` | Désactiver un plugin |
+| `wp search-replace 'http://old-domain.com/' 'http://new-domain.com/' --precise --recurse-objects --all-tables-with-prefix` | Remplacer toutes les URL's pour migrer une base de données. ⚠ Faire un backup avant de lancer cette commande, ajouter le paramètre `–dry-run` pour lancer la commande sans effectuer de changements |
+| ` wp language core install fr_FR && wp language core activate fr_FR` | Installer une nouvelle langue de back-office (changer `fr_FR` par la langue souhaitée) |
+
+
+### Ajouter des plugins et mu-plugins
+
+Pour ajouter des plugins et mu-plugins tiers, utilisez Composer avec l'aide de [wpackagist.org](https://wpackagist.org/). Par exemple, pour ajouter le plugin [Classic Editor](), vous pouvez procéder comme suit :
+
+```bash
+composer require wpackagist/classic-editor
+```
+
+Par défaut, tout ce qui se trouve dans les sous-dossiers de `web/wp-content` est ignoré par Git pour éviter de suivre les packages tiers installés avec Composer. Pour ajouter vos plugins et thèmes personnalisés à votre dépôt Git, vous devez ajouter des règles dans le fichier `.gitignore` :
+
+```
+!/web/wp-content/mu-plugins/my-mu-plugin.php
+!/web/wp-content/plugins/my-plugin/
+```
+
+## Fonctionnalités additionnelles
+
+### Désactivation de plugins par environnement
+
+Le MU-plugin [Studiometa plugin disabler](./web/wp-content/mu-plugins/studiometa-plugin-disabler/README.md) permet de forcer la désactivation des plugins en fonction de l'environnement. [Voir le readme](./web/wp-content/mu-plugins/studiometa-plugin-disabler/README.md) pour plus d'informations.
