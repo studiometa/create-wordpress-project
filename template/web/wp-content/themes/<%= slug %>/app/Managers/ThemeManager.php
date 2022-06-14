@@ -9,7 +9,7 @@ namespace Studiometa\Managers;
 
 use Timber\Menu;
 use Timber\Site;
-use Studiometa\Managers\ManagerInterface;
+use Studiometa\WPToolkit\Managers\ManagerInterface;
 
 /** Class */
 class ThemeManager implements ManagerInterface {
@@ -30,9 +30,9 @@ class ThemeManager implements ManagerInterface {
 	/**
 	 * Adds ability to check the environment in a twig file
 	 *
-	 * @param array $context Timber context.
+	 * @param mixed[] $context Timber context.
 	 *
-	 * @return array
+	 * @return mixed[]
 	 */
 	public function add_app_env_to_context( array $context ) {
 		$context['APP_ENV'] = getenv( 'APP_ENV' );
@@ -42,9 +42,9 @@ class ThemeManager implements ManagerInterface {
 	/**
 	 * Adds the ability to access site informations in a twig file
 	 *
-	 * @param array $context Timber context.
+	 * @param mixed[] $context Timber context.
 	 *
-	 * @return array
+	 * @return mixed[]
 	 */
 	public function add_site_to_context( array $context ) {
 		$context['site'] = new Site();
@@ -55,9 +55,9 @@ class ThemeManager implements ManagerInterface {
 	/**
 	 * Registers and adds menus to context
 	 *
-	 * @param array $context Timber context.
+	 * @param mixed[] $context Timber context.
 	 *
-	 * @return array
+	 * @return mixed[]
 	 */
 	public function add_menus_to_context( array $context ) {
 		$context['header_menu'] = new Menu( 'header_menu' );

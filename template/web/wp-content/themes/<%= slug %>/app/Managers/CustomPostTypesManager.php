@@ -7,7 +7,7 @@
 
 namespace Studiometa\Managers;
 
-use Studiometa\Managers\ManagerInterface;
+use Studiometa\WPToolkit\Managers\ManagerInterface;
 use Studiometa\WPToolkit\Builders\PostTypeBuilder;
 
 /** Class **/
@@ -40,7 +40,7 @@ class CustomPostTypesManager implements ManagerInterface {
 	 * Set the class map for Timber instantiation of posts.
 	 *
 	 * @param string $post_class The default post class.
-	 * @return array The project's class map.
+	 * @return string[] The project's class map.
 	 */
 	public function set_timber_classmap( string $post_class ): array {
 		$post_types         = get_post_types();

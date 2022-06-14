@@ -16,19 +16,24 @@ final class TermRepository extends Repository {
 	/**
 	 * Set what the Query will return
 	 *
-	 * @param array $params Query params.
-	 * @return \Timber\Term
+	 * @param array<mixed> $params Query params.
+	 * @return \Timber\Term[]
 	 */
 	public function do_query( $params ) {
+		/**
+		 * Terms.
+		 *
+		 * @var \Timber\Term[]
+		 */
 		return TermGetter::get_terms( $params, array(), static::CLASS_TYPE );
 	}
 
 	/**
 	 * Returns a list of top level terms
 	 *
-	 * @param string|array $taxonomy Slug.
-	 * @param array        $exclude  IDs of posts to exclude.
-	 * @param int          $limit    Number of maximum results.
+	 * @param string|string[] $taxonomy Slug.
+	 * @param mixed[]         $exclude  IDs of posts to exclude.
+	 * @param int             $limit    Number of maximum results.
 	 *
 	 * @return Repository
 	 */

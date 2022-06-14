@@ -25,14 +25,14 @@ class DisablePlugins {
 	/**
 	 * Disabled plugins.
 	 *
-	 * @var array
+	 * @var string[]
 	 */
 	private $disabled = array();
 
 	/**
 	 * Sets up the options filter, and optionally handles an array of plugins to disable
 	 *
-	 * @param array $disables Optional array of plugin filenames to disable.
+	 * @param string[] $disables Optional array of plugin filenames to disable.
 	 */
 	public function __construct( array $disables = null ) {
 		/**
@@ -70,9 +70,9 @@ class DisablePlugins {
 	/**
 	 * Hooks in to the option_active_plugins filter and does the disabling
 	 *
-	 * @param array $plugins WP-provided list of plugin filenames.
+	 * @param string[] $plugins WP-provided list of plugin filenames.
 	 *
-	 * @return array The filtered array of plugin filenames
+	 * @return string[] The filtered array of plugin filenames
 	 */
 	public function do_disabling( $plugins ) {
 		if ( count( $this->disabled ) ) {
@@ -90,9 +90,9 @@ class DisablePlugins {
 	/**
 	 * Hooks in to the site_option_active_sitewide_plugins filter and does the disabling
 	 *
-	 * @param array $plugins Plugins.
+	 * @param string[] $plugins Plugins.
 	 *
-	 * @return array
+	 * @return string[]
 	 */
 	public function do_network_disabling( $plugins ) {
 		if ( count( $this->disabled ) ) {

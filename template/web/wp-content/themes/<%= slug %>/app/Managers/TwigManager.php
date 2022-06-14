@@ -7,7 +7,7 @@
 
 namespace Studiometa\Managers;
 
-use Studiometa\Managers\ManagerInterface;
+use Studiometa\WPToolkit\Managers\ManagerInterface;
 use Studiometa\Ui\Extension;
 
 /** Class */
@@ -79,9 +79,9 @@ class TwigManager implements ManagerInterface {
 	/**
 	 * Add debug comments to Timber::render
 	 *
-	 * @param string $output HTML.
-	 * @param array  $data data.
-	 * @param string $file name.
+	 * @param string  $output HTML.
+	 * @param mixed[] $data   Data.
+	 * @param string  $file   Name.
 	 * @return string
 	 */
 	public function add_twig_template_render_comments( $output, $data, $file ) {
