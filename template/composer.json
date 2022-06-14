@@ -11,27 +11,26 @@
     "php": "^7.3",
     "vlucas/phpdotenv": "^3.4",
     "johnpbloch/wordpress": "5.*",
-    "timber/timber": "^1.10",
+    "timber/timber": "^1.19",
     "studiometa/wp-toolkit": "^1.0@alpha",
     <%_ if (wpRocket) { _%>
-    "wp-media/wp-rocket": "^3.3",
+    "wp-media/wp-rocket": "^3.11",
     <%_ } _%>
     <%_ if (wordfence) { _%>
-    "wpackagist-plugin/wordfence": "^7.4",
+    "wpackagist-plugin/wordfence": "^7.5",
     <%_ } _%>
     <%_ if (classicEditor) { _%>
-    "wpackagist-plugin/classic-editor": "^1.4.1",
+    "wpackagist-plugin/classic-editor": "^1.6",
     <%_ } _%>
     <%_ if (rankMath) { _%>
-    "wpackagist-plugin/seo-by-rank-math": "^1.0.90",
+    "wpackagist-plugin/seo-by-rank-math": "^1.0",
     <%_ } _%>
     <%_ if (acf) { _%>
-    "studiometa/advanced-custom-fields-pro": "^5.11.4",
-    "stoutlogic/acf-builder": "^1.10",
+    "studiometa/advanced-custom-fields-pro": "^5.11",
+    "stoutlogic/acf-builder": "^1.12",
     <%_ } _%>
-    "boxuk/wp-muplugin-loader": "^1.0",
+    "boxuk/wp-muplugin-loader": "^2.0",
     "djboris88/twig-commented-include": "^1.2",
-    "studiometa/twig-toolkit": "^1.2.1",
     "studiometa/ui": "^0.2.7"
   },
   "require-dev": {
