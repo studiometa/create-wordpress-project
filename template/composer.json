@@ -31,7 +31,8 @@
     <%_ } _%>
     "boxuk/wp-muplugin-loader": "^1.0",
     "djboris88/twig-commented-include": "^1.2",
-    "studiometa/twig-toolkit": "^1.2.1"
+    "studiometa/twig-toolkit": "^1.2.1",
+    "studiometa/ui": "^0.2.7"
   },
   "require-dev": {
     "wpackagist-plugin/query-monitor": "^3.6",
