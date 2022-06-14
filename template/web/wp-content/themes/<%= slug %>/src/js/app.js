@@ -1,6 +1,6 @@
 import { Base, createApp } from '@studiometa/js-toolkit';
-import { isDev } from './config';
-import Component from './molecules/Component';
+import { isDev } from './config.js';
+import Component from './molecules/Component.js';
 
 /**
  * Main App class.
@@ -8,7 +8,7 @@ import Component from './molecules/Component';
 class App extends Base {
   /**
    * App config.
-   * @return {Object}
+   * @returns {Object}
    */
   static config = {
     log: isDev(),
@@ -21,7 +21,7 @@ class App extends Base {
   /**
    * Log a nice message when app is ready.
    *
-   * @return {void}
+   * @returns {void}
    */
   mounted() {
     this.$log('mounted 🎉');

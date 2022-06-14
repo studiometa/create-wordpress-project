@@ -32,7 +32,11 @@ class TwigManager implements ManagerInterface {
 	 * @return \Twig\Environment
 	 */
 	public function add_twig_ui( \Twig\Environment $twig ) {
-		/** @var \Twig\Loader\FilesystemLoader|null $loader */
+		/**
+		 * The Twig loader
+		 *
+		 * @var \Twig\Loader\FilesystemLoader|null $loader.
+		 */
 		$loader = $twig->getLoader();
 		$twig->addExtension(
 			new Extension(

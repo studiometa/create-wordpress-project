@@ -1,7 +1,7 @@
 /**
  * Test if the current env is a dev env.
  *
- * @return {Boolean}
+ * @returns {boolean}
  */
 export const isDev = () => !window.location.hostname.startsWith('www.');
 
