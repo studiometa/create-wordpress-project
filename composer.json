@@ -43,8 +43,9 @@
     }
   ],
   "scripts": {
-    "db:export": "bin/db-export.sh",
-    "db:import": "bin/db-import.sh",
+    "post-create-project-cmd": [
+      "php scripts/create-project.php"
+    ],
     "post-install-cmd": [
       "rm -rf ./web/wp/wp-content",
       "cp config/scaffold/wp-config-sample.php web/wp-config.php"

@@ -1,16 +1,11 @@
 <?php
 
-require dirname( __DIR__ ) . '/vendor/autoload.php';
+namespace Studiometa\WPInstaller;
 
-use mikehaertl\shellcommand\Command;
+require __DIR__ . '/functions/autoload.php';
 
-$command = new Command( "curl -s 'https://api.wordpress.org/secret-key/1.1/salt/'" );
+use function Studiometa\WPInstaller\{getSalts};
 
-if ( $command->execute() ) {
-	$output = $command->getOutput();
+print_r(getSalts());
 
-	echo preg_replace( "/define\('([A-z]+)',\s+'(.+)'\);/", "$1='$2'", $output );
-} else {
-	echo $command->getError();
-	$exitCode = $command->getExitCode();
-}
+echo PHP_EOL;
