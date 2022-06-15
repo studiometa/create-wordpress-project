@@ -29,6 +29,15 @@ updateFile(
 	]
 );
 
+updateFile(
+	'.gitignore',
+	[
+		0 => '',
+		1 => '',
+		2 => '',
+	]
+);
+
 runCommands(
 	'Initialize Git repository',
 	[
