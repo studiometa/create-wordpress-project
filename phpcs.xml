@@ -1,5 +1,5 @@
 <?xml version="1.0"?>
-<ruleset name="<%= name %>">
+<ruleset name="wp-studiometa">
   <!-- Define file and folders to lint -->
   <file>./web/wp-content/themes/studiometa/</file>
   <file>./web/wp-content/mu-plugins/studiometa-plugin-disabler/</file>
