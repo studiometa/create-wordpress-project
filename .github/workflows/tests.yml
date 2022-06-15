@@ -12,33 +12,9 @@ on:
   pull_request:
 
 jobs:
-  build:
-    name: Build
-    runs-on: ubuntu-latest
-    steps:
-      - name: Checkout code
-        uses: actions/checkout@v2
-
-      - uses: actions/setup-node@v1
-        with:
-          node-version: 12
-          registry-url: https://registry.npmjs.org/
-
-      - name: Create test project
-        run: npm ci && node ./scripts/setup-test.js
-
-      - name: Create archive
-        run: tar -zcf __test-project__.tar.gz --directory=./__test-project__ .
-
-      - uses: actions/upload-artifact@v2
-        with:
-          name: test-project
-          path: ./__test-project__.tar.gz
-
   phpcs:
     name: PHPCS
     runs-on: ubuntu-latest
-    needs: build
     strategy:
       fail-fast: false
       matrix:
@@ -46,12 +22,8 @@ jobs:
         php-versions: ['7.3']
         composer-versions: ['v1', 'v2']
     steps:
-      - uses: actions/download-artifact@v2
-        with:
-          name: test-project
-
-      - name: Extract archive
-        run: tar -xf __test-project__.tar.gz && ls -al
+      - name: Checkout code
+        uses: actions/checkout@v2
 
       - name: Setup PHP, with composer and xdebug
         uses: shivammathur/setup-php@v2 # https://github.com/shivammathur/setup-php
@@ -79,14 +51,9 @@ jobs:
   phpstan:
     name: PHPStan
     runs-on: ubuntu-latest
-    needs: build
     steps:
-      - uses: actions/download-artifact@v2
-        with:
-          name: test-project
-
-      - name: Extract archive
-        run: tar -xf __test-project__.tar.gz && ls -al
+      - name: Checkout code
+        uses: actions/checkout@v2
 
       - name: Setup PHP, with composer and xdebug
         uses: shivammathur/setup-php@v2 # https://github.com/shivammathur/setup-php
@@ -114,75 +81,55 @@ jobs:
   eslint:
     name: ESLint
     runs-on: ubuntu-latest
-    needs: build
     steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+
       - uses: actions/setup-node@v1
         with:
           node-version: 16
           registry-url: https://registry.npmjs.org/
-
-      - uses: actions/download-artifact@v2
-        with:
-          name: test-project
-
-      - name: Extract archive
-        run: tar -xf __test-project__.tar.gz && ls -al
 
       - run: npm run lint:scripts
 
   stylelint:
     name: Stylelint
     runs-on: ubuntu-latest
-    needs: build
     steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+
       - uses: actions/setup-node@v1
         with:
           node-version: 16
           registry-url: https://registry.npmjs.org/
-
-      - uses: actions/download-artifact@v2
-        with:
-          name: test-project
-
-      - name: Extract archive
-        run: tar -xf __test-project__.tar.gz && ls -al
 
       - run: npm run lint:styles
 
   prettier:
     name: Twig Prettier
     runs-on: ubuntu-latest
-    needs: build
     steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+
       - uses: actions/setup-node@v1
         with:
           node-version: 16
           registry-url: https://registry.npmjs.org/
-
-      - uses: actions/download-artifact@v2
-        with:
-          name: test-project
-
-      - name: Extract archive
-        run: tar -xf __test-project__.tar.gz && ls -al
 
       - run: npm run lint:templates
 
   build-assets:
     name: Build assets
     runs-on: ubuntu-latest
-    needs: build
     steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+
       - uses: actions/setup-node@v1
         with:
           node-version: 16
           registry-url: https://registry.npmjs.org/
-
-      - uses: actions/download-artifact@v2
-        with:
-          name: test-project
-
-      - name: Extract archive
-        run: tar -xf __test-project__.tar.gz && ls -al
 
       - run: npm run build
