@@ -43,7 +43,7 @@
   ],
   "scripts": {
     "post-create-project-cmd": [
-      "php scripts/create-project.php"
+      "@php scripts/create-project.php"
     ],
     "post-install-cmd": [
       "rm -rf ./web/wp/wp-content",
