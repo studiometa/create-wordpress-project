@@ -2,9 +2,9 @@
 
 require __DIR__ . '/functions/autoload.php';
 
-use function Studiometa\WPInstaller\{getSalts, randomChars, randomNumber, updateFile, runCommands, getName};
+use function Studiometa\WPInstaller\{getSalts, randomChars, randomNumber, updateFile, runCommands};
 
-$name = getName();
+$name = basename( dirname( __DIR__ ) );
 
 updateFile(
 	'package.json',

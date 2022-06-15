@@ -33,8 +33,7 @@
     "satesh/phpcs-gitlab-report": "^1.0",
     "phpcompatibility/phpcompatibility-wp": "^2.1",
     "roave/security-advisories": "dev-latest",
-    "mikehaertl/php-shellcommand": "^1.6",
-    "seld/cli-prompt": "^1.0"
+    "mikehaertl/php-shellcommand": "^1.6"
   },
   "repositories": [
     {
