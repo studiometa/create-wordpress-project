@@ -1,1 +1,0 @@
-/web/wp-content/themes/<%= slug %>/dist/** -text -diff
