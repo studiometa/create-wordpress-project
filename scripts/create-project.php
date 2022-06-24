@@ -37,9 +37,6 @@ runCommands(
 		'git add .',
 		'git commit -m "Premier commit"',
 		'git checkout -b develop',
-		sprintf( 'git remote add origin git@gitlab.com:studiometa/%s.git', $name ),
-		// The push might fail if the project has not yet been created on GitLab
-		// 'git push -u origin --all'
 	]
 );
 
