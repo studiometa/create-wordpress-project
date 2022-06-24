@@ -35,6 +35,13 @@ updateFile(
 );
 
 runCommands(
+	'Removing unwanted files',
+	[
+		'rm -rf .github',
+	]
+);
+
+runCommands(
 	'Initialize Git repository',
 	[
 		'git init',
