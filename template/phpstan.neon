@@ -11,6 +11,7 @@ parameters:
     inferPrivatePropertyTypeFromConstructor: true
     checkMissingIterableValueType: false
     reportUnmatchedIgnoredErrors: false
+    checkGenericClassInNonGenericObjectType: false
     # bootstrapFiles:
     #     # Missing constants, function and class stubs
     #     - %currentWorkingDirectory%/tests/phpstan/bootstrap.php

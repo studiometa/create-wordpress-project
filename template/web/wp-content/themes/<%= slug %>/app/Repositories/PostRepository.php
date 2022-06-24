@@ -17,8 +17,9 @@ class PostRepository extends Repository {
 	/**
 	 * Implement do_query.
 	 *
-	 * @param array $params for the query.
+	 * @param mixed[] $params for the query.
 	 * @return \Timber\PostQuery
+	 * @phpstan-ignore-next-line
 	 */
 	public function do_query( $params ) {
 		return new PostQuery( $params, static::CLASS_TYPE );
@@ -28,10 +29,10 @@ class PostRepository extends Repository {
 	 * Returns a chronological list of latest "Post" (articles) posts for a given
 	 * category. Default $limit is 10.
 	 *
-	 * @param string|array $slug    Slug.
-	 * @param integer      $limit   Number to return (optional).
-	 * @param array        $exclude Posts to exclude (optional).
-	 * @param integer      $paged   Enable pagination (optional).
+	 * @param string|string[] $slug    Slug.
+	 * @param integer         $limit   Number to return (optional).
+	 * @param mixed[]         $exclude Posts to exclude (optional).
+	 * @param integer         $paged   Enable pagination (optional).
 	 *
 	 * @return Repository
 	 */
@@ -74,7 +75,7 @@ class PostRepository extends Repository {
 	 * This acts as a "firehose" of new content so to speak.
 	 *
 	 * @param integer $limit      Number of posts to return.
-	 * @param array   $exclude    IDs of posts to exclude.
+	 * @param mixed[] $exclude    IDs of posts to exclude.
 	 * @param integer $paged      Enable pagination.
 	 *
 	 * @return Repository

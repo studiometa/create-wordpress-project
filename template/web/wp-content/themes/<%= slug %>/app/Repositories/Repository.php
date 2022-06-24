@@ -1,28 +1,26 @@
 <?php
 /**
- * Parent repository class. Provides a very basic, fluent interface for interacting
- * with PostCollection/PostQuery classes.
+ * Parent repository class. Provides a very basic, fluent interface to interact
+ * with query
  *
  * @package Studiometa
  */
 
 namespace Studiometa\Repositories;
 
-use Timber\PostCollection;
-
 /** Class */
 abstract class Repository {
 	/**
 	 * List of posts.
 	 *
-	 * @var array|PostCollection
+	 * @var mixed[]
 	 */
 	private $result_set = array();
 
 	/**
-	 * Returns a list or collection of posts.
+	 * Returns an array of posts.
 	 *
-	 * @return array|PostCollection
+	 * @return mixed[]
 	 */
 	public function get() {
 		return $this->result_set;
@@ -40,31 +38,9 @@ abstract class Repository {
 	}
 
 	/**
-	 * Returns a slice of the collection starting at the given index.
-	 * Similar to Laravel's slice().
-	 *
-	 * @param int $start Start index.
-	 *
-	 * @return array
-	 */
-	public function slice( $start ) {
-		$local_array = $this->get();
-
-		if ( count( $local_array ) < 1 ) {
-			return array();
-		}
-
-		if ( is_object( $local_array ) && $local_array instanceof PostCollection ) {
-			$local_array = $local_array->getArrayCopy();
-		}
-
-		return array_slice( $local_array, (int) $start );
-	}
-
-	/**
 	 * Runs a query.
 	 *
-	 * @param array $params Query params.
+	 * @param mixed[] $params Query params.
 	 *
 	 * @return Repository
 	 */
@@ -72,7 +48,13 @@ abstract class Repository {
 		// Clear old result sets.
 		$this->reset();
 
-		$cache_key      = __FUNCTION__ . md5( http_build_query( $params ) );
+		$cache_key = __FUNCTION__ . md5( http_build_query( $params ) );
+
+		/**
+		 * Cached results.
+		 *
+		 * @var mixed[]
+		 */
 		$cached_results = wp_cache_get( $cache_key, __CLASS__ );
 
 		if ( false !== $cached_results && count( $cached_results ) > 0 ) {
@@ -95,8 +77,10 @@ abstract class Repository {
 	 *
 	 * Define the query the Repository will run.
 	 *
-	 * @param array $params Query params.
-	 * @return mixed
+	 * @param mixed[] $params Query params.
+	 * @return mixed[]
+	 *
+	 * @example ./app/Repositories/PostRepository.php How to implement do_query().
 	 */
 	abstract protected function do_query( $params );
 
@@ -113,11 +97,11 @@ abstract class Repository {
 	/**
 	 * Returns current result set
 	 *
-	 * @param array|PostCollection $result_set Result set.
+	 * @param mixed[] $result_set Result set.
 	 *
 	 * @return Repository
 	 */
-	protected function result_set( $result_set = array() ) {
+	protected function result_set( $result_set ) {
 		$this->result_set = $result_set;
 		return $this;
 	}
