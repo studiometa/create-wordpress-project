@@ -2,9 +2,14 @@
 
 require __DIR__ . '/functions/autoload.php';
 
-use function Studiometa\WPInstaller\{getSalts, randomChars, randomNumber, updateFile, runCommands};
+use function Studiometa\WPInstaller\{getSalts, randomChars, randomNumber, updateFile, readFile, runCommands};
 
 $name = basename( dirname( __DIR__ ) );
+
+if ( readFile( 'README.md' )[0] !== "# WordPress project\n" ) {
+	echo "\nProject already created.";
+	die(PHP_EOL);
+}
 
 updateFile(
 	'package.json',

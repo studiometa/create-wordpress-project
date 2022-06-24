@@ -2,10 +2,21 @@
 
 namespace Studiometa\WPInstaller;
 
+function getFilePath( $path ) {
+	return sprintf( '%s/../%s', dirname( __DIR__ ),  $path );
+}
+
+function writeFile( $path, $content ) {
+	return file_put_contents( getFilePath( $path ), $content );
+}
+
+function readFile( $path ) {
+	return file( getFilePath( $path ) );
+}
+
 function updateFile( $path, $newLines ) {
 	echo "\nUpdating $path...";
-	$filePath = sprintf( '%s/../%s', dirname( __DIR__ ),  $path );
-	$file = file( $filePath );
+	$file = readFile( $path );
 
 	// Update lines
 	foreach ( $newLines as $index => $value ) {
@@ -21,5 +32,5 @@ function updateFile( $path, $newLines ) {
 		}
 	}
 
-	file_put_contents( $filePath, $file );
+	writeFile( $path, $file );
 }
