@@ -35,5 +35,8 @@
   "dependencies": {
     "@studiometa/js-toolkit": "^2.2.2",
     "@studiometa/ui": "^0.2.7"
-  }
+  },
+  "browserslist": [
+    "extends @studiometa/browserslist-config"
+  ]
 }
