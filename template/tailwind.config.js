@@ -15,6 +15,8 @@ module.exports = {
       './web/wp-content/themes/<%= slug %>/src/js/**/*.js',
       './web/wp-content/themes/<%= slug %>/src/js/**/*.vue',
       './web/wp-content/themes/<%= slug %>/templates/**/*.twig',
+      './vendor/studiometa/ui/packages/ui/**/*.twig',
+      './vendor/studiometa/ui/packages/ui/**/*.js',
     ],
   },
   mode: 'jit',
