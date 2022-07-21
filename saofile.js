@@ -53,6 +53,7 @@ module.exports = {
         { name: 'Wordfence', value: 'wordfence' },
         { name: 'WP Rocket', value: 'wpRocket' },
         { name: 'Rank Math', value: 'rankMath' },
+        { name: 'Sentry', value: 'sentry' },
       ],
       default: ['acf', 'wpRocket', 'classicEditor'],
     },
@@ -64,6 +65,7 @@ module.exports = {
     const wordfence = features.includes('wordfence');
     const wpRocket = features.includes('wpRocket');
     const rankMath = features.includes('rankMath');
+    const sentry = features.includes('sentry');
 
     return {
       acf,
@@ -71,6 +73,7 @@ module.exports = {
       wordfence,
       wpRocket,
       rankMath,
+      sentry,
     };
   },
   actions() {

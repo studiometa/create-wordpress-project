@@ -25,6 +25,9 @@
     <%_ if (rankMath) { _%>
     "wpackagist-plugin/seo-by-rank-math": "^1.0",
     <%_ } _%>
+    <%_ if (sentry) { _%>
+    "stayallive/wp-sentry": "^4.16",
+    <%_ } _%>
     <%_ if (acf) { _%>
     "studiometa/advanced-custom-fields-pro": "^5.11",
     "stoutlogic/acf-builder": "^1.12",
