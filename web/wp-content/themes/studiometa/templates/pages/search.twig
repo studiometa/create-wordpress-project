@@ -5,10 +5,10 @@
   {# see `base.twig:27` for where this block's content will be inserted #}
   <div class="content-wrapper">
     {% for post in posts %}
-      {% include ['components/tease-' ~ post.post_type ~ '.twig', 'components/tease.twig'] %}
+      {% include ['organisms/tease-' ~ post.post_type ~ '.twig', 'organisms/tease.twig'] %}
     {% endfor %}
 
-    {% include 'components/pagination.twig' with {
+    {% include 'organisms/pagination.twig' with {
       pagination: posts.pagination({
         show_all: false,
         mid_size: 3,
