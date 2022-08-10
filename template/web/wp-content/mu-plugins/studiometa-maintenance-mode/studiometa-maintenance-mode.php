@@ -30,51 +30,51 @@ class StudiometaMaintenanceMode {
 			$protocol = isset( $_SERVER['SERVER_PROTOCOL'] ) && 'HTTP/1.1' === $_SERVER['SERVER_PROTOCOL'] ? 'HTTP/1.1' : 'HTTP/1.0';
 
 			header( $protocol . ' 503 Service Unavailable', true, 503 );
-	        require_once WP_CONTENT_DIR . '/maintenance.php';
-	        die();
-	    }
+			require_once WP_CONTENT_DIR . '/maintenance.php';
+			die();
+		}
 
-	    require_once ABSPATH . WPINC . '/functions.php';
-	    wp_load_translations_early();
+		require_once ABSPATH . WPINC . '/functions.php';
+		wp_load_translations_early();
 
-	    wp_die(
-	        __( 'Briefly unavailable for scheduled maintenance. Check back in a minute.' ),
-	        __( 'Maintenance' ),
-	        503
-	    );
+		wp_die(
+			__( 'Briefly unavailable for scheduled maintenance. Check back in a minute.' ),
+			__( 'Maintenance' ),
+			503
+		);
 	}
 
-    /**
-     * Get the server variable REMOTE_ADDR, or the first ip of HTTP_X_FORWARDED_FOR (when using proxy).
-     *
-     * @return string $remote_addr ip of client
-     */
-    private static function get_remote_addr()
-    {
-        if (function_exists('apache_request_headers')) {
-            $headers = apache_request_headers();
-        } else {
-            $headers = $_SERVER;
-        }
+		/**
+		 * Get the server variable REMOTE_ADDR, or the first ip of HTTP_X_FORWARDED_FOR (when using proxy).
+		 *
+		 * @return string $remote_addr ip of client
+		 */
+		private static function get_remote_addr()
+		{
+				if (function_exists('apache_request_headers')) {
+					$headers = apache_request_headers();
+				} else {
+					$headers = $_SERVER;
+				}
 
-        if (array_key_exists('X-Forwarded-For', $headers)) {
-            $_SERVER['HTTP_X_FORWARDED_FOR'] = $headers['X-Forwarded-For'];
-        }
+				if (array_key_exists('X-Forwarded-For', $headers)) {
+						$_SERVER['HTTP_X_FORWARDED_FOR'] = $headers['X-Forwarded-For'];
+				}
 
-        if (isset($_SERVER['HTTP_X_FORWARDED_FOR']) && $_SERVER['HTTP_X_FORWARDED_FOR'] && (!isset($_SERVER['REMOTE_ADDR'])
-            || preg_match('/^127\..*/i', trim($_SERVER['REMOTE_ADDR'])) || preg_match('/^172\.16.*/i', trim($_SERVER['REMOTE_ADDR']))
-            || preg_match('/^192\.168\.*/i', trim($_SERVER['REMOTE_ADDR'])) || preg_match('/^10\..*/i', trim($_SERVER['REMOTE_ADDR'])))) {
-            if (strpos($_SERVER['HTTP_X_FORWARDED_FOR'], ',')) {
-                $ips = explode(',', $_SERVER['HTTP_X_FORWARDED_FOR']);
+				if (isset($_SERVER['HTTP_X_FORWARDED_FOR']) && $_SERVER['HTTP_X_FORWARDED_FOR'] && (!isset($_SERVER['REMOTE_ADDR'])
+						|| preg_match('/^127\..*/i', trim($_SERVER['REMOTE_ADDR'])) || preg_match('/^172\.16.*/i', trim($_SERVER['REMOTE_ADDR']))
+						|| preg_match('/^192\.168\.*/i', trim($_SERVER['REMOTE_ADDR'])) || preg_match('/^10\..*/i', trim($_SERVER['REMOTE_ADDR'])))) {
+						if (strpos($_SERVER['HTTP_X_FORWARDED_FOR'], ',')) {
+							$ips = explode(',', $_SERVER['HTTP_X_FORWARDED_FOR']);
 
-                return $ips[0];
-            } else {
-                return $_SERVER['HTTP_X_FORWARDED_FOR'];
-            }
-        } else {
-            return $_SERVER['REMOTE_ADDR'];
-        }
-    }
+							return $ips[0];
+						} else {
+							return $_SERVER['HTTP_X_FORWARDED_FOR'];
+						}
+				} else {
+					return $_SERVER['REMOTE_ADDR'];
+				}
+		}
 
 	/**
 	 * Is maintenance?
