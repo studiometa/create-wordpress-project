@@ -14,7 +14,7 @@
 		<meta charset="<?php bloginfo( 'charset' ); ?>" />
 		<meta name="viewport" content="width=device-width, initial-scale=1" />
 		<title><?php bloginfo( 'name' ) . ( ! empty( get_bloginfo( 'description' ) ) ? ' – ' . bloginfo( 'description' ) : '' ); ?></title>
-		<link rel="stylesheet" href="/wp-content/mu-plugins/studiometa-maintenance-mode/maintenance.css">
+		<link rel="stylesheet" href="<?php get_stylesheet_uri(); ?>/wp-content/maintenance.css">
 	</head>
 
 	<body <?php body_class(); ?>>
