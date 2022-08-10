@@ -87,6 +87,10 @@ Par défaut, tout ce qui se trouve dans les sous-dossiers de `web/wp-content` es
 
 ## Fonctionnalités additionnelles
 
+### Activation/Désactivation du mode maintenance via variables d'environnement serveur
+
+Le MU-plugin [Studiometa maintenance mode](./web/wp-content/mu-plugins/studiometa-maintenance-mode/README.md) permet d'activer le mode maintenance du site. [Voir le readme](./web/wp-content/mu-plugins/studiometa-maintenance-mode/README.md) pour plus d'informations.
+
 ### Désactivation de plugins par environnement
 
 Le MU-plugin [Studiometa plugin disabler](./web/wp-content/mu-plugins/studiometa-plugin-disabler/README.md) permet de forcer la désactivation des plugins en fonction de l'environnement. [Voir le readme](./web/wp-content/mu-plugins/studiometa-plugin-disabler/README.md) pour plus d'informations.
