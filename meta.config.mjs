@@ -3,7 +3,6 @@ import { tailwindcss } from '@studiometa/webpack-config/presets';
 
 // Paths must be relative to the package.json root
 export default defineConfig({
-  target: 'modern',
   presets: [tailwindcss()],
   src: [
     './web/wp-content/themes/studiometa/src/js/app.js',
