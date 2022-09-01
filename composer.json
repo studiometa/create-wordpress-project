@@ -1,4 +1,7 @@
 {
+  "name": "studiometa/wordpress-project",
+  "version": "2.0.0",
+  "type": "project",
   "authors": [
     {
       "name": "Studio Meta",
@@ -6,7 +9,6 @@
     }
   ],
   "license": "MIT",
-  "type": "project",
   "require": {
     "php": "^7.3",
     "vlucas/phpdotenv": "^3.4",
