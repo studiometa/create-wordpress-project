@@ -3,6 +3,7 @@
   "version": "0.0.0",
   "scripts": {
     "dev": "meta dev",
+    "watch": "meta watch",
     "build": "meta build",
     "lint": "npm run lint:scripts && npm run lint:styles && npm run lint:templates",
     "lint:scripts": "eslint web/wp-content/themes/studiometa/src/js --ext=.js,.vue",
